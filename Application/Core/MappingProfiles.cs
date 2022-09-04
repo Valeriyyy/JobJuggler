@@ -19,10 +19,3 @@ public class MappingProfiles : AutoMapper.Profile
         CreateMap<JobInsertDTO, Job>();
     }
 }
-/*{
-  "clientId": 1,
-  "locationId": 1,
-  "scheduledDate": "2022-09-04T03:01:08.865Z",
-  "scheduledArrivalStartDate": "2022-09-09T03:01:08.865Z",
-  "scheduledArrivalEndDate": "2022-09-09T05:01:08.865Z"
-}*/

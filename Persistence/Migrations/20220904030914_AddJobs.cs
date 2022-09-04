@@ -15,8 +15,8 @@ public partial class AddJobs : Migration
         var schemaName = "crystal_clean";
         var tableName = "jobs";
         migrationBuilder.CreateTable(
-            name: "jobs",
-            schema: "crystal_clean",
+            name: tableName,
+            schema: schemaName,
             columns: table => new
             {
                 id = table.Column<int>(type: "integer", nullable: false)
