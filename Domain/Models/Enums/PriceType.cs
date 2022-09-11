@@ -1,7 +1,9 @@
-﻿namespace Domain.Models.Enums;
+﻿using NpgsqlTypes;
+
+namespace Domain.Models.Enums;
 public enum PriceType
 {
-    None,
-    PerUnit,
-    FlatRate,
+    [PgName("none")]None,
+    [PgName("per_unit")]PerUnit,
+    [PgName("flat_rate")]FlatRate,
 }

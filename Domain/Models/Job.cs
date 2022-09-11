@@ -18,6 +18,7 @@ public class Job
     public DateTime? CanceledDate { get; set; }
 
 
-     public Client Client { get; set; } = null!;
-    public Location Location { get; set; } = null!;
+    public virtual Client Client { get; set; } = null!;
+    public virtual Location Location { get; set; } = null!;
+    public virtual ICollection<Invoice> Invoices { get; set; } = null!;
 }

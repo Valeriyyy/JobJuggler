@@ -1,8 +1,4 @@
 using API.Extensions;
-using Domain.Models.Enums;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Identity.Web;
 
 // set environment to local
 // $env:ASPNETCORE_ENVIRONMENT = 'Local'
