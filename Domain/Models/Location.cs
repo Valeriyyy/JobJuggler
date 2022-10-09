@@ -17,10 +17,15 @@ public class Location
     public string? PostalCode { get; set; }
     public string? Country { get; set; }
     public string? GateCode { get; set; }
-    public decimal Latitude { get; set; }
-    public decimal Longitude { get; set; }
+    public decimal? Latitude { get; set; }
+    public decimal? Longitude { get; set; }
     public string? Notes { get; set; }
     public NpgsqlTsVector VectorAddress { get; set; }
 
     public virtual ICollection<Job> Jobs { get; set; }
+
+    public override string ToString()
+    {
+        return $"{Name} {LocationType} {Street1} {Street2} {City} {State} {PostalCode} {Country} {GateCode} {Notes}";
+    }
 }

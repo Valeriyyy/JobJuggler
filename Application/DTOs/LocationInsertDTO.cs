@@ -1,7 +1,6 @@
 ﻿namespace Application.DTOs;
 public class LocationInsertDTO
 {
-    public int Id { get; set; }
     public string? Name { get; set; }
     public string? LocationType { get; set; }
     public string? Street1 { get; set; }

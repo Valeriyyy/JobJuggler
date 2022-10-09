@@ -13,9 +13,11 @@ public class MappingProfiles : AutoMapper.Profile
     public MappingProfiles()
     {
         CreateMap<ClientInsertDTO, Client>();
+        CreateMap<JobClientDTO, Client>();
         CreateMap<Client, ClientDTO>();
         CreateMap<Location, LocationDTO>();
         CreateMap<LocationInsertDTO, Location>();
+        CreateMap<JobLocationDTO, Location>();
         CreateMap<JobInsertDTO, Job>();
     }
 }
