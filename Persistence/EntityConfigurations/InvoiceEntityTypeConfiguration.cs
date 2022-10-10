@@ -41,14 +41,17 @@ public class InvoiceEntityTypeConfiguration : IEntityTypeConfiguration<Invoice>
 
         builder.Property(e => e.DateInvoiced)
             .HasColumnName("date_invoiced")
+            .HasDefaultValue(null)
             .HasComment("The date the customer was sent the invoice");
 
         builder.Property(e => e.DatePaid)
             .HasColumnName("date_paid")
+            .HasDefaultValue(null)
             .HasComment("The latest date the payment was submitted");
 
         builder.Property(e => e.DateClosed)
             .HasColumnName("date_closed")
+            .HasDefaultValue(null)
             .HasComment("The final date when the invoice was fully processed and all the payment has cleared");
 
         builder.HasOne(invoice => invoice.Job)

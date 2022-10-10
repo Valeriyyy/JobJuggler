@@ -71,6 +71,11 @@ public class JobEntityTypeConfiguration : IEntityTypeConfiguration<Job>
             .HasDefaultValue(null)
             .HasComment("The date time the job was completed");
 
+        builder.Property(e => e.CanceledDate)
+            .HasColumnName("canceled_date")
+            .HasDefaultValue(null)
+            .HasComment("The date time the job was canceled");
+
         builder.HasOne(job => job.Client)
             .WithMany(client => client.Jobs)
             .HasForeignKey(job => job.ClientId)

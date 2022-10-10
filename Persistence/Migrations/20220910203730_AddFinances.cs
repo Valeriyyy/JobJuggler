@@ -21,37 +21,6 @@ public partial class AddFinances : Migration
             .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,")
             .OldAnnotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
 
-        migrationBuilder.AlterColumn<DateTime>(
-            name: "started_date",
-            schema: _schemaName,
-            table: "jobs",
-            type: "timestamp with time zone",
-            nullable: true,
-            comment: "The date time the job was started",
-            oldClrType: typeof(DateTime),
-            oldType: "timestamp with time zone",
-            oldComment: "The date time the job was started");
-
-        migrationBuilder.AlterColumn<DateTime>(
-            name: "completed_date",
-            schema: _schemaName,
-            table: "jobs",
-            type: "timestamp with time zone",
-            nullable: true,
-            comment: "The date time the job was completed",
-            oldClrType: typeof(DateTime),
-            oldType: "timestamp with time zone",
-            oldComment: "The date time the job was completed");
-
-        migrationBuilder.AlterColumn<DateTime>(
-            name: "CanceledDate",
-            schema: _schemaName,
-            table: "jobs",
-            type: "timestamp with time zone",
-            nullable: true,
-            oldClrType: typeof(DateTime),
-            oldType: "timestamp with time zone");
-
         migrationBuilder.CreateTable(
             name: _lineItemsTableName,
             schema: _schemaName,
@@ -98,9 +67,9 @@ public partial class AddFinances : Migration
                 total_price = table.Column<decimal>(type: "numeric", nullable: false, comment: "The calculated total from the invoice lines. Not meant to be directly edited"),
                 payment_method_id = table.Column<int>(type: "integer", nullable: false, comment: "The method used for submitting payment by the consignee"),
                 is_paid = table.Column<bool>(type: "boolean", nullable: false, comment: "Indicates if the invoice has been fully paid for"),
-                date_invoiced = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, comment: "The date the customer was sent the invoice"),
-                date_paid = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, comment: "The latest date the payment was submitted"),
-                date_closed = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, comment: "The final date when the invoice was fully processed and all the payment has cleared")
+                date_invoiced = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, comment: "The date the customer was sent the invoice"),
+                date_paid = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, defaultValue: null, comment: "The latest date the payment was submitted"),
+                date_closed = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, defaultValue: null, comment: "The final date when the invoice was fully processed and all the payment has cleared")
             },
             constraints: table =>
             {

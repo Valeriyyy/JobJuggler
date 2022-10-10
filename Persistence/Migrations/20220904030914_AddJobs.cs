@@ -34,7 +34,7 @@ public partial class AddJobs : Migration
                 scheduled_arrival_end_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, comment: "The scheduled end datetime that the vendor will arrive at the job location"),
                 started_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, defaultValue: null, comment: "The date time the job was started"),
                 completed_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, defaultValue: null, comment: "The date time the job was completed"),
-                CanceledDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                canceled_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, defaultValue: null, comment: "The date time the job was canceled")
             },
             constraints: table =>
             {

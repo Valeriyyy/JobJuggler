@@ -1,4 +1,6 @@
 using API.Extensions;
+using Persistence;
+using Persistence.Seeds;
 
 // set environment to local
 // $env:ASPNETCORE_ENVIRONMENT = 'Local'
@@ -30,6 +32,21 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+
+try
+{
+    var context = services.GetRequiredService<DataContext>();
+    await MainSeed.SeedData(context);
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Something has gone wrong seeding the database");
+    Console.WriteLine(ex.Message);
+}
 
 app.Run();
 

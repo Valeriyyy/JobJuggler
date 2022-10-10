@@ -13,6 +13,7 @@ public class JobItem
 {
     public int LineItemId { get; set; }
     public int Quantity { get; set; }
+    public int? Price { get; set; }
 }
 
 public class JobClientDTO

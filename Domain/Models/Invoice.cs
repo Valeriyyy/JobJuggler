@@ -9,9 +9,9 @@ public class Invoice
     public decimal TotalPrice { get; set; }
     public int PaymentMethodId { get; set; }
     public bool IsPaid { get; set; }
-    public DateTime DateInvoiced { get; set; }
-    public DateTime DatePaid { get; set; }
-    public DateTime DateClosed { get; set; }
+    public DateTime? DateInvoiced { get; set; }
+    public DateTime? DatePaid { get; set; }
+    public DateTime? DateClosed { get; set; }
 
     public virtual Job Job { get; set; } = null!;
     public virtual Client Consignee { get; set; } = null!;
