@@ -13,8 +13,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220904012342_AddLocations")]
-    partial class AddLocations
+    [Migration("20221023061303_AddJobs")]
+    partial class AddJobs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,6 @@ namespace Persistence.Migrations
                 .HasAnnotation("ProductVersion", "6.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            NpgsqlModelBuilderExtensions.HasPostgresExtension(modelBuilder, "uuid-ossp");
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("Domain.Models.Client", b =>
@@ -52,12 +51,106 @@ namespace Persistence.Migrations
                         .HasColumnName("name");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("phone");
 
                     b.HasKey("Id");
 
                     b.ToTable("clients", "crystal_clean");
+                });
+
+            modelBuilder.Entity("Domain.Models.Job", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityAlwaysColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CancelReason")
+                        .HasColumnType("text")
+                        .HasColumnName("cancel_reason")
+                        .HasComment("Brief explanation of why the job was canceled");
+
+                    b.Property<DateTime?>("CanceledDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("canceled_date")
+                        .HasComment("The date time the job was canceled");
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("integer")
+                        .HasColumnName("client_id")
+                        .HasComment("The main person or business requesting the service");
+
+                    b.Property<DateTime?>("CompletedDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("completed_date")
+                        .HasComment("The date time the job was completed");
+
+                    b.Property<Guid>("Guid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("guid")
+                        .HasDefaultValueSql("uuid_generate_v4()");
+
+                    b.Property<bool?>("IsCanceled")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_canceled")
+                        .HasComment("Indicates if the job has been canceled");
+
+                    b.Property<bool?>("IsCompleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_completed")
+                        .HasComment("Indicates if the job is fully complete meaning all payments have cleared");
+
+                    b.Property<int>("LocationId")
+                        .HasColumnType("integer")
+                        .HasColumnName("location_id");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("text")
+                        .HasColumnName("notes")
+                        .HasComment("General notes about the order");
+
+                    b.Property<decimal>("Price")
+                        .HasPrecision(6, 2)
+                        .HasColumnType("numeric(6,2)")
+                        .HasColumnName("price")
+                        .HasComment("The total sum price of all the line items related to the order");
+
+                    b.Property<DateTime>("ScheduledArrivalEndDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("scheduled_arrival_end_date")
+                        .HasComment("The scheduled end datetime that the vendor will arrive at the job location");
+
+                    b.Property<DateTime>("ScheduledArrivalStartDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("scheduled_arrival_start_date")
+                        .HasComment("The scheduled beginning datetime that the vendor will arrive at the job location");
+
+                    b.Property<DateTime>("ScheduledDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("scheduled_date")
+                        .HasComment("The date the job was booked");
+
+                    b.Property<DateTime?>("StartedDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("started_date")
+                        .HasComment("The date time the job was started");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("LocationId");
+
+                    b.ToTable("jobs", "crystal_clean");
                 });
 
             modelBuilder.Entity("Domain.Models.Location", b =>
@@ -90,7 +183,7 @@ namespace Persistence.Migrations
                         .HasColumnName("guid")
                         .HasDefaultValueSql("uuid_generate_v4()");
 
-                    b.Property<decimal>("Latitude")
+                    b.Property<decimal?>("Latitude")
                         .HasPrecision(15, 7)
                         .HasColumnType("numeric(15,7)")
                         .HasColumnName("latitude");
@@ -100,7 +193,7 @@ namespace Persistence.Migrations
                         .HasColumnType("character varying(10)")
                         .HasColumnName("location_type");
 
-                    b.Property<decimal>("Longitude")
+                    b.Property<decimal?>("Longitude")
                         .HasPrecision(15, 7)
                         .HasColumnType("numeric(15,7)")
                         .HasColumnName("longitude");
@@ -153,6 +246,37 @@ namespace Persistence.Migrations
                     NpgsqlIndexBuilderExtensions.HasMethod(b.HasIndex(new[] { "VectorAddress" }, "locations_vector_address_idx"), "GIN");
 
                     b.ToTable("locations", "crystal_clean");
+                });
+
+            modelBuilder.Entity("Domain.Models.Job", b =>
+                {
+                    b.HasOne("Domain.Models.Client", "Client")
+                        .WithMany("Jobs")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("job_client_id_foreign");
+
+                    b.HasOne("Domain.Models.Location", "Location")
+                        .WithMany("Jobs")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("job_location_id_foreign");
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Location");
+                });
+
+            modelBuilder.Entity("Domain.Models.Client", b =>
+                {
+                    b.Navigation("Jobs");
+                });
+
+            modelBuilder.Entity("Domain.Models.Location", b =>
+                {
+                    b.Navigation("Jobs");
                 });
 #pragma warning restore 612, 618
         }

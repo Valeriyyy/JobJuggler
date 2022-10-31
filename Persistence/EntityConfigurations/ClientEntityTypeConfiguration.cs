@@ -26,6 +26,7 @@ public class ClientEntityTypeConfiguration : IEntityTypeConfiguration<Client>
             .HasColumnName("phone");
 
         builder.Property(e => e.Email)
-            .HasColumnName("email");
+            .HasColumnName("email")
+            .HasDefaultValue(null);
     }
 }

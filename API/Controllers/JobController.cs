@@ -10,28 +10,38 @@ namespace API.Controllers;
 public class JobController : ControllerBase
 {
     private readonly IJobService _jobService;
+    private readonly ILogger<IJobService> _logger;
 
-    public JobController(IJobService jobService)
+    public JobController(IJobService jobService, ILogger<IJobService> logger)
     {
         _jobService = jobService;
+        _logger = logger;
     }
 
     [HttpGet]
-    public async Task<ActionResult<string>> GetAllOrders()
+    public async Task<ActionResult<JobReadDTO>> GetById(int jobId)
     {
-        Console.WriteLine("this is where it would get all orders");
-        await Task.Delay(100);
-        return Ok("your mom gay");
+        var job = await _jobService.GetJob(jobId);
+
+        if (job is null)
+        {
+            return NotFound();
+        }
+        else
+        {
+            return Ok(job);
+        }
     }
 
-    [HttpPost("/Create-Job")]
+    [HttpPost]
     public async Task<ActionResult<Job>> CreateJob([FromBody] JobInsertDTO job)
     {
         var res = await _jobService.CreateJob(job);
-        if(res is not null)
+        if (res is not null)
         {
-            return CreatedAtAction(nameof(CreateJob),res);
-        } else
+            return CreatedAtAction(nameof(CreateJob), res);
+        }
+        else
         {
             return BadRequest();
         }

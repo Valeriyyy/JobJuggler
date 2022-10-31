@@ -8,6 +8,6 @@ public class InvoiceLine
     public int ItemId { get; set; }
     public decimal Price { get; set; }
 
-    public Invoice Invoice { get; set; } = null!;
-    public LineItem Item { get; set; } = null!;
+    public virtual Invoice Invoice { get; set; } = null!;
+    public virtual LineItem Item { get; set; } = null!;
 }

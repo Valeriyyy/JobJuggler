@@ -7,7 +7,7 @@ public class Invoice
     public int ConsigneeId { get; set; }
     public string? ReferenceNumber { get; set; }
     public decimal TotalPrice { get; set; }
-    public int PaymentMethodId { get; set; }
+    public int? PaymentMethodId { get; set; }
     public bool IsPaid { get; set; }
     public DateTime? DateInvoiced { get; set; }
     public DateTime? DatePaid { get; set; }

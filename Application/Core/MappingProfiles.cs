@@ -1,10 +1,5 @@
 ﻿using Application.DTOs;
 using Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Core;
 
@@ -19,5 +14,10 @@ public class MappingProfiles : AutoMapper.Profile
         CreateMap<LocationInsertDTO, Location>();
         CreateMap<JobLocationDTO, Location>();
         CreateMap<JobInsertDTO, Job>();
+        CreateMap<Job, JobReadDTO>();
+        CreateMap<Invoice, InvoiceDTO>();
+        CreateMap<InvoiceLine, LineDTO>();
+        CreateMap<PaymentMethod, PaymentMethodDTO>();
+        CreateMap<LineItem, ItemDTO>().ForMember(i => i.PriceType, o => o.MapFrom(s => s.PriceType.ToString()));
     }
 }

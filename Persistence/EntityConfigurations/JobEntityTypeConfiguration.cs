@@ -85,5 +85,10 @@ public class JobEntityTypeConfiguration : IEntityTypeConfiguration<Job>
             .WithMany(location => location.Jobs)
             .HasForeignKey(job => job.LocationId)
             .HasConstraintName("job_location_id_foreign");
+
+        builder.HasOne(job => job.Invoice)
+            .WithOne(invoice => invoice.Job)
+            .HasForeignKey<Invoice>(invoice => invoice.JobId)
+            .HasConstraintName("job_invoice_id_foreign");
     }
 }

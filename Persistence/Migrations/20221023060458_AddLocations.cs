@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NpgsqlTypes;
 using Persistence.Migrations.Tools;
@@ -12,7 +11,6 @@ public partial class AddLocations : Migration
 {
     protected override void Up(MigrationBuilder migrationBuilder)
     {
-
         var schemaName = "crystal_clean";
         var tableName = "locations";
         migrationBuilder.CreateTable(
@@ -32,10 +30,10 @@ public partial class AddLocations : Migration
                 postal_code = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: true),
                 country = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                 gate_code = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: true),
-                latitude = table.Column<decimal>(type: "numeric(15,7)", precision: 15, scale: 7, nullable: false),
-                longitude = table.Column<decimal>(type: "numeric(15,7)", precision: 15, scale: 7, nullable: false),
+                latitude = table.Column<decimal>(type: "numeric(15,7)", precision: 15, scale: 7, nullable: true),
+                longitude = table.Column<decimal>(type: "numeric(15,7)", precision: 15, scale: 7, nullable: true),
                 notes = table.Column<string>(type: "text", nullable: true, defaultValueSql: "''::text"),
-                vector_address = table.Column<NpgsqlTsVector>(type: "tsvector", nullable: false, computedColumnSql: "\r                         to_tsvector('english', \r                         ((((CASE    \r                                 WHEN (street1 IS NOT NULL) THEN ((street1)::text || ' '::text)    \r                                 ELSE ''::text\r                         END || CASE    \r                                 WHEN (city IS NOT NULL) THEN ((city)::text || ' '::text)    \r                                 ELSE ''::text END) || CASE    WHEN (state IS NOT NULL) THEN ((state)::text || ' '::text)     ELSE ''::text END) || CASE \r                         WHEN (postal_code IS NOT NULL) THEN ((postal_code)::text || ' '::text)    ELSE ''::text END) || (CASE    WHEN (country IS NOT NULL) THEN country    \r                         ELSE ''::character varying END)::text))", stored: true)
+                vector_address = table.Column<NpgsqlTsVector>(type: "tsvector", nullable: false, computedColumnSql: "\r                        to_tsvector('english'::regconfig, \r                        ((((CASE WHEN (street1 IS NOT NULL) THEN ((street1)::text || ' '::text) ELSE ''::text END ||\r                            CASE WHEN (city IS NOT NULL) THEN ((city)::text || ' '::text) ELSE ''::text END) || \r                            CASE WHEN (state IS NOT NULL) THEN ((state)::text || ' '::text) ELSE ''::text END) || \r                            CASE WHEN (postal_code IS NOT NULL) THEN ((postal_code)::text || ' '::text) ELSE ''::text END) || \r                            (CASE WHEN (country IS NOT NULL) THEN country ELSE ''::character varying END)::text))", stored: true)
             },
             constraints: table =>
             {
@@ -44,15 +42,15 @@ public partial class AddLocations : Migration
 
         migrationBuilder.CreateIndex(
             name: "location_guid_unique",
-            schema: schemaName,
-            table: tableName,
+            schema: "crystal_clean",
+            table: "locations",
             column: "guid",
             unique: true);
 
         migrationBuilder.CreateIndex(
             name: "locations_vector_address_idx",
-            schema: schemaName,
-            table: tableName,
+            schema: "crystal_clean",
+            table: "locations",
             column: "vector_address")
             .Annotation("Npgsql:IndexMethod", "GIN");
 

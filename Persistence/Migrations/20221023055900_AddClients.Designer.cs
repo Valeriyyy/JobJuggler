@@ -12,7 +12,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220820231117_AddClients")]
+    [Migration("20221023055900_AddClients")]
     partial class AddClients
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,7 +23,6 @@ namespace Persistence.Migrations
                 .HasAnnotation("ProductVersion", "6.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            NpgsqlModelBuilderExtensions.HasPostgresExtension(modelBuilder, "uuid-ossp");
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("Domain.Models.Client", b =>
@@ -51,6 +50,7 @@ namespace Persistence.Migrations
                         .HasColumnName("name");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("phone");
 

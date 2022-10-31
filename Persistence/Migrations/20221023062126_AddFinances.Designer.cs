@@ -14,7 +14,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220910203730_AddFinances")]
+    [Migration("20221023062126_AddFinances")]
     partial class AddFinances
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,6 +54,7 @@ namespace Persistence.Migrations
                         .HasColumnName("name");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("phone");
 
@@ -75,17 +76,17 @@ namespace Persistence.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("consignee_id");
 
-                    b.Property<DateTime>("DateClosed")
+                    b.Property<DateTime?>("DateClosed")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_closed")
                         .HasComment("The final date when the invoice was fully processed and all the payment has cleared");
 
-                    b.Property<DateTime>("DateInvoiced")
+                    b.Property<DateTime?>("DateInvoiced")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_invoiced")
                         .HasComment("The date the customer was sent the invoice");
 
-                    b.Property<DateTime>("DatePaid")
+                    b.Property<DateTime?>("DatePaid")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_paid")
                         .HasComment("The latest date the payment was submitted");
@@ -105,14 +106,16 @@ namespace Persistence.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("job_id");
 
-                    b.Property<int>("PaymentMethodId")
+                    b.Property<int?>("PaymentMethodId")
+                        .IsRequired()
                         .HasColumnType("integer")
                         .HasColumnName("payment_method_id")
                         .HasComment("The method used for submitting payment by the consignee");
 
                     b.Property<string>("ReferenceNumber")
                         .HasColumnType("text")
-                        .HasColumnName("reference_number");
+                        .HasColumnName("reference_number")
+                        .HasComment("A unique number used for easily identifying jobs with customers");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("numeric")
@@ -122,8 +125,6 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ConsigneeId");
-
-                    b.HasIndex("JobId");
 
                     b.HasIndex("PaymentMethodId");
 
@@ -170,7 +171,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.ToTable("InvoicesLines", "crystal_clean");
+                    b.ToTable("invoice_lines", "crystal_clean");
                 });
 
             modelBuilder.Entity("Domain.Models.Job", b =>
@@ -188,7 +189,9 @@ namespace Persistence.Migrations
                         .HasComment("Brief explanation of why the job was canceled");
 
                     b.Property<DateTime?>("CanceledDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("canceled_date")
+                        .HasComment("The date time the job was canceled");
 
                     b.Property<int>("ClientId")
                         .HasColumnType("integer")
@@ -322,7 +325,7 @@ namespace Persistence.Migrations
                         .HasColumnName("guid")
                         .HasDefaultValueSql("uuid_generate_v4()");
 
-                    b.Property<decimal>("Latitude")
+                    b.Property<decimal?>("Latitude")
                         .HasPrecision(15, 7)
                         .HasColumnType("numeric(15,7)")
                         .HasColumnName("latitude");
@@ -332,7 +335,7 @@ namespace Persistence.Migrations
                         .HasColumnType("character varying(10)")
                         .HasColumnName("location_type");
 
-                    b.Property<decimal>("Longitude")
+                    b.Property<decimal?>("Longitude")
                         .HasPrecision(15, 7)
                         .HasColumnType("numeric(15,7)")
                         .HasColumnName("longitude");
@@ -397,7 +400,9 @@ namespace Persistence.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityAlwaysColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
+                        .HasDefaultValue(false)
                         .HasColumnName("is_active")
                         .HasComment("Indicates if the payment method is still meant to be used");
 
@@ -421,13 +426,6 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasConstraintName("invoice_consignee_id_foreign");
 
-                    b.HasOne("Domain.Models.Job", "Job")
-                        .WithMany("Invoices")
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("invoice_job_id_foreign");
-
                     b.HasOne("Domain.Models.PaymentMethod", "PaymentMethod")
                         .WithMany("Invoices")
                         .HasForeignKey("PaymentMethodId")
@@ -436,8 +434,6 @@ namespace Persistence.Migrations
                         .HasConstraintName("invoice_payment_method_id_foreign");
 
                     b.Navigation("Consignee");
-
-                    b.Navigation("Job");
 
                     b.Navigation("PaymentMethod");
                 });
@@ -472,6 +468,13 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasConstraintName("job_client_id_foreign");
 
+                    b.HasOne("Domain.Models.Invoice", "Invoice")
+                        .WithOne("Job")
+                        .HasForeignKey("Domain.Models.Job", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("invoice_job_id_foreign");
+
                     b.HasOne("Domain.Models.Location", "Location")
                         .WithMany("Jobs")
                         .HasForeignKey("LocationId")
@@ -480,6 +483,8 @@ namespace Persistence.Migrations
                         .HasConstraintName("job_location_id_foreign");
 
                     b.Navigation("Client");
+
+                    b.Navigation("Invoice");
 
                     b.Navigation("Location");
                 });
@@ -493,12 +498,10 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Models.Invoice", b =>
                 {
-                    b.Navigation("Lines");
-                });
+                    b.Navigation("Job")
+                        .IsRequired();
 
-            modelBuilder.Entity("Domain.Models.Job", b =>
-                {
-                    b.Navigation("Invoices");
+                    b.Navigation("Lines");
                 });
 
             modelBuilder.Entity("Domain.Models.LineItem", b =>

@@ -23,7 +23,7 @@ public class DataContext : DbContext //IdentityDbContext<AppUser>
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if(!optionsBuilder.IsConfigured)
+        if (!optionsBuilder.IsConfigured)
         {
             Console.WriteLine("no options configured, not going to run");
         }
@@ -37,7 +37,6 @@ public class DataContext : DbContext //IdentityDbContext<AppUser>
         modelBuilder.HasDefaultSchema(defaultSchema);
         modelBuilder.HasPostgresExtension("uuid-ossp")
             .HasPostgresEnum(defaultSchema, "price_type", new[] { "none", "per_unit", "flat_rate" });
-        //modelBuilder;
 
 
         //new AppUserEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUser>());

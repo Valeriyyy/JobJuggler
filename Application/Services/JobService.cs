@@ -1,8 +1,10 @@
 ﻿using Application.DTOs;
 using Application.Services.Interfaces;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Persistence;
 
 namespace Application.Services;
@@ -10,11 +12,19 @@ public class JobService : IJobService
 {
     private readonly DataContext _context;
     private readonly IMapper _mapper;
+    private readonly ILogger<JobService> _logger;
 
-    public JobService(DataContext context, IMapper mapper)
+    public JobService(DataContext context, IMapper mapper, ILogger<JobService> logger)
     {
         _context = context;
         _mapper = mapper;
+        _logger = logger;
+    }
+
+    public async Task<JobReadDTO?> GetJob(int jobId)
+    {
+        var job = await _context.Jobs.ProjectTo<JobReadDTO>(_mapper.ConfigurationProvider).FirstOrDefaultAsync(j => j.Id == jobId);
+        return job;
     }
 
     public async Task<Job> CreateJob(JobInsertDTO jobToInsert)
@@ -29,10 +39,11 @@ public class JobService : IJobService
             ScheduledArrivalStartDate = jobToInsert.ScheduledArrivalStartDate,
             ScheduledArrivalEndDate = jobToInsert.ScheduledArrivalEndDate
         };
-        var jobClient = _mapper.Map<Client>(jobToInsert.Client);
+        using var trx = await _context.Database.BeginTransactionAsync();
+        var jobClient = new Client();
         if (jobToInsert.Client.Id is null)
         {
-            job.Client = jobClient;
+            job.Client = _mapper.Map<Client>(jobToInsert.Client);
         }
         else
         {
@@ -62,7 +73,7 @@ public class JobService : IJobService
         // get the list of line item ids
         var lineItemIds = jobToInsert.JobItems.Select(item => item.LineItemId);
         decimal totalPrice = 0;
-        var lineItems = _context.LineItems.Where(item => lineItemIds.Any(l => l == item.Id)).AsEnumerable().ToDictionary(kvp => kvp.Id, kvp => kvp);
+        var lineItems = (await _context.LineItems.Where(item => lineItemIds.Any(l => l == item.Id)).ToListAsync()).ToDictionary(kvp => kvp.Id, kvp => kvp);
         var lines = new List<InvoiceLine>();
         foreach (var item in jobToInsert.JobItems)
         {
@@ -72,34 +83,42 @@ public class JobService : IJobService
             {
                 throw new Exception($"No valid item found with id of {item.LineItemId}");
             }
-            if(dbItem.BasePrice == null && item.Price == null)
+            if (dbItem.BasePrice == null && item.Price == null)
             {
                 throw new Exception($"Price for item {dbItem.Name} must be manually entered");
             }
-            if(item.Quantity == 0)
+            if (item.Quantity == 0)
             {
                 throw new Exception($"Quanity must be entered for line item {dbItem.Name}");
             }
-            line.Price = (decimal)(item.Price == null ? dbItem.BasePrice! * item.Quantity : item.Price! * item.Quantity);
+            line.Price = (decimal)(item.Price == null && item.Price != 0 ? dbItem.BasePrice! * item.Quantity : item.Price! * item.Quantity);
             line.NumOfUnits = item.Quantity;
             line.ItemId = dbItem.Id;
             lines.Add(line);
             totalPrice += line.Price;
         }
-        job.Invoices = new List<Invoice>
+
+        job.Invoice = new()
         {
-            new Invoice
-            {
-                ConsigneeId = job.ClientId,
-                ReferenceNumber = "boogaloo",
-                Lines = lines,
-                PaymentMethodId = 1,
-                TotalPrice = totalPrice,
-            }
+            ConsigneeId = job.ClientId,
+            ReferenceNumber = GetJobReferenceNumber(),
+            Lines = lines,
+            TotalPrice = totalPrice,
         };
 
         _context.Jobs.Add(job);
         await _context.SaveChangesAsync();
+        await trx.CommitAsync();
+
         return job;
+    }
+
+    public string GetJobReferenceNumber()
+    {
+        var today = DateTime.Now;
+        var month = today.Month < 10 ? "0" + today.Month : today.Month.ToString();
+        var day = today.Day < 10 ? "0" + today.Day : today.Day.ToString();
+        var jobNum = _context.Jobs.Count();
+        return month + day + "-" + jobNum;
     }
 }

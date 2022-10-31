@@ -8,5 +8,5 @@ public class LineItem
     public decimal? BasePrice { get; set; }
     public PriceType PriceType { get; set; }
 
-    public virtual ICollection<InvoiceLine> Invoices{ get; set; } = null!;
+    public virtual ICollection<InvoiceLine> Invoices { get; set; } = null!;
 }

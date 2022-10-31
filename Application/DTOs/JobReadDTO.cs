@@ -1,10 +1,8 @@
-﻿namespace Domain.Models;
-public class Job
+﻿namespace Application.DTOs;
+public class JobReadDTO
 {
     public int Id { get; set; }
     public Guid Guid { get; set; }
-    public int ClientId { get; set; }
-    public int LocationId { get; set; }
     public decimal Price { get; set; }
     public string? Notes { get; set; }
     public bool? IsCompleted { get; set; }
@@ -16,9 +14,7 @@ public class Job
     public DateTime? StartedDate { get; set; }
     public DateTime? CompletedDate { get; set; }
     public DateTime? CanceledDate { get; set; }
-
-
-    public virtual Client Client { get; set; } = null!;
-    public virtual Location Location { get; set; } = null!;
-    public virtual Invoice Invoice { get; set; } = null!;
+    public ClientDTO Client { get; set; } = null!;
+    public LocationDTO Location { get; set; } = null!;
+    public InvoiceDTO Invoice { get; set; } = null!;
 }

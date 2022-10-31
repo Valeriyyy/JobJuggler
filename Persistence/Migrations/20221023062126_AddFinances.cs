@@ -18,8 +18,7 @@ public partial class AddFinances : Migration
     {
         migrationBuilder.AlterDatabase()
             .Annotation("Npgsql:Enum:crystal_clean.price_type", "none,per_unit,flat_rate")
-            .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,")
-            .OldAnnotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
+            .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
 
         migrationBuilder.CreateTable(
             name: _lineItemsTableName,
@@ -52,7 +51,6 @@ public partial class AddFinances : Migration
                 table.PrimaryKey("PK_payment_methods", x => x.id);
             });
 
-
         migrationBuilder.CreateTable(
             name: _invoicesTableName,
             schema: _schemaName,
@@ -63,13 +61,13 @@ public partial class AddFinances : Migration
                 guid = table.Column<Guid>(type: "uuid", nullable: false, defaultValueSql: "uuid_generate_v4()"),
                 job_id = table.Column<int>(type: "integer", nullable: false),
                 consignee_id = table.Column<int>(type: "integer", nullable: false),
-                reference_number = table.Column<string>(type: "text", nullable: true),
+                reference_number = table.Column<string>(type: "text", nullable: true, comment: "A unique number used for easily identifying jobs with customers"),
                 total_price = table.Column<decimal>(type: "numeric", nullable: false, comment: "The calculated total from the invoice lines. Not meant to be directly edited"),
-                payment_method_id = table.Column<int>(type: "integer", nullable: false, comment: "The method used for submitting payment by the consignee"),
-                is_paid = table.Column<bool>(type: "boolean", nullable: false, comment: "Indicates if the invoice has been fully paid for"),
+                payment_method_id = table.Column<int>(type: "integer", nullable: true, defaultValue: null, comment: "The method used for submitting payment by the consignee"),
+                is_paid = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false, comment: "Indicates if the invoice has been fully paid for"),
                 date_invoiced = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, comment: "The date the customer was sent the invoice"),
-                date_paid = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, defaultValue: null, comment: "The latest date the payment was submitted"),
-                date_closed = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, defaultValue: null, comment: "The final date when the invoice was fully processed and all the payment has cleared")
+                date_paid = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, comment: "The latest date the payment was submitted"),
+                date_closed = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, comment: "The final date when the invoice was fully processed and all the payment has cleared")
             },
             constraints: table =>
             {
@@ -77,21 +75,14 @@ public partial class AddFinances : Migration
                 table.ForeignKey(
                     name: "invoice_consignee_id_foreign",
                     column: x => x.consignee_id,
-                    principalSchema: _schemaName,
+                    principalSchema: "crystal_clean",
                     principalTable: "clients",
-                    principalColumn: "id",
-                    onDelete: ReferentialAction.Cascade);
-                table.ForeignKey(
-                    name: "invoice_job_id_foreign",
-                    column: x => x.job_id,
-                    principalSchema: _schemaName,
-                    principalTable: "jobs",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
                 table.ForeignKey(
                     name: "invoice_payment_method_id_foreign",
                     column: x => x.payment_method_id,
-                    principalSchema: _schemaName,
+                    principalSchema: "crystal_clean",
                     principalTable: "payment_methods",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
@@ -114,22 +105,34 @@ public partial class AddFinances : Migration
             },
             constraints: table =>
             {
-                table.PrimaryKey("PK_InvoicesLines", x => x.id);
+                table.PrimaryKey("PK_invoice_lines", x => x.id);
                 table.ForeignKey(
                     name: "line_invoice_id_foreign",
                     column: x => x.invoice_id,
-                    principalSchema: _schemaName,
-                    principalTable: _invoicesTableName,
+                    principalSchema: "crystal_clean",
+                    principalTable: "invoices",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
                 table.ForeignKey(
                     name: "line_item_id_foreign",
                     column: x => x.item_id,
-                    principalSchema: _schemaName,
-                    principalTable: _lineItemsTableName,
+                    principalSchema: "crystal_clean",
+                    principalTable: "line_items",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
             });
+
+        migrationBuilder.CreateIndex(
+            name: "IX_invoice_lines_invoice_id",
+            schema: _schemaName,
+            table: _invoiceLinesTableName,
+            column: "invoice_id");
+
+        migrationBuilder.CreateIndex(
+            name: "IX_invoice_lines_item_id",
+            schema: _schemaName,
+            table: _invoiceLinesTableName,
+            column: "item_id");
 
         migrationBuilder.CreateIndex(
             name: "IX_invoices_consignee_id",
@@ -138,32 +141,29 @@ public partial class AddFinances : Migration
             column: "consignee_id");
 
         migrationBuilder.CreateIndex(
-            name: "IX_invoices_job_id",
-            schema: _schemaName,
-            table: _invoicesTableName,
-            column: "job_id");
-
-        migrationBuilder.CreateIndex(
             name: "IX_invoices_payment_method_id",
             schema: _schemaName,
             table: _invoicesTableName,
             column: "payment_method_id");
 
-        migrationBuilder.CreateIndex(
-            name: "IX_InvoicesLines_invoice_id",
+        migrationBuilder.AddForeignKey(
+            name: "invoice_job_id_foreign",
             schema: _schemaName,
-            table: _invoiceLinesTableName,
-            column: "invoice_id");
-
-        migrationBuilder.CreateIndex(
-            name: "IX_InvoicesLines_item_id",
-            schema: _schemaName,
-            table: _invoiceLinesTableName,
-            column: "item_id");
+            table: "jobs",
+            column: "id",
+            principalSchema: _schemaName,
+            principalTable: _invoicesTableName,
+            principalColumn: "id",
+            onDelete: ReferentialAction.Cascade);
     }
 
     protected override void Down(MigrationBuilder migrationBuilder)
     {
+        migrationBuilder.DropForeignKey(
+            name: "invoice_job_id_foreign",
+            schema: _schemaName,
+            table: "jobs");
+
         migrationBuilder.DropTable(
             name: _invoiceLinesTableName,
             schema: _schemaName);
@@ -181,45 +181,7 @@ public partial class AddFinances : Migration
             schema: _schemaName);
 
         migrationBuilder.AlterDatabase()
-            .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,")
             .OldAnnotation("Npgsql:Enum:crystal_clean.price_type", "none,per_unit,flat_rate")
             .OldAnnotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
-
-        migrationBuilder.AlterColumn<DateTime>(
-            name: "started_date",
-            schema: _schemaName,
-            table: "jobs",
-            type: "timestamp with time zone",
-            nullable: false,
-            defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-            comment: "The date time the job was started",
-            oldClrType: typeof(DateTime),
-            oldType: "timestamp with time zone",
-            oldNullable: true,
-            oldComment: "The date time the job was started");
-
-        migrationBuilder.AlterColumn<DateTime>(
-            name: "completed_date",
-            schema: _schemaName,
-            table: "jobs",
-            type: "timestamp with time zone",
-            nullable: false,
-            defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-            comment: "The date time the job was completed",
-            oldClrType: typeof(DateTime),
-            oldType: "timestamp with time zone",
-            oldNullable: true,
-            oldComment: "The date time the job was completed");
-
-        migrationBuilder.AlterColumn<DateTime>(
-            name: "CanceledDate",
-            schema: _schemaName,
-            table: "jobs",
-            type: "timestamp with time zone",
-            nullable: false,
-            defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-            oldClrType: typeof(DateTime),
-            oldType: "timestamp with time zone",
-            oldNullable: true);
     }
 }

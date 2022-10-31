@@ -25,7 +25,8 @@ public class InvoiceEntityTypeConfiguration : IEntityTypeConfiguration<Invoice>
             .HasColumnName("consignee_id");
 
         builder.Property(e => e.ReferenceNumber)
-            .HasColumnName("reference_number");
+            .HasColumnName("reference_number")
+            .HasComment("A unique number used for easily identifying jobs with customers");
 
         builder.Property(e => e.TotalPrice)
             .HasColumnName("total_price")
@@ -33,10 +34,12 @@ public class InvoiceEntityTypeConfiguration : IEntityTypeConfiguration<Invoice>
 
         builder.Property(e => e.PaymentMethodId)
             .HasColumnName("payment_method_id")
+            .HasDefaultValue(null)
             .HasComment("The method used for submitting payment by the consignee");
 
         builder.Property(e => e.IsPaid)
             .HasColumnName("is_paid")
+            .HasDefaultValue(false)
             .HasComment("Indicates if the invoice has been fully paid for");
 
         builder.Property(e => e.DateInvoiced)
@@ -54,10 +57,10 @@ public class InvoiceEntityTypeConfiguration : IEntityTypeConfiguration<Invoice>
             .HasDefaultValue(null)
             .HasComment("The final date when the invoice was fully processed and all the payment has cleared");
 
-        builder.HasOne(invoice => invoice.Job)
-            .WithMany(job => job.Invoices)
-            .HasForeignKey(invoice => invoice.JobId)
-            .HasConstraintName("invoice_job_id_foreign");
+        /*builder.HasOne(invoice => invoice.Job)
+            .WithOne(job => job.Invoice)
+            .HasForeignKey<Job>(job => job.Id)
+            .HasConstraintName("invoice_job_id_foreign");*/
 
         builder.HasOne(invoice => invoice.Consignee)
             .WithMany(consignee => consignee.Invoices)

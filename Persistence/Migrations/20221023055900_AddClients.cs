@@ -1,11 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Persistence.Migrations.Tools;
 
 #nullable disable
 
 namespace Persistence.Migrations;
+
 public partial class AddClients : Migration
 {
     protected override void Up(MigrationBuilder migrationBuilder)
@@ -13,7 +13,10 @@ public partial class AddClients : Migration
         var tableName = "clients";
         var schemaName = "crystal_clean";
         migrationBuilder.EnsureSchema(
-            name: schemaName);
+            name: "crystal_clean");
+
+        migrationBuilder.AlterDatabase()
+            .OldAnnotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
 
         migrationBuilder.CreateTable(
             name: tableName,
@@ -24,8 +27,8 @@ public partial class AddClients : Migration
                     .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn),
                 guid = table.Column<Guid>(type: "uuid", nullable: false, defaultValueSql: "uuid_generate_v4()"),
                 name = table.Column<string>(type: "text", nullable: false),
-                phone = table.Column<string>(type: "text", nullable: true),
-                email = table.Column<string>(type: "text", nullable: true)
+                phone = table.Column<string>(type: "text", nullable: false),
+                email = table.Column<string>(type: "text", nullable: true, defaultValue: null)
             },
             constraints: table =>
             {
@@ -40,5 +43,8 @@ public partial class AddClients : Migration
         migrationBuilder.DropTable(
             name: "clients",
             schema: "crystal_clean");
+
+        migrationBuilder.AlterDatabase()
+            .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
     }
 }
