@@ -1,4 +1,5 @@
 using API.Extensions;
+using API.Middleware;
 using Persistence;
 using Persistence.Seeds;
 
@@ -18,6 +19,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsProduction())

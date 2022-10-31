@@ -1,4 +1,5 @@
-﻿using Application.Core;
+﻿using API.Middleware;
+using Application.Core;
 using Application.Services;
 using Application.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ public static class ApplicationServiceExtensions
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
     {
+        services.AddTransient<ExceptionMiddleware>();
         services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
         services.AddDbContext<DataContext>(options =>
