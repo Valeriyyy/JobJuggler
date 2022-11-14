@@ -1,0 +1,2 @@
+ https://learn.microsoft.com/en-us/ef/core/cli/powershell
+ Latest error when trying to insert job after rewriting migrations - MessageText: insert or update on table "jobs" violates foreign key constraint "invoice_job_id_foreign"
