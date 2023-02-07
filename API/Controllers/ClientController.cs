@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Client;
 using Application.Services.Interfaces;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -16,35 +16,25 @@ public class ClientController : ControllerBase
         _service = service;
     }
 
-    [HttpGet("/Get-All-Clients", Name = "Get All Clients")]
+    [HttpGet(Name = "Get All Clients")]
     public async Task<ActionResult<IEnumerable<ClientDTO>>> GetAll()
     {
         return Ok(await _service.GetClients());
     }
 
-    [HttpPost("/Create-Client", Name = "Create A Single Client")]
+    [HttpPost(Name = "Create A Single Client")]
     public async Task<ActionResult<ClientDTO>> Create([FromBody] ClientInsertDTO client)
     {
         var res = await _service.CreateClient(client);
-        if(res is not null)
-        {
-            return Ok(res);
-        } else
-        {
-            return BadRequest();
-        }
+
+        return res is null ? BadRequest() : Ok(res);
     }
 
-    [HttpGet("/Get-By-Id", Name = "Get Client By Id")]
+    [HttpGet("{id}")]
     public async Task<ActionResult<ClientDTO>> GetClientById(int id)
     {
-        var res = await _service.GetClientById(id);
-        if(res is null)
-        {
-            return NotFound();
-        } else
-        {
-            return Ok(res);
-        }
+        var client = await _service.GetClientById(id);
+
+        return client is null ? NotFound() : Ok(client);
     }
 }

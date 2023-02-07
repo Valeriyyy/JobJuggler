@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Job;
 using Application.Services.Interfaces;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class JobController : ControllerBase
 {
     private readonly IJobService _jobService;
@@ -18,19 +18,19 @@ public class JobController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet]
-    public async Task<ActionResult<JobReadDTO>> GetById(int jobId)
+    [HttpGet("{id}")]
+    public async Task<ActionResult<JobReadDTO>> GetJobById(int id)
     {
-        var job = await _jobService.GetJob(jobId);
+        var job = await _jobService.GetJob(id);
 
-        if (job is null)
-        {
-            return NotFound();
-        }
-        else
-        {
-            return Ok(job);
-        }
+        return job is null ? NotFound() : Ok(job);
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<List<Job>>> GetAll()
+    {
+        var jobs = await _jobService.GetAllJobs();
+        return Ok(jobs);
     }
 
     [HttpPost]
