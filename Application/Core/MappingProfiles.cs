@@ -1,4 +1,7 @@
 ﻿using Application.DTOs;
+using Application.DTOs.Client;
+using Application.DTOs.Job;
+using Application.DTOs.Location;
 using Domain.Models;
 
 namespace Application.Core;
