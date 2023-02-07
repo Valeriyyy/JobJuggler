@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Client;
 using Application.Services.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -35,10 +35,15 @@ public class ClientService : IClientService
         return _mapper.Map<ClientDTO>(client);
     }
 
-    public async Task<ClientDTO> GetClientById(int clientId)
+    public async Task<ClientDTO?> GetClientById(int clientId)
     {
         var client = await _context.Clients.ProjectTo<ClientDTO>(_mapper.ConfigurationProvider).FirstOrDefaultAsync(client => client.Id == clientId);
 
         return client;
     }
+
+    /*public async Task<List<EnumModel>> GetSome()
+    {
+        return await _context.EnumModels.ToListAsync();
+    }*/
 }

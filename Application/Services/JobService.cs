@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Job;
 using Application.Services.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -25,6 +25,12 @@ public class JobService : IJobService
     {
         var job = await _context.Jobs.ProjectTo<JobReadDTO>(_mapper.ConfigurationProvider).FirstOrDefaultAsync(j => j.Id == jobId);
         return job;
+    }
+
+    public async Task<List<Job>> GetAllJobs()
+    {
+        var jobs = await _context.Jobs.ToListAsync();
+        return jobs;
     }
 
     public async Task<Job> CreateJob(JobInsertDTO jobToInsert)
