@@ -23,6 +23,7 @@ public static class ApplicationServiceExtensions
         services.AddTransient<IClientService, ClientService>();
         services.AddTransient<ILocationService, LocationService>();
         services.AddTransient<IJobService, JobService>();
+        services.AddTransient<IPicklistService, PicklistService>();
         services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 
         return services;
