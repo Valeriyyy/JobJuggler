@@ -28,7 +28,7 @@ public class ExceptionMiddleware : IMiddleware
 
             var problem = new ProblemDetails
             {
-                Status = (int)HttpStatusCode.InternalServerError,
+                //Status = (int)HttpStatusCode.InternalServerError,
                 Type = "Server error",
                 Title = "Server error",
                 Detail = e.Message
