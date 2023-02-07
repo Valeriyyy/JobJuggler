@@ -1,6 +1,4 @@
-﻿using Domain.Models;
-
-namespace Application.DTOs;
+﻿namespace Application.DTOs;
 public class InvoiceDTO
 {
     public int Id { get; set; }
@@ -12,6 +10,6 @@ public class InvoiceDTO
     public DateTime? DateInvoiced { get; set; }
     public DateTime? DatePaid { get; set; }
     public DateTime? DateClosed { get; set; }
-    public PaymentMethodDTO PaymentMethod { get; set; } = null!;
+    public PaymentMethodDTO? PaymentMethod { get; set; } = null!;
     public ICollection<LineDTO> Lines { get; set; } = null!;
 }

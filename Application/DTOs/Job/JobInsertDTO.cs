@@ -1,4 +1,4 @@
-﻿namespace Application.DTOs;
+﻿namespace Application.DTOs.Job;
 public class JobInsertDTO
 {
     public JobClientDTO Client { get; set; }

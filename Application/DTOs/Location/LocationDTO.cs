@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs;
+namespace Application.DTOs.Location;
 public class LocationDTO
 {
     public int Id { get; set; }

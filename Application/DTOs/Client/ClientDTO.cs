@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs;
+namespace Application.DTOs.Client;
 public class ClientDTO
 {
     public int Id { get; set; }
