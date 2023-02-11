@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -22,21 +23,36 @@ public class ExceptionMiddleware : IMiddleware
         }
         catch (Exception e)
         {
+            _logger.LogError("Logging message in exception middlware");
             _logger.LogError(e.Message);
+            _logger.LogError($"Exception Type: {e.GetType().Name}");
 
-            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-
+            int statusCode = (int)HttpStatusCode.InternalServerError;
+            // initialize a default problem details object
             var problem = new ProblemDetails
             {
-                //Status = (int)HttpStatusCode.InternalServerError,
+                Status = statusCode,
                 Type = "Server error",
                 Title = "Server error",
-                Detail = e.Message
+                Detail = e.Message,
+                Instance = "https://www.youtube.com/watch?v=H3EbflpXVmo"
             };
+
+
+            if (e.GetType() == typeof(RecordNotFoundException))
+            {
+                statusCode = (int)HttpStatusCode.NotFound;
+                problem.Status = statusCode;
+                problem.Type = "RecordNotFound";
+                problem.Title = "Record Not Found";
+                problem.Detail = e.Message;
+                problem.Instance = "https://www.youtube.com/watch?v=g3iFJpGJiug&t=31s";
+            }
 
             var json = JsonSerializer.Serialize(problem);
 
             context.Response.ContentType = "application/json";
+            context.Response.StatusCode = problem.Status ?? statusCode;
 
             await context.Response.WriteAsync(json);
         }
