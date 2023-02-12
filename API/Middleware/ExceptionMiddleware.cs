@@ -24,7 +24,7 @@ public class ExceptionMiddleware : IMiddleware
         catch (Exception e)
         {
             _logger.LogError("Logging message in exception middlware");
-            _logger.LogError(e.Message);
+            _logger.LogError(e.Message + " " + e.StackTrace);
             _logger.LogError($"Exception Type: {e.GetType().Name}");
 
             int statusCode = (int)HttpStatusCode.InternalServerError;
