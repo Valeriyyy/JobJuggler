@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scripting", "Scripting\Scripting.csproj", "{CD9400A6-C0DC-4351-8AE9-BBEF3FE0EBAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{F764596F-8463-4DD9-A808-5AF39B056957}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F764596F-8463-4DD9-A808-5AF39B056957}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F764596F-8463-4DD9-A808-5AF39B056957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9400A6-C0DC-4351-8AE9-BBEF3FE0EBAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9400A6-C0DC-4351-8AE9-BBEF3FE0EBAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9400A6-C0DC-4351-8AE9-BBEF3FE0EBAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9400A6-C0DC-4351-8AE9-BBEF3FE0EBAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
