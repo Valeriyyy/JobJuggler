@@ -1,6 +1,6 @@
 ﻿using Application.DTOs.Client;
 using Application.Services.Interfaces;
-using Domain.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -11,7 +11,7 @@ public class ClientController : ControllerBase
 {
     private readonly IClientService _service;
 
-    public ClientController(IClientService service)
+    public ClientController(IClientService service, ILogger<ClientController> logger)
     {
         _service = service;
     }
@@ -36,5 +36,13 @@ public class ClientController : ControllerBase
         var client = await _service.GetClientById(id);
 
         return client is null ? NotFound() : Ok(client);
+    }
+
+    [HttpPatch("{id}")]
+    public async Task<ActionResult<ClientDTO>> PatchClientById(int id, [FromBody] JsonPatchDocument client)
+    {
+        var cl = await _service.UpdateClient(id, client);
+
+        return Ok(cl);
     }
 }

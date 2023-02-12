@@ -1,8 +1,10 @@
 ﻿using Application.DTOs.Client;
+using Application.Exceptions;
 using Application.Services.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Domain.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -39,11 +41,26 @@ public class ClientService : IClientService
     {
         var client = await _context.Clients.ProjectTo<ClientDTO>(_mapper.ConfigurationProvider).FirstOrDefaultAsync(client => client.Id == clientId);
 
+        if (client is null)
+        {
+            throw new RecordNotFoundException($"No client found with Id {clientId}");
+        }
+
         return client;
     }
 
-    /*public async Task<List<EnumModel>> GetSome()
+    public async Task<ClientDTO?> UpdateClient(int clientId, JsonPatchDocument clientInfo)
     {
-        return await _context.EnumModels.ToListAsync();
-    }*/
+        var existingClient = await _context.Clients.FirstOrDefaultAsync(cl => cl.Id == clientId);
+        if (existingClient is null)
+        {
+            var exception = new RecordNotFoundException($"No client found with Id {clientId}");
+            throw exception;
+        }
+        clientInfo.ApplyTo(existingClient);
+
+        await _context.SaveChangesAsync();
+        var clientToReturn = _mapper.Map<ClientDTO>(existingClient);
+        return clientToReturn;
+    }
 }
