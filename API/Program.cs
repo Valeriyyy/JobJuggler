@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 {
     options.InputFormatters.Insert(0, MyJPIF.GetJsonPatchInputFormatter());
 }).AddNewtonsoftJson();*/
-builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddEndpointsApiExplorer();
