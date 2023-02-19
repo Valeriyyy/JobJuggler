@@ -38,7 +38,7 @@ public class JobService : IJobService
     {
         if (jobToInsert.ScheduledArrivalEndDate < jobToInsert.ScheduledArrivalStartDate)
         {
-            throw new Exception("Cannot set ScheduledArrivalEndDate before ScheduledArrivalStartDate");
+            throw new ValidationException("Cannot set ScheduledArrivalEndDate before ScheduledArrivalStartDate");
         }
         var job = new Job
         {
@@ -59,7 +59,7 @@ public class JobService : IJobService
             jobClient = await _context.Clients.Where(c => c.Id == jobToInsert.Client.Id).Select(c => new Client { Id = c.Id }).FirstOrDefaultAsync();
             if (jobClient is null)
             {
-                throw new RecordNotFoundException("Client cannot be found");
+                throw new RecordNotFoundException($"No client found with Id {jobToInsert.Client.Id}");
             }
             // assigning the id rather than the object creates the job with the already existing client rather than
             // creating a new client
@@ -77,7 +77,7 @@ public class JobService : IJobService
             jobLocation = await _context.Locations.Where(l => l.Id == jobLocation.Id).Select(l => new Location { Id = l.Id }).FirstOrDefaultAsync();
             if (jobLocation is null)
             {
-                throw new RecordNotFoundException("Location cannot be found");
+                throw new RecordNotFoundException($"No location found with Id {jobToInsert.Location.Id}");
             }
             // this alternative step sets the id of the supposedly already existing location on the job
             // this way it does not create a new location
