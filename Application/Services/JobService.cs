@@ -1,4 +1,5 @@
 ﻿using Application.DTOs.Job;
+using Application.Exceptions;
 using Application.Services.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -46,24 +47,29 @@ public class JobService : IJobService
             ScheduledArrivalEndDate = jobToInsert.ScheduledArrivalEndDate
         };
         using var trx = await _context.Database.BeginTransactionAsync();
-        var jobClient = new Client();
+        var jobClient = _mapper.Map<Client>(jobToInsert.Client);
         if (jobToInsert.Client.Id is null)
         {
-            job.Client = _mapper.Map<Client>(jobToInsert.Client);
+            // assigning the uncreated client directly to the job creates the client along with the job
+            // during context.savechanges
+            job.Client = jobClient;
         }
         else
         {
             jobClient = await _context.Clients.Where(c => c.Id == jobToInsert.Client.Id).Select(c => new Client { Id = c.Id }).FirstOrDefaultAsync();
             if (jobClient is null)
             {
-                throw new NullReferenceException("Client cannot be found");
+                throw new RecordNotFoundException("Client cannot be found");
             }
+            // assigning the id rather than the object creates the job with the already existing client rather than
+            // creating a new client
             job.ClientId = jobClient.Id;
         }
 
         var jobLocation = _mapper.Map<Location>(jobToInsert.Location);
         if (jobToInsert.Location.Id is null)
         {
+            // assigning the location to the job this way creates the location
             job.Location = jobLocation;
         }
         else
@@ -71,8 +77,10 @@ public class JobService : IJobService
             jobLocation = await _context.Locations.Where(l => l.Id == jobLocation.Id).Select(l => new Location { Id = l.Id }).FirstOrDefaultAsync();
             if (jobLocation is null)
             {
-                throw new NullReferenceException("Location cannot be found");
+                throw new RecordNotFoundException("Location cannot be found");
             }
+            // this alternative step sets the id of the supposedly already existing location on the job
+            // this way it does not create a new location
             job.LocationId = jobLocation.Id;
         }
 
@@ -106,11 +114,18 @@ public class JobService : IJobService
 
         job.Invoice = new()
         {
-            ConsigneeId = job.ClientId,
             ReferenceNumber = GetJobReferenceNumber(),
             Lines = lines,
             TotalPrice = totalPrice,
         };
+        if (jobToInsert.Client.Id is null)
+        {
+            job.Invoice.Consignee = job.Client;
+        }
+        else
+        {
+            job.Invoice.ConsigneeId = job.ClientId;
+        }
 
         _context.Jobs.Add(job);
         await _context.SaveChangesAsync();
