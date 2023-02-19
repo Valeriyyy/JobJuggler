@@ -1,15 +1,12 @@
 ﻿using Application.DTOs;
 using Application.DTOs.Location;
-using Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Application.Services.Interfaces;
 public interface ILocationService
 {
     public Task<List<LocationDTO>> GetAllLocations();
     public Task<LocationDTO> CreateLocation(LocationInsertDTO locationToInsert);
+    public Task<LocationDTO> GetLocationById(int locationId);
+    public Task<LocationDTO> UpdateLocation(int locationId, JsonPatchDocument locationInfo);
 }

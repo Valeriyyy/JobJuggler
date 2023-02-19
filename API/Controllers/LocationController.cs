@@ -17,24 +17,33 @@ public class LocationController : ControllerBase
         _locationService = locationService;
     }
 
-    [HttpGet("/Get-All-Locations")]
+    [HttpGet(Name = "Get All Locations")]
     public async Task<ActionResult<List<LocationDTO>>> GetAllLocations()
     {
         var res = await _locationService.GetAllLocations();
         return Ok(res);
     }
 
-    [HttpPost("/Create-Location")]
+    [HttpPost(Name = "Create a Single Location")]
     public async Task<ActionResult<LocationDTO>> CreateLocation([FromBody] LocationInsertDTO locationInsert)
     {
         var res = await _locationService.CreateLocation(locationInsert);
 
-        if(res is not null)
+        if (res is not null)
         {
             return CreatedAtAction(nameof(CreateLocation), res);
-        } else
+        }
+        else
         {
             return BadRequest();
         }
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<LocationDTO>> GetLocationById(int id)
+    {
+        var loc = await _locationService.GetLocationById(id);
+
+        return loc;
     }
 }
