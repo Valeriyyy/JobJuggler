@@ -49,6 +49,16 @@ public class ExceptionMiddleware : IMiddleware
                 problem.Instance = "https://www.youtube.com/watch?v=g3iFJpGJiug&t=31s";
             }
 
+            if (e.GetType() == typeof(ValidationException))
+            {
+                statusCode = (int)HttpStatusCode.BadRequest;
+                problem.Status = statusCode;
+                problem.Type = "BadRequest";
+                problem.Title = "Invalid Request Body";
+                problem.Detail = e.Message;
+                problem.Instance = "https://www.youtube.com/watch?v=mWMFTfaJaWM";
+            }
+
             var json = JsonSerializer.Serialize(problem);
 
             context.Response.ContentType = "application/json";
