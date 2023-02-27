@@ -1,4 +1,4 @@
-﻿namespace Application.DTOs;
+﻿namespace Application.DTOs.Location;
 public class LocationInsertDTO
 {
     public string? Name { get; set; }
