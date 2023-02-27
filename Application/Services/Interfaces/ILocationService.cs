@@ -1,5 +1,4 @@
-﻿using Application.DTOs;
-using Application.DTOs.Location;
+﻿using Application.DTOs.Location;
 using Microsoft.AspNetCore.JsonPatch;
 
 namespace Application.Services.Interfaces;
