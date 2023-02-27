@@ -3,10 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.EntityConfigurations;
-public class PaymentMethodEntityTypeConfiguration : IEntityTypeConfiguration<PaymentMethod>
-{
-    public void Configure(EntityTypeBuilder<PaymentMethod> builder)
-    {
+public class PaymentMethodEntityTypeConfiguration : IEntityTypeConfiguration<PaymentMethod> {
+    public void Configure(EntityTypeBuilder<PaymentMethod> builder) {
         builder.ToTable("payment_methods");
 
         builder.Property(e => e.Id)

@@ -4,10 +4,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.EntityConfigurations;
 
-public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser>
-{
-    public void Configure(EntityTypeBuilder<AppUser> builder)
-    {
+public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser> {
+    public void Configure(EntityTypeBuilder<AppUser> builder) {
         builder.ToTable("app_users", "crystal_clean");
 
         //builder.HasKey(e => e.Guid)

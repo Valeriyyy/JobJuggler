@@ -6,10 +6,8 @@ using Persistence.Migrations.Tools;
 #nullable disable
 
 namespace Persistence.EntityConfigurations;
-public class LocationEntityTypeConfiguration : IEntityTypeConfiguration<Location>
-{
-    public void Configure(EntityTypeBuilder<Location> builder)
-    {
+public class LocationEntityTypeConfiguration : IEntityTypeConfiguration<Location> {
+    public void Configure(EntityTypeBuilder<Location> builder) {
         builder.ToTable("locations");
 
         builder.Property(e => e.Id)

@@ -4,10 +4,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.EntityConfigurations;
 
-public class ClientEntityTypeConfiguration : IEntityTypeConfiguration<Client>
-{
-    public void Configure(EntityTypeBuilder<Client> builder)
-    {
+public class ClientEntityTypeConfiguration : IEntityTypeConfiguration<Client> {
+    public void Configure(EntityTypeBuilder<Client> builder) {
         builder.ToTable("clients");
 
         builder.Property(e => e.Id)

@@ -3,10 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.EntityConfigurations;
-public class InvoiceLineEntityTypeConfiguration : IEntityTypeConfiguration<InvoiceLine>
-{
-    public void Configure(EntityTypeBuilder<InvoiceLine> builder)
-    {
+public class InvoiceLineEntityTypeConfiguration : IEntityTypeConfiguration<InvoiceLine> {
+    public void Configure(EntityTypeBuilder<InvoiceLine> builder) {
         builder.ToTable("invoice_lines");
 
         builder.Property(e => e.Id)

@@ -4,10 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.EntityConfigurations;
-public class LineItemEntityTypeConfiguration : IEntityTypeConfiguration<LineItem>
-{
-    public void Configure(EntityTypeBuilder<LineItem> builder)
-    {
+public class LineItemEntityTypeConfiguration : IEntityTypeConfiguration<LineItem> {
+    public void Configure(EntityTypeBuilder<LineItem> builder) {
         builder.ToTable("line_items");
 
         builder.Property(e => e.Id)

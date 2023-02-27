@@ -3,10 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.EntityConfigurations;
-public class JobEntityTypeConfiguration : IEntityTypeConfiguration<Job>
-{
-    public void Configure(EntityTypeBuilder<Job> builder)
-    {
+public class JobEntityTypeConfiguration : IEntityTypeConfiguration<Job> {
+    public void Configure(EntityTypeBuilder<Job> builder) {
         builder.ToTable("jobs");
 
         builder.Property(e => e.Id)
