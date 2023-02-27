@@ -7,8 +7,7 @@ using Persistence.EntityConfigurations;
 
 namespace Persistence;
 
-public class DataContext : DbContext //IdentityDbContext<AppUser>
-{
+public class DataContext : DbContext { //IdentityDbContext<AppUser> 
     public DataContext() { }
     public DataContext(DbContextOptions options) : base(options) { }
 
@@ -22,12 +21,11 @@ public class DataContext : DbContext //IdentityDbContext<AppUser>
     public DbSet<InvoiceLine> InvoicesLines { get; set; } = null!;
     public DbSet<EnumModel> EnumModels { get; set; } = null!;
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if (!optionsBuilder.IsConfigured)
-        {
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+        if (!optionsBuilder.IsConfigured) {
             Console.WriteLine("no options configured, not going to run");
         }
+#pragma warning disable CS0618
         NpgsqlConnection.GlobalTypeMapper.MapEnum<PriceType>("price_type");
 
         // according to documentation, this should be used to register enums
@@ -38,8 +36,7 @@ public class DataContext : DbContext //IdentityDbContext<AppUser>
         using var dataSource = dataSourceBuilder.Build();*/
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
+    protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
         var defaultSchema = "crystal_clean";
         modelBuilder.HasDefaultSchema(defaultSchema);
