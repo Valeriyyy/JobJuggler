@@ -1,31 +1,52 @@
 ﻿using API.Middleware;
 using Application.Core;
+using Application.DTOs.Job;
 using Application.Services;
 using Application.Services.Interfaces;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System.Text.Json.Serialization;
 
 namespace API.Extensions;
 
-public static class ApplicationServiceExtensions
-{
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
-    {
+public static class ApplicationServiceExtensions {
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config) {
+        #region Middlware
         services.AddTransient<ExceptionMiddleware>();
-        services.AddControllers().AddJsonOptions(x =>
-                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-        services.AddDbContext<DataContext>(options =>
-        {
+        #endregion
+
+        #region Controllers
+        services.AddControllers()
+            .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
+            .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
+        #endregion
+
+        #region Database
+        services.AddDbContext<DataContext>(options => {
             var connUrl = config.GetConnectionString("postgres");
             options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("migrations", "crystal_clean"));
         });
+        #endregion
+
+        #region FluentValidation
+        services.AddFluentValidationAutoValidation();
+        services.AddFluentValidationClientsideAdapters();
+        //services.AddFluentValidation();
+        services.AddValidatorsFromAssemblyContaining<IAssemblyMarker>();
+        #endregion
+
+        #region Services
         services.AddTransient<IClientService, ClientService>();
         services.AddTransient<ILocationService, LocationService>();
         services.AddTransient<IJobService, JobService>();
         services.AddTransient<IPicklistService, PicklistService>();
-        services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+        #endregion
 
+        #region AutoMapper
+        services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+        #endregion
         return services;
     }
 }

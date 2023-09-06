@@ -53,7 +53,7 @@ public class JobService : IJobService {
                 .Select(c => new Client { Id = c.Id })
                 .FirstOrDefaultAsync();
             if (jobClient is null) {
-                throw new RecordNotFoundException($"No client found with Id {jobToInsert.Client.Id}");
+                throw new RecordNotFoundException(typeof(Client), jobToInsert.Client.Id);
             }
             // assigning the id rather than the object creates the job with the already existing client rather than
             // creating a new client
@@ -123,7 +123,7 @@ public class JobService : IJobService {
         return job;
     }
 
-    public string GetJobReferenceNumber() {
+    private string GetJobReferenceNumber() {
         var today = DateTime.Now;
         var month = today.Month < 10 ? "0" + today.Month : today.Month.ToString();
         var day = today.Day < 10 ? "0" + today.Day : today.Day.ToString();

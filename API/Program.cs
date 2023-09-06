@@ -12,11 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
-/*builder.Services.AddControllers(options =>
-{
-    options.InputFormatters.Insert(0, MyJPIF.GetJsonPatchInputFormatter());
-}).AddNewtonsoftJson();*/
-builder.Services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddEndpointsApiExplorer();

@@ -1,6 +1,6 @@
 ﻿namespace Application.DTOs.Job;
-public class JobInsertDTO
-{
+using FluentValidation;
+public class JobInsertDTO {
     public JobClientDTO Client { get; set; }
     public DateTime ScheduledDate { get; set; }
     public DateTime ScheduledArrivalStartDate { get; set; }
@@ -9,23 +9,20 @@ public class JobInsertDTO
     public List<JobItem> JobItems { get; set; }
 }
 
-public class JobItem
-{
+public class JobItem {
     public int LineItemId { get; set; }
     public int Quantity { get; set; }
     public int? Price { get; set; }
 }
 
-public class JobClientDTO
-{
+public class JobClientDTO {
     public int? Id { get; set; }
     public string? Name { get; set; }
     public string? Phone { get; set; }
     public string? Email { get; set; }
 }
 
-public class JobLocationDTO
-{
+public class JobLocationDTO {
     public int? Id { get; set; }
     public string? Name { get; set; }
     public string? LocationType { get; set; }
@@ -39,4 +36,13 @@ public class JobLocationDTO
     public decimal Latitude { get; set; }
     public decimal Longitude { get; set; }
     public string? Notes { get; set; }
+}
+
+public class JobClientDTOValidator : AbstractValidator<JobClientDTO> {
+    public JobClientDTOValidator() {
+        When(c => c.Id is null, () => {
+            RuleFor(c => c.Name).NotEmpty().WithMessage("Name must not be empty when creating new client");
+            RuleFor(c => c.Phone).NotEmpty().WithMessage("Phone number must not be empty when creating new client");
+        });
+    }
 }

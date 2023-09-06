@@ -13,7 +13,7 @@ public class RecordNotFoundException : Exception {
     /// </summary>
     /// <param name="classType"></param>
     /// <param name="id"></param>
-    public RecordNotFoundException(Type classType, int id) : base($"No {classType.Name} record found with id {id}") { }
+    public RecordNotFoundException(Type classType, int? id) : base($"No {classType.Name} record found with id {id}") { }
 
     /// <summary>
     /// Throws a specific error message notifying that a record of a specific type with a 
@@ -21,5 +21,5 @@ public class RecordNotFoundException : Exception {
     /// </summary>
     /// <param name="classType">ClassType</param>
     /// <param name="guid">Guid</param>
-    public RecordNotFoundException(Type classType, Guid guid) : base($"No {classType.Name} record found with guid {guid}") { }
+    public RecordNotFoundException(Type classType, Guid? guid) : base($"No {classType.Name} record found with guid {guid}") { }
 }

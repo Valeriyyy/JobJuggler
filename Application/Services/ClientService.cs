@@ -35,18 +35,11 @@ public class ClientService : IClientService {
     public async Task<ClientDTO?> GetClientById(int clientId) {
         var client = await _context.Clients.ProjectTo<ClientDTO>(_mapper.ConfigurationProvider).FirstOrDefaultAsync(client => client.Id == clientId);
 
-        if (client is null) {
-            throw new RecordNotFoundException(typeof(Client), clientId);
-        }
-
-        return client;
+        return client is null ? throw new RecordNotFoundException(typeof(Client), clientId) : client;
     }
 
     public async Task<ClientDTO?> UpdateClient(int clientId, JsonPatchDocument clientInfo) {
-        var existingClient = await _context.Clients.FirstOrDefaultAsync(cl => cl.Id == clientId);
-        if (existingClient is null) {
-            throw new RecordNotFoundException(typeof(Client), clientId);
-        }
+        var existingClient = await _context.Clients.FirstOrDefaultAsync(cl => cl.Id == clientId) ?? throw new RecordNotFoundException(typeof(Client), clientId);
         clientInfo.ApplyTo(existingClient);
 
         await _context.SaveChangesAsync();

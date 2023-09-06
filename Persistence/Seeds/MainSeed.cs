@@ -2,10 +2,8 @@
 using Domain.Models.Enums;
 
 namespace Persistence.Seeds;
-public class MainSeed
-{
-    public static async Task SeedData(DataContext context)
-    {
+public class MainSeed {
+    public static async Task SeedData(DataContext context) {
         await Task.WhenAll(
             PaymentMethodSeed(context),
             LineItemSeed(context),
@@ -21,10 +19,8 @@ public class MainSeed
     /// </summary>
     /// <param name="context">The postgres database context</param>
     /// <returns></returns>
-    public static async Task PaymentMethodSeed(DataContext context)
-    {
-        if (!context.PaymentMethods.Any())
-        {
+    public static Task PaymentMethodSeed(DataContext context) {
+        if (!context.PaymentMethods.Any()) {
             var paymentMethods = new List<PaymentMethod>
             {
                 new ()
@@ -69,14 +65,13 @@ public class MainSeed
                 }
             };
 
-            await context.PaymentMethods.AddRangeAsync(paymentMethods);
+            return context.PaymentMethods.AddRangeAsync(paymentMethods);
         }
+        return Task.CompletedTask;
     }
 
-    public static async Task LineItemSeed(DataContext context)
-    {
-        if (!context.LineItems.Any())
-        {
+    public static Task LineItemSeed(DataContext context) {
+        if (!context.LineItems.Any()) {
             var lineItems = new List<LineItem> {
                 new ()
                 {
@@ -102,14 +97,13 @@ public class MainSeed
                 }
             };
 
-            await context.LineItems.AddRangeAsync(lineItems);
+            return context.LineItems.AddRangeAsync(lineItems);
         }
+        return Task.CompletedTask;
     }
 
-    public static async Task ClientSeed(DataContext context)
-    {
-        if (!context.Clients.Any())
-        {
+    public static Task ClientSeed(DataContext context) {
+        if (!context.Clients.Any()) {
             var clients = new List<Client>
             {
                 new ()
@@ -131,14 +125,13 @@ public class MainSeed
                 },
             };
 
-            await context.Clients.AddRangeAsync(clients);
+            return context.Clients.AddRangeAsync(clients);
         }
+        return Task.CompletedTask;
     }
 
-    public static async Task LocationSeed(DataContext context)
-    {
-        if (!context.Locations.Any())
-        {
+    public static Task LocationSeed(DataContext context) {
+        if (!context.Locations.Any()) {
             var locations = new List<Location>
             {
                 new ()
@@ -181,7 +174,8 @@ public class MainSeed
                 }
             };
 
-            await context.Locations.AddRangeAsync(locations);
+            return context.Locations.AddRangeAsync(locations);
         }
+        return Task.CompletedTask;
     }
 }
