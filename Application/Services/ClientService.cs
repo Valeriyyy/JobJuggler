@@ -46,4 +46,41 @@ public class ClientService : IClientService {
         var clientToReturn = _mapper.Map<ClientDTO>(existingClient);
         return clientToReturn;
     }
+
+    public async Task<ClientProfile?> GetProfile(int clientId) {
+        var profile = await _context.Clients
+            .Select(c => new ClientProfile {
+                Id = c.Id,
+                Name = c.Name,
+                Phone = c.Phone,
+                Email = c.Email,
+                Jobs = c.Jobs.Select(j => new ClientProfileJob {
+                    Id = j.Id,
+                    Price = j.Price,
+                    Notes = j.Notes,
+                    IsCompleted = j.IsCompleted,
+                    IsCanceled = j.IsCanceled,
+                    CancelReason = j.CancelReason,
+                    CanceledDate = j.CanceledDate,
+                    ScheduledDate = j.ScheduledDate,
+                    ScheduledArrivalStartDate = j.ScheduledArrivalStartDate,
+                    ScheduledArrivalEndDate = j.ScheduledArrivalEndDate,
+                    StartedDate = j.StartedDate,
+                    CompletedDate = j.CompletedDate,
+                    Location = new ClientProfileLocation {
+                        LocationType = j.Location.LocationType,
+                        Street1 = j.Location.Street1,
+                        Street2 = j.Location.Street2,
+                        City = j.Location.City,
+                        State = j.Location.State,
+                        PostalCode = j.Location.PostalCode,
+                        Country = j.Location.Country,
+                        Latitude = j.Location.Latitude,
+                        Longitude = j.Location.Longitude,
+                    }
+                })
+            }).FirstOrDefaultAsync(c => c.Id == clientId);
+
+        return profile;
+    }
 }
