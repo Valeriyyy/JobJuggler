@@ -1,4 +1,5 @@
 ﻿using Application.DTOs.Job;
+using Application.Services;
 using Application.Services.Interfaces;
 using Domain.Models;
 using FluentValidation;
@@ -46,5 +47,12 @@ public class JobController : ControllerBase {
         } else {
             return BadRequest();
         }
+    }
+
+    [HttpGet("client/{clientId}")]
+    public async Task<ActionResult<List<JobPro>>> GetClientJobs(int clientId) {
+        var clientJobs = await _jobService.GetJobsByClientId(clientId);
+
+        return Ok(clientJobs);
     }
 }
