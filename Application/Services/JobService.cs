@@ -7,6 +7,7 @@ using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Persistence;
+using System.Diagnostics.Metrics;
 
 namespace Application.Services;
 public class JobService : IJobService {
@@ -130,4 +131,74 @@ public class JobService : IJobService {
         var jobNum = _context.Jobs.Count();
         return month + day + "-" + jobNum;
     }
+
+    public async Task<List<JobPro>> GetJobsByClientId(int clientId) {
+        var clientJobs = await _context.Jobs
+            .Include(l => l.Location)
+            .Where(x => x.ClientId == clientId)
+            .ToListAsync();
+
+        var jj = await _context.Jobs
+            .Select(j => new JobPro {
+                Id = j.Id,
+                Price = j.Price,
+                Notes = j.Notes,
+                IsCompleted = j.IsCompleted,
+                IsCanceled = j.IsCanceled,
+                CancelReason = j.CancelReason,
+                CanceledDate = j.CanceledDate,
+                ScheduledDate = j.ScheduledDate,
+                ScheduledArrivalStartDate = j.ScheduledArrivalStartDate,
+                ScheduledArrivalEndDate = j.ScheduledArrivalEndDate,
+                StartedDate = j.StartedDate,
+                CompletedDate = j.CompletedDate,
+                ClientId = j.ClientId,
+                Location = new LocationWithoutVector {
+                    LocationType = j.Location.LocationType,
+                    Street1 = j.Location.Street1,
+                    Street2 = j.Location.Street2,
+                    City = j.Location.City,
+                    State = j.Location.State,
+                    PostalCode = j.Location.PostalCode,
+                    Country = j.Location.Country,
+                    GateCode = j.Location.GateCode,
+                    Latitude = j.Location.Latitude,
+                    Longitude = j.Location.Longitude
+                }
+            })
+            .Where(x => x.ClientId == clientId)
+            .ToListAsync();
+        return jj;
+    }
+}
+
+public class JobPro {
+    public int Id { get; set; }
+    public int ClientId { get; set; }
+    public decimal Price { get; set; }
+    public string? Notes { get; set; }
+    public bool? IsCompleted { get; set; }
+    public bool? IsCanceled { get; set; }
+    public string? CancelReason { get; set; }
+    public DateTime ScheduledDate { get; set; }
+    public DateTime ScheduledArrivalStartDate { get; set; }
+    public DateTime ScheduledArrivalEndDate { get; set; }
+    public DateTime? StartedDate { get; set; }
+    public DateTime? CompletedDate { get; set; }
+    public DateTime? CanceledDate { get; set; }
+
+    public LocationWithoutVector Location { get; set; }
+}
+
+public class LocationWithoutVector {
+    public string? LocationType { get; set; }
+    public string? Street1 { get; set; }
+    public string? Street2 { get; set; }
+    public string? City { get; set; }
+    public string? State { get; set; }
+    public string? PostalCode { get; set; }
+    public string? Country { get; set; }
+    public string? GateCode { get; set; }
+    public decimal? Latitude { get; set; }
+    public decimal? Longitude { get; set; }
 }
