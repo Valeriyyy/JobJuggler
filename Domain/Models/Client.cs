@@ -8,8 +8,8 @@ public class Client
     public string Phone { get; set; }
     public string? Email { get; set; }
 
-    public virtual ICollection<Job> Jobs { get; set; }
-    public virtual ICollection<Invoice> Invoices { get; set; }
+    public virtual List<Job> Jobs { get; set; }
+    public virtual List<Invoice> Invoices { get; set; }
 
     public override string ToString()
     {
