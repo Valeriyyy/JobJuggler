@@ -12,4 +12,6 @@ public class AppCompany {
     public bool IsDeleted { get; set; }
     public DateTime DateDeleted { get; set; }
     public int DeletedById { get; set; }
+
+    public virtual List<AppUser> Users { get; set; }
 }

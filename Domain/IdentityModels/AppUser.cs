@@ -13,4 +13,6 @@ public class AppUser : IdentityUser<int> {
     public bool IsDeleted { get; set; }
     public DateTime DateDeleted { get; set; }
     public int DeletedById { get; set; }
+
+    public virtual AppCompany Company { get; set; }
 }
