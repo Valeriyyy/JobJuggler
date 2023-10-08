@@ -1,17 +1,17 @@
-﻿using Domain.Models;
+﻿using Domain.IdentityModels;
+using Domain.Models;
 using Domain.Models.Enums;
-//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using Persistence.EntityConfigurations;
 
 namespace Persistence;
 
-public class DataContext : DbContext { //IdentityDbContext<AppUser> 
+public class DataContext : IdentityDbContext<AppUser, AppRole, int> {
     public DataContext() { }
     public DataContext(DbContextOptions options) : base(options) { }
-
-    //public DbSet<AppUser> Users { get; set; } = null!;
+    public DbSet<AppCompany> Companies { get; set; } = null!;
     public DbSet<Client> Clients { get; set; } = null!;
     public DbSet<Location> Locations { get; set; } = null!;
     public DbSet<Job> Jobs { get; set; } = null!;
@@ -45,7 +45,6 @@ public class DataContext : DbContext { //IdentityDbContext<AppUser>
 
 
         //new AppUserEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUser>());
-
         new ClientEntityTypeConfiguration().Configure(modelBuilder.Entity<Client>());
         new LocationEntityTypeConfiguration().Configure(modelBuilder.Entity<Location>());
         new JobEntityTypeConfiguration().Configure(modelBuilder.Entity<Job>());
@@ -54,5 +53,6 @@ public class DataContext : DbContext { //IdentityDbContext<AppUser>
         new InvoiceEntityTypeConfiguration().Configure(modelBuilder.Entity<Invoice>());
         new InvoiceLineEntityTypeConfiguration().Configure(modelBuilder.Entity<InvoiceLine>());
         new EnumModelTypeConfiguration().Configure(modelBuilder.Entity<EnumModel>());
+        new CompanyEntityTypeConfiguration().Configure(modelBuilder.Entity<AppCompany>());
     }
 }

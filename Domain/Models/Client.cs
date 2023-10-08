@@ -1,7 +1,6 @@
 ﻿namespace Domain.Models;
 
-public class Client
-{
+public class Client {
     public int Id { get; set; }
     public Guid Guid { get; set; }
     public string Name { get; set; }
@@ -11,8 +10,7 @@ public class Client
     public virtual List<Job> Jobs { get; set; }
     public virtual List<Invoice> Invoices { get; set; }
 
-    public override string ToString()
-    {
+    public override string ToString() {
         return $"{Name} {Phone} {Email}";
     }
 }

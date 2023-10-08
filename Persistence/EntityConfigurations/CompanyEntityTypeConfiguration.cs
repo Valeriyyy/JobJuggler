@@ -3,17 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.EntityConfigurations;
+public class CompanyEntityTypeConfiguration : IEntityTypeConfiguration<AppCompany> {
+    public void Configure(EntityTypeBuilder<AppCompany> builder) {
+        builder.ToTable("companies");
 
-public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser> {
-    public void Configure(EntityTypeBuilder<AppUser> builder) {
-        builder.ToTable("app_users", "crystal_clean");
+        builder.Property(e => e.Id)
+            .HasColumnName("id")
+            .ValueGeneratedOnAdd()
+            .UseIdentityAlwaysColumn();
 
-        builder.Property(e => e.DisplayName)
-            .HasMaxLength(64)
-            .HasColumnName("display_name");
-
-        builder.Property(e => e.CompanyId)
-            .HasColumnName("company_id");
+        builder.Property(e => e.Name)
+            .HasColumnName("name")
+            .HasMaxLength(64);
 
         builder.Property(e => e.DateCreated)
             .HasColumnName("date_created");
@@ -36,10 +37,5 @@ public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser> 
 
         builder.Property(e => e.DeletedById)
             .HasColumnName("deleted_by_id");
-
-        builder.HasOne(user => user.Company)
-            .WithMany(company => company.Users)
-            .HasForeignKey(user => user.CompanyId)
-            .HasConstraintName("user_company_id_foreign");
     }
 }
