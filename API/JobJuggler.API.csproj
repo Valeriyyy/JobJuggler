@@ -27,9 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\Application.csproj" />
-    <ProjectReference Include="..\Domain\Domain.csproj" />
-    <ProjectReference Include="..\Persistence\Persistence.csproj" />
+    <ProjectReference Include="..\Application\JobJuggler.Application.csproj" />
+    <ProjectReference Include="..\Domain\JobJuggler.Domain.csproj" />
+    <ProjectReference Include="..\Persistence\JobJuggler.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

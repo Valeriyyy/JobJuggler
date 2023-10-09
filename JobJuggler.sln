@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{AF25DBE1-E8A1-44B7-B629-F439D57D5FBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobJuggler.API", "API\JobJuggler.API.csproj", "{AF25DBE1-E8A1-44B7-B629-F439D57D5FBF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{FA2040FE-3223-4193-99EB-99FB148E14A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobJuggler.Application", "Application\JobJuggler.Application.csproj", "{FA2040FE-3223-4193-99EB-99FB148E14A2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A9694F2C-E95A-46B4-B2B2-A88009821041}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobJuggler.Domain", "Domain\JobJuggler.Domain.csproj", "{A9694F2C-E95A-46B4-B2B2-A88009821041}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{F764596F-8463-4DD9-A808-5AF39B056957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobJuggler.Persistence", "Persistence\JobJuggler.Persistence.csproj", "{F764596F-8463-4DD9-A808-5AF39B056957}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4EA90590-7011-4601-90A6-77220CB041FB}"
 	ProjectSection(SolutionItems) = preProject
