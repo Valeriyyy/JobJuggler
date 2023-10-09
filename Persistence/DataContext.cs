@@ -38,7 +38,7 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int> {
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
-        var defaultSchema = "crystal_clean";
+        var defaultSchema = "main";
         modelBuilder.HasDefaultSchema(defaultSchema);
         modelBuilder.HasPostgresExtension("uuid-ossp")
             .HasPostgresEnum(defaultSchema, "price_type", new[] { "none", "per_unit", "flat_rate" });
