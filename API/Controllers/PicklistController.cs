@@ -1,4 +1,4 @@
-﻿using Application.Services.Interfaces;
+﻿using JobJuggler.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobJuggler.API.Controllers;

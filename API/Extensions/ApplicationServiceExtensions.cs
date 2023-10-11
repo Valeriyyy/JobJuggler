@@ -1,12 +1,11 @@
-﻿using API.Middleware;
-using Application.Core;
-using Application.DTOs.Job;
-using Application.Services;
-using Application.Services.Interfaces;
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.AspNetCore;
+using JobJuggler.API.Middleware;
+using JobJuggler.Application.Core;
+using JobJuggler.Application.Services;
+using JobJuggler.Application.Services.Interfaces;
+using JobJuggler.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Persistence;
 using System.Text.Json.Serialization;
 
 namespace JobJuggler.API.Extensions;
