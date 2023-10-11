@@ -1,12 +1,12 @@
-﻿using Application.DTOs.Job;
-using Application.Services;
-using Application.Services.Interfaces;
-using Domain.Models;
+﻿using JobJuggler.Application.DTOs.Job;
+using JobJuggler.Application.Services;
+using JobJuggler.Application.Services.Interfaces;
+using JobJuggler.Domain.Models;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace JobJuggler.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

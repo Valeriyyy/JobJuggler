@@ -1,8 +1,8 @@
-﻿using Domain.Models.Enums;
+﻿using JobJuggler.Domain.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Persistence.EntityConfigurations;
+namespace JobJuggler.Persistence.EntityConfigurations;
 public class EnumModelTypeConfiguration : IEntityTypeConfiguration<EnumModel> {
     public void Configure(EntityTypeBuilder<EnumModel> builder) {
         builder.HasNoKey();

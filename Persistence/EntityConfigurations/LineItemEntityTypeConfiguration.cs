@@ -1,9 +1,9 @@
-﻿using Domain.Models;
-using Domain.Models.Enums;
+﻿using JobJuggler.Domain.Models;
+using JobJuggler.Domain.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Persistence.EntityConfigurations;
+namespace JobJuggler.Persistence.EntityConfigurations;
 public class LineItemEntityTypeConfiguration : IEntityTypeConfiguration<LineItem> {
     public void Configure(EntityTypeBuilder<LineItem> builder) {
         builder.ToTable("line_items", "main");

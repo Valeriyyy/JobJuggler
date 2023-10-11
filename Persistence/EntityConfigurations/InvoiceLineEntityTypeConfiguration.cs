@@ -1,8 +1,8 @@
-﻿using Domain.Models;
+﻿using JobJuggler.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Persistence.EntityConfigurations;
+namespace JobJuggler.Persistence.EntityConfigurations;
 public class InvoiceLineEntityTypeConfiguration : IEntityTypeConfiguration<InvoiceLine> {
     public void Configure(EntityTypeBuilder<InvoiceLine> builder) {
         builder.ToTable("invoice_lines", "main");

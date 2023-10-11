@@ -1,7 +1,7 @@
-﻿using Application.DTOs.Client;
-using Application.DTOs.Location;
+﻿using JobJuggler.Application.DTOs.Client;
+using JobJuggler.Application.DTOs.Location;
 
-namespace Application.DTOs.Job;
+namespace JobJuggler.Application.DTOs.Job;
 // Have to figure out how to map to records
 // maybe cannot be done because records are init only
 // and maybe automapper does not do it on init
@@ -24,8 +24,7 @@ namespace Application.DTOs.Job;
     InvoiceDTO Invoice
 );*/
 
-public class JobReadDTO
-{
+public class JobReadDTO {
     public int Id { get; set; }
     public Guid Guid { get; set; }
     public decimal Price { get; set; }

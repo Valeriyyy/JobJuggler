@@ -9,14 +9,11 @@ using Persistence;
 
 #nullable disable
 
-namespace Persistence.Migrations
-{
+namespace JobJuggler.Persistence.Migrations {
     [DbContext(typeof(DataContext))]
     [Migration("20221023055900_AddClients")]
-    partial class AddClients
-    {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
-        {
+    partial class AddClients {
+        protected override void BuildTargetModel(ModelBuilder modelBuilder) {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("crystal_clean")
@@ -25,39 +22,38 @@ namespace Persistence.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Domain.Models.Client", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
+            modelBuilder.Entity("Domain.Models.Client", b => {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("integer")
+                    .HasColumnName("id");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityAlwaysColumn(b.Property<int>("Id"));
+                NpgsqlPropertyBuilderExtensions.UseIdentityAlwaysColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Email")
-                        .HasColumnType("text")
-                        .HasColumnName("email");
+                b.Property<string>("Email")
+                    .HasColumnType("text")
+                    .HasColumnName("email");
 
-                    b.Property<Guid>("Guid")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("guid")
-                        .HasDefaultValueSql("uuid_generate_v4()");
+                b.Property<Guid>("Guid")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("uuid")
+                    .HasColumnName("guid")
+                    .HasDefaultValueSql("uuid_generate_v4()");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("name");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("text")
+                    .HasColumnName("name");
 
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("phone");
+                b.Property<string>("Phone")
+                    .IsRequired()
+                    .HasColumnType("text")
+                    .HasColumnName("phone");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("clients", "crystal_clean");
-                });
+                b.ToTable("clients", "crystal_clean");
+            });
 #pragma warning restore 612, 618
         }
     }

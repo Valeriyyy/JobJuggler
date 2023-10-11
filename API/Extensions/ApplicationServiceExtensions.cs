@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System.Text.Json.Serialization;
 
-namespace API.Extensions;
+namespace JobJuggler.API.Extensions;
 
 public static class ApplicationServiceExtensions {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config) {

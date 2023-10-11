@@ -1,8 +1,8 @@
-﻿using Domain.Models;
+﻿using JobJuggler.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Persistence.EntityConfigurations;
+namespace JobJuggler.Persistence.EntityConfigurations;
 public class JobEntityTypeConfiguration : IEntityTypeConfiguration<Job> {
     public void Configure(EntityTypeBuilder<Job> builder) {
         builder.ToTable("jobs", "main");

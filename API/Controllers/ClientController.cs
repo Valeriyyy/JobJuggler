@@ -1,10 +1,9 @@
 ﻿using Application.DTOs.Client;
 using Application.Services.Interfaces;
-using Domain.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace JobJuggler.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

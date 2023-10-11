@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Text.Json;
 
-namespace API.Middleware;
+namespace JobJuggler.API.Middleware;
 
 public class ExceptionMiddleware : IMiddleware {
     private readonly ILogger<ExceptionMiddleware> _logger;

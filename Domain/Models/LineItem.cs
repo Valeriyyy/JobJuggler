@@ -1,8 +1,7 @@
-﻿using Domain.Models.Enums;
+﻿using JobJuggler.Domain.Models.Enums;
 
-namespace Domain.Models;
-public class LineItem
-{
+namespace JobJuggler.Domain.Models;
+public class LineItem {
     public int Id { get; set; }
     public string Name { get; set; }
     public decimal? BasePrice { get; set; }

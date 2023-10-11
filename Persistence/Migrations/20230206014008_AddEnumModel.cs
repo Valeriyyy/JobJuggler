@@ -2,20 +2,17 @@
 
 #nullable disable
 
-namespace Persistence.Migrations;
+namespace JobJuggler.Persistence.Migrations;
 
 /// <inheritdoc />
-public partial class AddEnumModel : Migration
-{
+public partial class AddEnumModel : Migration {
     /// <inheritdoc />
-    protected override void Up(MigrationBuilder migrationBuilder)
-    {
+    protected override void Up(MigrationBuilder migrationBuilder) {
         migrationBuilder.Sql(File.ReadAllText(@"..\Persistence\Migrations\SQL\enums_view.sql"));
     }
 
     /// <inheritdoc />
-    protected override void Down(MigrationBuilder migrationBuilder)
-    {
+    protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.Sql("DROP VIEW IF EXISTS crystal_clean.enums");
     }
 }

@@ -1,15 +1,15 @@
-﻿using Application.DTOs.Location;
-using Application.Exceptions;
-using Application.Services.Interfaces;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using Domain.Models;
+using JobJuggler.Domain.Models;
+using JobJuggler.Application.DTOs.Location;
+using JobJuggler.Application.Exceptions;
+using JobJuggler.Application.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Persistence;
+using JobJuggler.Persistence;
 
-namespace Application.Services;
+namespace JobJuggler.Application.Services;
 public class LocationService : ILocationService {
     private readonly DataContext _context;
     private readonly IMapper _mapper;

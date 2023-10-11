@@ -1,23 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using JobJuggler.Persistence.Migrations.Tools;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NpgsqlTypes;
-using Persistence.Migrations.Tools;
 
 #nullable disable
 
-namespace Persistence.Migrations;
+namespace JobJuggler.Persistence.Migrations;
 
-public partial class AddLocations : Migration
-{
-    protected override void Up(MigrationBuilder migrationBuilder)
-    {
+public partial class AddLocations : Migration {
+    protected override void Up(MigrationBuilder migrationBuilder) {
         var schemaName = "crystal_clean";
         var tableName = "locations";
         migrationBuilder.CreateTable(
             name: tableName,
             schema: schemaName,
-            columns: table => new
-            {
+            columns: table => new {
                 id = table.Column<int>(type: "integer", nullable: false)
                     .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn),
                 guid = table.Column<Guid>(type: "uuid", nullable: false, defaultValueSql: "uuid_generate_v4()"),
@@ -35,8 +32,7 @@ public partial class AddLocations : Migration
                 notes = table.Column<string>(type: "text", nullable: true, defaultValueSql: "''::text"),
                 vector_address = table.Column<NpgsqlTsVector>(type: "tsvector", nullable: false, computedColumnSql: "\r                        to_tsvector('english'::regconfig, \r                        ((((CASE WHEN (street1 IS NOT NULL) THEN ((street1)::text || ' '::text) ELSE ''::text END ||\r                            CASE WHEN (city IS NOT NULL) THEN ((city)::text || ' '::text) ELSE ''::text END) || \r                            CASE WHEN (state IS NOT NULL) THEN ((state)::text || ' '::text) ELSE ''::text END) || \r                            CASE WHEN (postal_code IS NOT NULL) THEN ((postal_code)::text || ' '::text) ELSE ''::text END) || \r                            (CASE WHEN (country IS NOT NULL) THEN country ELSE ''::character varying END)::text))", stored: true)
             },
-            constraints: table =>
-            {
+            constraints: table => {
                 table.PrimaryKey("PK_locations", x => x.id);
             });
 
@@ -57,8 +53,7 @@ public partial class AddLocations : Migration
         migrationBuilder.AddGuidTriggerFunction(schemaName, tableName);
     }
 
-    protected override void Down(MigrationBuilder migrationBuilder)
-    {
+    protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.DropTable(
             name: "locations",
             schema: "crystal_clean");

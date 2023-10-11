@@ -1,4 +1,4 @@
-namespace Domain.IdentityModels;
+namespace JobJuggler.Domain.IdentityModels;
 
 public class AppCompany {
     public int Id { get; set; }

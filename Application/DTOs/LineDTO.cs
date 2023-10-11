@@ -1,6 +1,5 @@
-﻿namespace Application.DTOs;
-public class LineDTO
-{
+﻿namespace JobJuggler.Application.DTOs;
+public class LineDTO {
     public int Id { get; set; }
     public Guid Guid { get; set; }
     public int NumOfUnits { get; set; }

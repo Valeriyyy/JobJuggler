@@ -1,4 +1,4 @@
-﻿namespace Domain.Models;
+﻿namespace JobJuggler.Domain.Models;
 
 public class Client {
     public int Id { get; set; }

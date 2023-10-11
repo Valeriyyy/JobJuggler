@@ -1,6 +1,5 @@
-﻿namespace Domain.Models;
-public class PaymentMethod
-{
+﻿namespace JobJuggler.Domain.Models;
+public class PaymentMethod {
     public int Id { get; set; }
     public string Name { get; set; }
     public bool IsActive { get; set; }

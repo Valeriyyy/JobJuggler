@@ -1,11 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Persistence.Migrations.Tools;
+namespace JobJuggler.Persistence.Migrations.Tools;
 
-public static class MigrationExtensions
-{
-    public static MigrationBuilder AddGuidTriggerFunction(this MigrationBuilder migrationBuilder, string schemaName, string tableName)
-    {
+public static class MigrationExtensions {
+    public static MigrationBuilder AddGuidTriggerFunction(this MigrationBuilder migrationBuilder, string schemaName, string tableName) {
         var triggerName = $"crystal_clean_{tableName}";
         var fullTableName = $"{schemaName}.{tableName}";
         migrationBuilder.Sql($@"

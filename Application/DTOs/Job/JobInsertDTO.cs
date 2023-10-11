@@ -1,5 +1,6 @@
-﻿namespace Application.DTOs.Job;
-using FluentValidation;
+﻿using FluentValidation;
+
+namespace JobJuggler.Application.DTOs.Job;
 public class JobInsertDTO {
     public JobClientDTO Client { get; set; }
     public DateTime ScheduledDate { get; set; }

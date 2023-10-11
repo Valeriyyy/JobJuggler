@@ -5,7 +5,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace Persistence.Migrations;
+namespace JobJuggler.Persistence.Migrations;
 
 /// <inheritdoc />
 public partial class IdentityAdded : Migration {

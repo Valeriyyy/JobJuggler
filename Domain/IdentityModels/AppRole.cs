@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Domain.IdentityModels;
+namespace JobJuggler.Domain.IdentityModels;
 public class AppRole : IdentityRole<int> {
 
 }

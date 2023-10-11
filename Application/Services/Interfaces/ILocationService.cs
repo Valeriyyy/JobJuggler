@@ -1,9 +1,8 @@
-﻿using Application.DTOs.Location;
+﻿using JobJuggler.Application.DTOs.Location;
 using Microsoft.AspNetCore.JsonPatch;
 
-namespace Application.Services.Interfaces;
-public interface ILocationService
-{
+namespace JobJuggler.Application.Services.Interfaces;
+public interface ILocationService {
     public Task<List<LocationDTO>> GetAllLocations();
     public Task<LocationDTO> CreateLocation(LocationInsertDTO locationToInsert);
     public Task<LocationDTO> GetLocationById(int locationId);

@@ -1,4 +1,4 @@
-﻿namespace Application.Exceptions;
+﻿namespace JobJuggler.Application.Exceptions;
 public class RecordNotFoundException : Exception {
     public Type? ClassType { get; set; }
     public int? Id { get; set; }

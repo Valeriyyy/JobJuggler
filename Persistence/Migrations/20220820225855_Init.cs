@@ -2,12 +2,10 @@
 
 #nullable disable
 
-namespace Persistence.Migrations;
+namespace JobJuggler.Persistence.Migrations;
 
-public partial class Init : Migration
-{
-    protected override void Up(MigrationBuilder migrationBuilder)
-    {
+public partial class Init : Migration {
+    protected override void Up(MigrationBuilder migrationBuilder) {
         migrationBuilder.EnsureSchema(
             name: "crystal_clean");
 
@@ -17,8 +15,7 @@ public partial class Init : Migration
         migrationBuilder.Sql(File.ReadAllText(@"..\Persistence\Migrations\SQL\guid_trigger_func.sql"));
     }
 
-    protected override void Down(MigrationBuilder migrationBuilder)
-    {
+    protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.Sql("DROP FUNCTION crystal_clean.guid_trigger_func();");
     }
 }

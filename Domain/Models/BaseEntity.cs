@@ -1,6 +1,6 @@
-﻿using Domain.IdentityModels;
+﻿using JobJuggler.Domain.IdentityModels;
 
-namespace Domain.Models;
+namespace JobJuggler.Domain.Models;
 
 // This class is meant to be extended by models to put metadata columns on
 // entities. Any business model class should extend this class to provide 

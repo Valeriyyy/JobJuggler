@@ -1,7 +1,7 @@
-﻿using Domain.Models;
-using Domain.Models.Enums;
+﻿using JobJuggler.Domain.Models;
+using JobJuggler.Domain.Models.Enums;
 
-namespace Persistence.Seeds;
+namespace JobJuggler.Persistence.Seeds;
 public class MainSeed {
     public static async Task SeedData(DataContext context) {
         await Task.WhenAll(

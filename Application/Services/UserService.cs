@@ -1,11 +1,9 @@
-﻿using Application.Services.Interfaces;
+﻿using JobJuggler.Application.Services.Interfaces;
 
-namespace Application.Services;
+namespace JobJuggler.Application.Services;
 
-public class UserService : IUserService
-{
-    public void GetUser()
-    {
+public class UserService : IUserService {
+    public void GetUser() {
         Console.WriteLine("this is where it would get a user");
     }
 }
