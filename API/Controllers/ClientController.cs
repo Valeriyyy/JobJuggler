@@ -1,5 +1,5 @@
-﻿using Application.DTOs.Client;
-using Application.Services.Interfaces;
+﻿using JobJuggler.Application.DTOs.Client;
+using JobJuggler.Application.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 

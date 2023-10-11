@@ -1,7 +1,7 @@
-using API.Extensions;
-using API.Middleware;
-using Persistence;
-using Persistence.Seeds;
+using JobJuggler.API.Extensions;
+using JobJuggler.API.Middleware;
+using JobJuggler.Persistence;
+using JobJuggler.Persistence.Seeds;
 
 // set environment to local
 // $env:ASPNETCORE_ENVIRONMENT = 'Local'

@@ -1,4 +1,4 @@
-﻿using Application.Exceptions;
+﻿using JobJuggler.Application.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Text.Json;
