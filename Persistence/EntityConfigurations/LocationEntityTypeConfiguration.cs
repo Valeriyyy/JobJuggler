@@ -1,7 +1,6 @@
-﻿using Domain.Models;
+﻿using JobJuggler.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Persistence.Migrations.Tools;
 
 #nullable disable
 

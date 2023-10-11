@@ -1,8 +1,8 @@
-﻿using Domain.IdentityModels;
+﻿using JobJuggler.Domain.IdentityModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Persistence.EntityConfigurations;
+namespace JobJuggler.Persistence.EntityConfigurations;
 public class CompanyEntityTypeConfiguration : IEntityTypeConfiguration<AppCompany> {
     public void Configure(EntityTypeBuilder<AppCompany> builder) {
         builder.ToTable("companies");

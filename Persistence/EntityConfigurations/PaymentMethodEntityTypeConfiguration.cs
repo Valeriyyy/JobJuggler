@@ -1,8 +1,8 @@
-﻿using Domain.Models;
+﻿using JobJuggler.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Persistence.EntityConfigurations;
+namespace JobJuggler.Persistence.EntityConfigurations;
 public class PaymentMethodEntityTypeConfiguration : IEntityTypeConfiguration<PaymentMethod> {
     public void Configure(EntityTypeBuilder<PaymentMethod> builder) {
         builder.ToTable("payment_methods");

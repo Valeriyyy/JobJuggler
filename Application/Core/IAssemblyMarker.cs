@@ -1,2 +1,2 @@
-﻿namespace Application.Core;
+﻿namespace JobJuggler.Application.Core;
 public interface IAssemblyMarker { }

@@ -3,7 +3,7 @@ using Application.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace JobJuggler.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

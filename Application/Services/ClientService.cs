@@ -1,14 +1,14 @@
-﻿using Application.DTOs.Client;
-using Application.Exceptions;
-using Application.Services.Interfaces;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using Domain.Models;
+using JobJuggler.Application.DTOs.Client;
+using JobJuggler.Application.Exceptions;
+using JobJuggler.Application.Services.Interfaces;
+using JobJuggler.Domain.Models;
+using JobJuggler.Persistence;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
-using Persistence;
 
-namespace Application.Services;
+namespace JobJuggler.Application.Services;
 
 public class ClientService : IClientService {
     private readonly DataContext _context;

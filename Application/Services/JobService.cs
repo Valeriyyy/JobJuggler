@@ -1,15 +1,15 @@
-﻿using Application.DTOs.Job;
-using Application.Exceptions;
-using Application.Services.Interfaces;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using Domain.Models;
+using JobJuggler.Domain.Models;
+using JobJuggler.Application.DTOs.Job;
+using JobJuggler.Application.Exceptions;
+using JobJuggler.Application.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Persistence;
-using System.Diagnostics.Metrics;
+using JobJuggler.Persistence;
+using ValidationException = JobJuggler.Application.Exceptions.ValidationException;
 
-namespace Application.Services;
+namespace JobJuggler.Application.Services;
 public class JobService : IJobService {
     private readonly DataContext _context;
     private readonly IMapper _mapper;

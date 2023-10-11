@@ -1,6 +1,5 @@
-﻿namespace Application.DTOs;
-public class InvoiceDTO
-{
+﻿namespace JobJuggler.Application.DTOs;
+public class InvoiceDTO {
     public int Id { get; set; }
     public Guid Guid { get; set; }
     public int ConsigneeId { get; set; }

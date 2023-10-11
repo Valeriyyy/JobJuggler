@@ -1,6 +1,5 @@
-﻿namespace Domain.Models;
-public class InvoiceLine
-{
+﻿namespace JobJuggler.Domain.Models;
+public class InvoiceLine {
     public int Id { get; set; }
     public Guid Guid { get; set; }
     public int InvoiceId { get; set; }

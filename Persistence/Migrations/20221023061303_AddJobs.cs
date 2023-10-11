@@ -1,23 +1,19 @@
-﻿using System;
+﻿using JobJuggler.Persistence.Migrations.Tools;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Persistence.Migrations.Tools;
 
 #nullable disable
 
-namespace Persistence.Migrations;
+namespace JobJuggler.Persistence.Migrations;
 
-public partial class AddJobs : Migration
-{
-    protected override void Up(MigrationBuilder migrationBuilder)
-    {
+public partial class AddJobs : Migration {
+    protected override void Up(MigrationBuilder migrationBuilder) {
         var schemaName = "crystal_clean";
         var tableName = "jobs";
         migrationBuilder.CreateTable(
             name: tableName,
             schema: schemaName,
-            columns: table => new
-            {
+            columns: table => new {
                 id = table.Column<int>(type: "integer", nullable: false)
                     .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn),
                 guid = table.Column<Guid>(type: "uuid", nullable: false, defaultValueSql: "uuid_generate_v4()"),
@@ -35,8 +31,7 @@ public partial class AddJobs : Migration
                 completed_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, defaultValue: null, comment: "The date time the job was completed"),
                 canceled_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, defaultValue: null, comment: "The date time the job was canceled")
             },
-            constraints: table =>
-            {
+            constraints: table => {
                 table.PrimaryKey("PK_jobs", x => x.id);
                 table.ForeignKey(
                     name: "job_client_id_foreign",
@@ -69,8 +64,7 @@ public partial class AddJobs : Migration
         migrationBuilder.AddGuidTriggerFunction(schemaName, tableName);
     }
 
-    protected override void Down(MigrationBuilder migrationBuilder)
-    {
+    protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.DropTable(
             name: "jobs",
             schema: "crystal_clean");

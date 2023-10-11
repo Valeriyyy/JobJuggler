@@ -1,15 +1,13 @@
-﻿using Application.DTOs;
-using Application.DTOs.Client;
-using Application.DTOs.Job;
-using Application.DTOs.Location;
-using Domain.Models;
+﻿using JobJuggler.Application.DTOs;
+using JobJuggler.Application.DTOs.Client;
+using JobJuggler.Application.DTOs.Job;
+using JobJuggler.Application.DTOs.Location;
+using JobJuggler.Domain.Models;
 
-namespace Application.Core;
+namespace JobJuggler.Application.Core;
 
-public class MappingProfiles : AutoMapper.Profile
-{
-    public MappingProfiles()
-    {
+public class MappingProfiles : AutoMapper.Profile {
+    public MappingProfiles() {
         CreateMap<ClientInsertDTO, Client>();
         CreateMap<JobClientDTO, Client>();
         CreateMap<Client, ClientDTO>();

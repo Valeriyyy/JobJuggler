@@ -1,6 +1,5 @@
-﻿namespace Domain.Models;
-public class Job
-{
+﻿namespace JobJuggler.Domain.Models;
+public class Job {
     public int Id { get; set; }
     public Guid Guid { get; set; }
     public int ClientId { get; set; }

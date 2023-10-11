@@ -1,4 +1,4 @@
-﻿namespace Application.DTOs.Job;
+﻿namespace JobJuggler.Application.DTOs.Job;
 public class JobListDTO {
     public int Id { get; set; }
     public Guid Guid { get; set; }

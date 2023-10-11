@@ -1,8 +1,7 @@
 ﻿using NpgsqlTypes;
 
-namespace Domain.Models;
-public class Location
-{
+namespace JobJuggler.Domain.Models;
+public class Location {
     //public Location() { }
 
     public int Id { get; set; }
@@ -24,8 +23,7 @@ public class Location
 
     public virtual ICollection<Job> Jobs { get; set; }
 
-    public override string ToString()
-    {
+    public override string ToString() {
         return $"{Name} {LocationType} {Street1} {Street2} {City} {State} {PostalCode} {Country} {GateCode} {Notes}";
     }
 }

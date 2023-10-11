@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
 #nullable disable
-namespace Domain.IdentityModels;
+namespace JobJuggler.Domain.IdentityModels;
 
 public class AppUser : IdentityUser<int> {
     public string DisplayName { get; set; }

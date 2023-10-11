@@ -1,8 +1,8 @@
-﻿using Domain.IdentityModels;
+﻿using JobJuggler.Domain.IdentityModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Persistence.EntityConfigurations;
+namespace JobJuggler.Persistence.EntityConfigurations;
 
 public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser> {
     public void Configure(EntityTypeBuilder<AppUser> builder) {

@@ -1,7 +1,7 @@
-﻿using Application.DTOs.Job;
-using Domain.Models;
+﻿using JobJuggler.Application.DTOs.Job;
+using JobJuggler.Domain.Models;
 
-namespace Application.Services.Interfaces;
+namespace JobJuggler.Application.Services.Interfaces;
 public interface IJobService {
     public Task<List<Job>> GetAllJobs();
     public Task<JobReadDTO?> GetJob(int jobId);

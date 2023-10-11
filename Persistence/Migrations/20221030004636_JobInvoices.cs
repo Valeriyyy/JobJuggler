@@ -2,12 +2,10 @@
 
 #nullable disable
 
-namespace Persistence.Migrations;
+namespace JobJuggler.Persistence.Migrations;
 
-public partial class JobInvoices : Migration
-{
-    protected override void Up(MigrationBuilder migrationBuilder)
-    {
+public partial class JobInvoices : Migration {
+    protected override void Up(MigrationBuilder migrationBuilder) {
         migrationBuilder.DropForeignKey(
             name: "invoice_job_id_foreign",
             schema: "crystal_clean",
@@ -43,8 +41,7 @@ public partial class JobInvoices : Migration
             onDelete: ReferentialAction.Cascade);
     }
 
-    protected override void Down(MigrationBuilder migrationBuilder)
-    {
+    protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.DropForeignKey(
             name: "job_invoice_id_foreign",
             schema: "crystal_clean",

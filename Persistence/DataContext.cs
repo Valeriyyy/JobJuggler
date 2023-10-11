@@ -1,12 +1,13 @@
-﻿using Domain.IdentityModels;
-using Domain.Models;
-using Domain.Models.Enums;
+﻿using JobJuggler.Domain.IdentityModels;
+using JobJuggler.Domain.Models;
+using JobJuggler.Domain.Models.Enums;
+using JobJuggler.Persistence.EntityConfigurations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using Persistence.EntityConfigurations;
 
-namespace Persistence;
+namespace JobJuggler.Persistence;
 
 public class DataContext : IdentityDbContext<AppUser, AppRole, int> {
     public DataContext() { }

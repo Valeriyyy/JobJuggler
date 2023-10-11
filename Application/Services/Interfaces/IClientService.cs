@@ -1,8 +1,7 @@
-﻿using Application.DTOs.Client;
-using Domain.Models;
+﻿using JobJuggler.Application.DTOs.Client;
 using Microsoft.AspNetCore.JsonPatch;
 
-namespace Application.Services.Interfaces;
+namespace JobJuggler.Application.Services.Interfaces;
 
 public interface IClientService {
     public Task<List<ClientDTO>> GetClients();
