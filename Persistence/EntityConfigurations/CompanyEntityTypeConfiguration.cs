@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace Persistence.EntityConfigurations;
 public class CompanyEntityTypeConfiguration : IEntityTypeConfiguration<AppCompany> {
     public void Configure(EntityTypeBuilder<AppCompany> builder) {
-        builder.ToTable("companies");
+        builder.ToTable("companies", "identity");
 
         builder.Property(e => e.Id)
             .HasColumnName("id")
