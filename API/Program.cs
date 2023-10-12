@@ -2,6 +2,7 @@ using JobJuggler.API.Extensions;
 using JobJuggler.API.Middleware;
 using JobJuggler.Persistence;
 using JobJuggler.Persistence.Seeds;
+using Serilog;
 
 // set environment to local
 // $env:ASPNETCORE_ENVIRONMENT = 'Local'
@@ -14,6 +15,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddLogging(l => {
+    l.ClearProviders().AddSerilog(new LoggerConfiguration()
+        .ReadFrom.Configuration(builder.Configuration)
+        .CreateLogger());
+});
+
 builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddEndpointsApiExplorer();
