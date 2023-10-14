@@ -6,7 +6,7 @@ namespace JobJuggler.Persistence.EntityConfigurations;
 
 public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser> {
     public void Configure(EntityTypeBuilder<AppUser> builder) {
-        builder.ToTable("app_users", "crystal_clean");
+        builder.ToTable("app_users", "identity");
 
         builder.Property(e => e.DisplayName)
             .HasMaxLength(64)

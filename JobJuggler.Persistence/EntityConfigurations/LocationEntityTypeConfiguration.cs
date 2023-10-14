@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace Persistence.EntityConfigurations;
 public class LocationEntityTypeConfiguration : IEntityTypeConfiguration<Location> {
     public void Configure(EntityTypeBuilder<Location> builder) {
-        builder.ToTable("locations");
+        builder.ToTable("locations", "main");
 
         builder.Property(e => e.Id)
             .HasColumnName("id")

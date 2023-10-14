@@ -6,7 +6,7 @@ namespace JobJuggler.Persistence.EntityConfigurations;
 
 public class ClientEntityTypeConfiguration : IEntityTypeConfiguration<Client> {
     public void Configure(EntityTypeBuilder<Client> builder) {
-        builder.ToTable("clients");
+        builder.ToTable("clients", "main");
 
         builder.Property(e => e.Id)
             .HasColumnName("id")

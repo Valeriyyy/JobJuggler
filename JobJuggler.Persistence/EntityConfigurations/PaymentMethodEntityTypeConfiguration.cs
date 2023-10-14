@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace JobJuggler.Persistence.EntityConfigurations;
 public class PaymentMethodEntityTypeConfiguration : IEntityTypeConfiguration<PaymentMethod> {
     public void Configure(EntityTypeBuilder<PaymentMethod> builder) {
-        builder.ToTable("payment_methods");
+        builder.ToTable("payment_methods", "main");
 
         builder.Property(e => e.Id)
             .HasColumnName("id")

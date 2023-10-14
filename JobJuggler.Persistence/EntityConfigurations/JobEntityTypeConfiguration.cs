@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace JobJuggler.Persistence.EntityConfigurations;
 public class JobEntityTypeConfiguration : IEntityTypeConfiguration<Job> {
     public void Configure(EntityTypeBuilder<Job> builder) {
-        builder.ToTable("jobs");
+        builder.ToTable("jobs", "main");
 
         builder.Property(e => e.Id)
             .HasColumnName("id")

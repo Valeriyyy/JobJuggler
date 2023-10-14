@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace JobJuggler.Persistence.EntityConfigurations;
 public class InvoiceLineEntityTypeConfiguration : IEntityTypeConfiguration<InvoiceLine> {
     public void Configure(EntityTypeBuilder<InvoiceLine> builder) {
-        builder.ToTable("invoice_lines");
+        builder.ToTable("invoice_lines", "main");
 
         builder.Property(e => e.Id)
             .HasColumnName("id")
