@@ -19,7 +19,7 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\JobJuggler.Domain.csproj" />
+    <ProjectReference Include="..\JobJuggler.Domain\JobJuggler.Domain.csproj" />
   </ItemGroup>
   <ItemGroup />
   <!-- <ItemGroup Condition="$(VisualStudioVersion) == '17.0'">
