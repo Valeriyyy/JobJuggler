@@ -7,12 +7,12 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JobJuggler.Persistence.Migrations;
 
 public partial class AddJobs : Migration {
+    const string _schemaName = "main";
+    const string _tableName = "jobs";
     protected override void Up(MigrationBuilder migrationBuilder) {
-        var schemaName = "crystal_clean";
-        var tableName = "jobs";
         migrationBuilder.CreateTable(
-            name: tableName,
-            schema: schemaName,
+            name: _tableName,
+            schema: _schemaName,
             columns: table => new {
                 id = table.Column<int>(type: "integer", nullable: false)
                     .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn),
@@ -36,14 +36,14 @@ public partial class AddJobs : Migration {
                 table.ForeignKey(
                     name: "job_client_id_foreign",
                     column: x => x.client_id,
-                    principalSchema: "crystal_clean",
+                    principalSchema: _schemaName,
                     principalTable: "clients",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
                 table.ForeignKey(
                     name: "job_location_id_foreign",
                     column: x => x.location_id,
-                    principalSchema: "crystal_clean",
+                    principalSchema: _schemaName,
                     principalTable: "locations",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
@@ -51,22 +51,22 @@ public partial class AddJobs : Migration {
 
         migrationBuilder.CreateIndex(
             name: "IX_jobs_client_id",
-            schema: "crystal_clean",
-            table: "jobs",
+            schema: _schemaName,
+            table: _tableName,
             column: "client_id");
 
         migrationBuilder.CreateIndex(
             name: "IX_jobs_location_id",
-            schema: "crystal_clean",
-            table: "jobs",
+            schema: _schemaName,
+            table: _tableName,
             column: "location_id");
 
-        migrationBuilder.AddGuidTriggerFunction(schemaName, tableName);
+        migrationBuilder.AddGuidTriggerFunction(_schemaName, _tableName);
     }
 
     protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.DropTable(
-            name: "jobs",
-            schema: "crystal_clean");
+            name: _tableName,
+            schema: _schemaName);
     }
 }

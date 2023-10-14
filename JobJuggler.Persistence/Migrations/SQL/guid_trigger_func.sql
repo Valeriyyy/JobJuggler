@@ -1,4 +1,4 @@
-﻿CREATE OR REPLACE FUNCTION crystal_clean.guid_trigger_func()
+﻿CREATE OR REPLACE FUNCTION main.guid_trigger_func()
 	RETURNS trigger
 	LANGUAGE 'plpgsql'
 	COST 100
@@ -15,6 +15,6 @@ BEGIN
 END;
 $BODY$;
 
-COMMENT ON FUNCTION crystal_clean.guid_trigger_func()
+COMMENT ON FUNCTION main.guid_trigger_func()
 	IS 'Prevents the guid from being changed';
 		

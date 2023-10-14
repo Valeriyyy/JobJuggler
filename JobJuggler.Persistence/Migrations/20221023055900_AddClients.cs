@@ -7,18 +7,18 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JobJuggler.Persistence.Migrations;
 
 public partial class AddClients : Migration {
+    const string _schemaName = "main";
+    const string _tableName = "clients";
     protected override void Up(MigrationBuilder migrationBuilder) {
-        var tableName = "clients";
-        var schemaName = "crystal_clean";
         migrationBuilder.EnsureSchema(
-            name: "crystal_clean");
+            name: _schemaName);
 
         migrationBuilder.AlterDatabase()
             .OldAnnotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
 
         migrationBuilder.CreateTable(
-            name: tableName,
-            schema: schemaName,
+            name: _tableName,
+            schema: _schemaName,
             columns: table => new {
                 id = table.Column<int>(type: "integer", nullable: false)
                     .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn),
@@ -31,13 +31,13 @@ public partial class AddClients : Migration {
                 table.PrimaryKey("PK_clients", x => x.id);
             });
 
-        migrationBuilder.AddGuidTriggerFunction(schemaName, tableName);
+        migrationBuilder.AddGuidTriggerFunction(_schemaName, _tableName);
     }
 
     protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.DropTable(
             name: "clients",
-            schema: "crystal_clean");
+            schema: _schemaName);
 
         migrationBuilder.AlterDatabase()
             .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,");

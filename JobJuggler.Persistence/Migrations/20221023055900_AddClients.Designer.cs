@@ -16,7 +16,7 @@ namespace JobJuggler.Persistence.Migrations {
         protected override void BuildTargetModel(ModelBuilder modelBuilder) {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("crystal_clean")
+                .HasDefaultSchema("main")
                 .HasAnnotation("ProductVersion", "6.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -52,7 +52,7 @@ namespace JobJuggler.Persistence.Migrations {
 
                 b.HasKey("Id");
 
-                b.ToTable("clients", "crystal_clean");
+                b.ToTable("clients", "main");
             });
 #pragma warning restore 612, 618
         }

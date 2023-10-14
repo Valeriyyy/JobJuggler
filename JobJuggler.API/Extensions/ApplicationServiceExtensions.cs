@@ -25,7 +25,7 @@ public static class ApplicationServiceExtensions {
         #region Database
         services.AddDbContext<DataContext>(options => {
             var connUrl = config.GetConnectionString("postgres");
-            options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("migrations", "crystal_clean"));
+            options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("migrations", "main"));
         });
         #endregion
 

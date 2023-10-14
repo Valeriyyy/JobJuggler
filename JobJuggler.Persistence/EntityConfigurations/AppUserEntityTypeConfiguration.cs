@@ -6,7 +6,53 @@ namespace JobJuggler.Persistence.EntityConfigurations;
 
 public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser> {
     public void Configure(EntityTypeBuilder<AppUser> builder) {
-        builder.ToTable("app_users", "identity");
+        builder.ToTable("asp_net_users", schema: "identity");
+
+        builder.Property(e => e.Id)
+            .HasColumnName("id")
+            .UseIdentityAlwaysColumn();
+
+        builder.Property(e => e.AccessFailedCount)
+            .HasColumnName("access_failed_count");
+
+        builder.Property(e => e.ConcurrencyStamp)
+            .HasColumnName("concurrency_stamp");
+
+        builder.Property(e => e.Email)
+            .HasColumnName("email");
+
+        builder.Property(e => e.EmailConfirmed)
+            .HasColumnName("email_confirmed");
+
+        builder.Property(e => e.LockoutEnabled)
+            .HasColumnName("lockout_enabled");
+
+        builder.Property(e => e.LockoutEnd)
+            .HasColumnName("lockout_end");
+
+        builder.Property(e => e.NormalizedEmail)
+            .HasColumnName("normalized_email");
+
+        builder.Property(e => e.NormalizedUserName)
+            .HasColumnName("normalized_username");
+
+        builder.Property(e => e.PasswordHash)
+            .HasColumnName("password_hash");
+
+        builder.Property(e => e.PhoneNumber)
+            .HasColumnName("phone_number");
+
+        builder.Property(e => e.PhoneNumberConfirmed)
+            .HasColumnName("phone_number_confirmed");
+
+        builder.Property(e => e.SecurityStamp)
+            .HasColumnName("security_stamp");
+
+        builder.Property(e => e.TwoFactorEnabled)
+            .HasColumnName("two_factor_enabled");
+
+        builder.Property(e => e.UserName)
+            .HasColumnName("username");
 
         builder.Property(e => e.DisplayName)
             .HasMaxLength(64)

@@ -8,14 +8,14 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JobJuggler.Persistence.Migrations;
 
 public partial class AddFinances : Migration {
-    private const string _schemaName = "crystal_clean";
+    private const string _schemaName = "main";
     private const string _lineItemsTableName = "line_items";
     private const string _paymentMethodsTableName = "payment_methods";
     private const string _invoicesTableName = "invoices";
     private const string _invoiceLinesTableName = "invoice_lines";
     protected override void Up(MigrationBuilder migrationBuilder) {
         migrationBuilder.AlterDatabase()
-            .Annotation("Npgsql:Enum:crystal_clean.price_type", "none,per_unit,flat_rate")
+            .Annotation("Npgsql:Enum:main.price_type", "none,per_unit,flat_rate")
             .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
 
         migrationBuilder.CreateTable(
@@ -67,14 +67,14 @@ public partial class AddFinances : Migration {
                 table.ForeignKey(
                     name: "invoice_consignee_id_foreign",
                     column: x => x.consignee_id,
-                    principalSchema: "crystal_clean",
+                    principalSchema: _schemaName,
                     principalTable: "clients",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
                 table.ForeignKey(
                     name: "invoice_payment_method_id_foreign",
                     column: x => x.payment_method_id,
-                    principalSchema: "crystal_clean",
+                    principalSchema: _schemaName,
                     principalTable: "payment_methods",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
@@ -99,14 +99,14 @@ public partial class AddFinances : Migration {
                 table.ForeignKey(
                     name: "line_invoice_id_foreign",
                     column: x => x.invoice_id,
-                    principalSchema: "crystal_clean",
+                    principalSchema: _schemaName,
                     principalTable: "invoices",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
                 table.ForeignKey(
                     name: "line_item_id_foreign",
                     column: x => x.item_id,
-                    principalSchema: "crystal_clean",
+                    principalSchema: _schemaName,
                     principalTable: "line_items",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
@@ -170,7 +170,7 @@ public partial class AddFinances : Migration {
             schema: _schemaName);
 
         migrationBuilder.AlterDatabase()
-            .OldAnnotation("Npgsql:Enum:crystal_clean.price_type", "none,per_unit,flat_rate")
+            .OldAnnotation($"Npgsql:Enum:{_schemaName}.price_type", "none,per_unit,flat_rate")
             .OldAnnotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
     }
 }

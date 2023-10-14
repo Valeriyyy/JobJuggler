@@ -45,7 +45,7 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int> {
             .HasPostgresEnum(defaultSchema, "price_type", new[] { "none", "per_unit", "flat_rate" });
 
 
-        //new AppUserEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUser>());
+        new AppUserEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUser>());
         new ClientEntityTypeConfiguration().Configure(modelBuilder.Entity<Client>());
         new LocationEntityTypeConfiguration().Configure(modelBuilder.Entity<Location>());
         new JobEntityTypeConfiguration().Configure(modelBuilder.Entity<Job>());
