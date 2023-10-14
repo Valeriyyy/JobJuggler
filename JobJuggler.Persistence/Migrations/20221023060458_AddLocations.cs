@@ -8,12 +8,12 @@ using NpgsqlTypes;
 namespace JobJuggler.Persistence.Migrations;
 
 public partial class AddLocations : Migration {
+    const string _schemaName = "main";
+    const string _tableName = "locations";
     protected override void Up(MigrationBuilder migrationBuilder) {
-        var schemaName = "crystal_clean";
-        var tableName = "locations";
         migrationBuilder.CreateTable(
-            name: tableName,
-            schema: schemaName,
+            name: _tableName,
+            schema: _schemaName,
             columns: table => new {
                 id = table.Column<int>(type: "integer", nullable: false)
                     .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn),
@@ -38,24 +38,24 @@ public partial class AddLocations : Migration {
 
         migrationBuilder.CreateIndex(
             name: "location_guid_unique",
-            schema: "crystal_clean",
-            table: "locations",
+            schema: _schemaName,
+            table: _tableName,
             column: "guid",
             unique: true);
 
         migrationBuilder.CreateIndex(
             name: "locations_vector_address_idx",
-            schema: "crystal_clean",
-            table: "locations",
+            schema: _schemaName,
+            table: _tableName,
             column: "vector_address")
             .Annotation("Npgsql:IndexMethod", "GIN");
 
-        migrationBuilder.AddGuidTriggerFunction(schemaName, tableName);
+        migrationBuilder.AddGuidTriggerFunction(_schemaName, _tableName);
     }
 
     protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.DropTable(
-            name: "locations",
-            schema: "crystal_clean");
+            name: _tableName,
+            schema: _schemaName);
     }
 }

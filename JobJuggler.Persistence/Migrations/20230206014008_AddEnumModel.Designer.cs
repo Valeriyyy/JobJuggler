@@ -19,11 +19,11 @@ namespace JobJuggler.Persistence.Migrations {
         protected override void BuildTargetModel(ModelBuilder modelBuilder) {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("crystal_clean")
+                .HasDefaultSchema("main")
                 .HasAnnotation("ProductVersion", "7.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "crystal_clean", "price_type", new[] { "none", "per_unit", "flat_rate" });
+            NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "main", "price_type", new[] { "none", "per_unit", "flat_rate" });
             NpgsqlModelBuilderExtensions.HasPostgresExtension(modelBuilder, "uuid-ossp");
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
@@ -57,7 +57,7 @@ namespace JobJuggler.Persistence.Migrations {
 
                 b.HasKey("Id");
 
-                b.ToTable("clients", "crystal_clean");
+                b.ToTable("clients", "main");
             });
 
             modelBuilder.Entity("Domain.Models.Enums.EnumModel", b => {
@@ -71,9 +71,9 @@ namespace JobJuggler.Persistence.Migrations {
                     .HasColumnType("text")
                     .HasColumnName("enum_value");
 
-                b.ToTable("pg_type", "crystal_clean");
+                b.ToTable("pg_type", "main");
 
-                b.ToView("enums", "crystal_clean");
+                b.ToView("enums", "main");
             });
 
             modelBuilder.Entity("Domain.Models.Invoice", b => {
@@ -145,7 +145,7 @@ namespace JobJuggler.Persistence.Migrations {
 
                 b.HasIndex("PaymentMethodId");
 
-                b.ToTable("invoices", "crystal_clean");
+                b.ToTable("invoices", "main");
             });
 
             modelBuilder.Entity("Domain.Models.InvoiceLine", b => {
@@ -187,7 +187,7 @@ namespace JobJuggler.Persistence.Migrations {
 
                 b.HasIndex("ItemId");
 
-                b.ToTable("invoice_lines", "crystal_clean");
+                b.ToTable("invoice_lines", "main");
             });
 
             modelBuilder.Entity("Domain.Models.Job", b => {
@@ -279,7 +279,7 @@ namespace JobJuggler.Persistence.Migrations {
 
                 b.HasIndex("LocationId");
 
-                b.ToTable("jobs", "crystal_clean");
+                b.ToTable("jobs", "main");
             });
 
             modelBuilder.Entity("Domain.Models.LineItem", b => {
@@ -306,7 +306,7 @@ namespace JobJuggler.Persistence.Migrations {
 
                 b.HasKey("Id");
 
-                b.ToTable("line_items", "crystal_clean");
+                b.ToTable("line_items", "main");
             });
 
             modelBuilder.Entity("Domain.Models.Location", b => {
@@ -400,7 +400,7 @@ namespace JobJuggler.Persistence.Migrations {
 
                 NpgsqlIndexBuilderExtensions.HasMethod(b.HasIndex(new[] { "VectorAddress" }, "locations_vector_address_idx"), "GIN");
 
-                b.ToTable("locations", "crystal_clean");
+                b.ToTable("locations", "main");
             });
 
             modelBuilder.Entity("Domain.Models.PaymentMethod", b => {
@@ -426,7 +426,7 @@ namespace JobJuggler.Persistence.Migrations {
 
                 b.HasKey("Id");
 
-                b.ToTable("payment_methods", "crystal_clean");
+                b.ToTable("payment_methods", "main");
             });
 
             modelBuilder.Entity("Domain.Models.Invoice", b => {

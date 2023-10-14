@@ -8,11 +8,11 @@ namespace JobJuggler.Persistence.Migrations;
 public partial class AddEnumModel : Migration {
     /// <inheritdoc />
     protected override void Up(MigrationBuilder migrationBuilder) {
-        migrationBuilder.Sql(File.ReadAllText(@"..\Persistence\Migrations\SQL\enums_view.sql"));
+        migrationBuilder.Sql(File.ReadAllText(@"..\JobJuggler.Persistence\Migrations\SQL\enums_view.sql"));
     }
 
     /// <inheritdoc />
     protected override void Down(MigrationBuilder migrationBuilder) {
-        migrationBuilder.Sql("DROP VIEW IF EXISTS crystal_clean.enums");
+        migrationBuilder.Sql("DROP VIEW IF EXISTS main.enums");
     }
 }

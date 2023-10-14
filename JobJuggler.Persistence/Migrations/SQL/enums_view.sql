@@ -1,4 +1,4 @@
-﻿CREATE VIEW crystal_clean.enums AS
+﻿CREATE VIEW main.enums AS
 	SELECT
        t.typname AS enum_name,  
        e.enumlabel AS enum_value

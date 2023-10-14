@@ -5,15 +5,16 @@
 namespace JobJuggler.Persistence.Migrations;
 
 public partial class JobInvoices : Migration {
+    const string _schemaName = "main";
     protected override void Up(MigrationBuilder migrationBuilder) {
         migrationBuilder.DropForeignKey(
             name: "invoice_job_id_foreign",
-            schema: "crystal_clean",
+            schema: _schemaName,
             table: "jobs");
 
         migrationBuilder.AlterColumn<bool>(
             name: "is_paid",
-            schema: "crystal_clean",
+            schema: _schemaName,
             table: "invoices",
             type: "boolean",
             nullable: false,
@@ -25,17 +26,17 @@ public partial class JobInvoices : Migration {
 
         migrationBuilder.CreateIndex(
             name: "IX_invoices_job_id",
-            schema: "crystal_clean",
+            schema: _schemaName,
             table: "invoices",
             column: "job_id",
             unique: true);
 
         migrationBuilder.AddForeignKey(
             name: "job_invoice_id_foreign",
-            schema: "crystal_clean",
+            schema: _schemaName,
             table: "invoices",
             column: "job_id",
-            principalSchema: "crystal_clean",
+            principalSchema: _schemaName,
             principalTable: "jobs",
             principalColumn: "id",
             onDelete: ReferentialAction.Cascade);
@@ -44,17 +45,17 @@ public partial class JobInvoices : Migration {
     protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.DropForeignKey(
             name: "job_invoice_id_foreign",
-            schema: "crystal_clean",
+            schema: _schemaName,
             table: "invoices");
 
         migrationBuilder.DropIndex(
             name: "IX_invoices_job_id",
-            schema: "crystal_clean",
+            schema: _schemaName,
             table: "invoices");
 
         migrationBuilder.AlterColumn<bool>(
             name: "is_paid",
-            schema: "crystal_clean",
+            schema: _schemaName,
             table: "invoices",
             type: "boolean",
             nullable: false,
@@ -66,10 +67,10 @@ public partial class JobInvoices : Migration {
 
         migrationBuilder.AddForeignKey(
             name: "invoice_job_id_foreign",
-            schema: "crystal_clean",
+            schema: _schemaName,
             table: "jobs",
             column: "id",
-            principalSchema: "crystal_clean",
+            principalSchema: _schemaName,
             principalTable: "invoices",
             principalColumn: "id",
             onDelete: ReferentialAction.Cascade);
