@@ -17,7 +17,11 @@ public class ExceptionMiddleware : IMiddleware {
             await next(context);
         } catch (Exception e) {
             _logger.LogError("Logging message in exception middlware");
-            _logger.LogError("{message}, {stacktrace}", e.Message, e.StackTrace);
+            _logger.LogError("Message: {message}", e.Message);
+            if (e.InnerException is not null) {
+                _logger.LogError("InnerException: {innerException}", e.InnerException?.Message);
+            }
+            _logger.LogError("Stacktrace: {stacktrace}", e.StackTrace);
 
             int statusCode = (int)HttpStatusCode.InternalServerError;
             // initialize a default problem details object
