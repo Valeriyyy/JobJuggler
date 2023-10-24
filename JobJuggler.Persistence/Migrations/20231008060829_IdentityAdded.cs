@@ -43,11 +43,11 @@ public partial class IdentityAdded : Migration {
                 name = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: false),
                 datecreated = table.Column<DateTime>(name: "date_created", type: "timestamp with time zone", nullable: false),
                 createdbyid = table.Column<int>(name: "created_by_id", type: "integer", nullable: false),
-                datelastmodified = table.Column<DateTime>(name: "date_last_modified", type: "timestamp with time zone", nullable: false),
-                lastmodifiedbyid = table.Column<int>(name: "last_modified_by_id", type: "integer", nullable: false),
+                datelastmodified = table.Column<DateTime>(name: "date_last_modified", type: "timestamp with time zone", nullable: true, defaultValue: null),
+                lastmodifiedbyid = table.Column<int>(name: "last_modified_by_id", type: "integer", nullable: true, defaultValue: null),
                 isdeleted = table.Column<bool>(name: "is_deleted", type: "boolean", nullable: false, defaultValue: false),
-                datedeleted = table.Column<DateTime>(name: "date_deleted", type: "timestamp with time zone", nullable: false),
-                deletedbyid = table.Column<int>(name: "deleted_by_id", type: "integer", nullable: false)
+                datedeleted = table.Column<DateTime>(name: "date_deleted", type: "timestamp with time zone", nullable: true, defaultValue: null),
+                deletedbyid = table.Column<int>(name: "deleted_by_id", type: "integer", nullable: true, defaultValue: null)
             },
             constraints: table => {
                 table.PrimaryKey("PK_companies", x => x.id);
@@ -84,11 +84,11 @@ public partial class IdentityAdded : Migration {
                 companyid = table.Column<int>(name: "company_id", type: "integer", nullable: false),
                 datecreated = table.Column<DateTime>(name: "date_created", type: "timestamp with time zone", nullable: false),
                 createdbyid = table.Column<int>(name: "created_by_id", type: "integer", nullable: false),
-                datelastmodified = table.Column<DateTime>(name: "date_last_modified", type: "timestamp with time zone", nullable: false),
-                lastmodifiedbyid = table.Column<int>(name: "last_modified_by_id", type: "integer", nullable: false),
-                isdeleted = table.Column<bool>(name: "is_deleted", type: "boolean", nullable: false),
-                datedeleted = table.Column<DateTime>(name: "date_deleted", type: "timestamp with time zone", nullable: false),
-                deletedbyid = table.Column<int>(name: "deleted_by_id", type: "integer", nullable: false),
+                datelastmodified = table.Column<DateTime>(name: "date_last_modified", type: "timestamp with time zone", nullable: true, defaultValue: null),
+                lastmodifiedbyid = table.Column<int>(name: "last_modified_by_id", type: "integer", nullable: true, defaultValue: null),
+                isdeleted = table.Column<bool>(name: "is_deleted", type: "boolean", nullable: false, defaultValue: false),
+                datedeleted = table.Column<DateTime>(name: "date_deleted", type: "timestamp with time zone", nullable: true, defaultValue: null),
+                deletedbyid = table.Column<int>(name: "deleted_by_id", type: "integer", nullable: true, defaultValue: null),
                 username = table.Column<string>(name: "username", type: "character varying(256)", maxLength: 256, nullable: true),
                 normalizedusername = table.Column<string>(name: "normalized_username", type: "character varying(256)", maxLength: 256, nullable: true),
                 email = table.Column<string>(name: "email", type: "character varying(256)", maxLength: 256, nullable: true),
