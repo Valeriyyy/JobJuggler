@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace JobJuggler.API.Controllers;
 
-[AllowAnonymous]
 [ApiController]
 [Route("api/[controller]")]
 public class AccountController : ControllerBase {
@@ -25,6 +25,7 @@ public class AccountController : ControllerBase {
         _context = context;
     }
 
+    [AllowAnonymous]
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto) {
         var user = await _userManager.FindByEmailAsync(loginDto.Email);
@@ -36,16 +37,13 @@ public class AccountController : ControllerBase {
         var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
 
         if (result) {
-            return new UserDto {
-                DisplayName = user.DisplayName,
-                Token = _tokenService.CreateToken(user),
-                Username = user.UserName,
-            };
+            return CreateUserObject(user);
         }
 
         return Unauthorized();
     }
 
+    [AllowAnonymous]
     [HttpPost("register")]
     public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto) {
         if (await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username)) {
@@ -69,15 +67,27 @@ public class AccountController : ControllerBase {
         var result = await _userManager.CreateAsync(user, registerDto.Password);
 
         if (result.Succeeded) {
-            return new UserDto {
-                DisplayName = user.DisplayName,
-                Token = _tokenService.CreateToken(user),
-                Username = user.UserName
-            };
+            return CreateUserObject(user);
         } else {
             _logger.LogError("Failure creating new user with username: {registerUsername} and email {registerEmail}", registerDto.Username, registerDto.Email);
         }
 
         return BadRequest(result.Errors);
+    }
+
+    [Authorize]
+    [HttpGet]
+    public async Task<ActionResult<UserDto>> GetCurrentUser() {
+        var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
+
+        return CreateUserObject(user);
+    }
+
+    private UserDto CreateUserObject(AppUser user) {
+        return new UserDto {
+            DisplayName = user.DisplayName,
+            Token = _tokenService.CreateToken(user),
+            Username = user.UserName
+        };
     }
 }
