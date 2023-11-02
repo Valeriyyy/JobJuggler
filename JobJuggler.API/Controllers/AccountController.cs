@@ -25,23 +25,6 @@ public class AccountController : ControllerBase {
         _context = context;
     }
 
-    [AllowAnonymous]
-    [HttpPost("login")]
-    public async Task<ActionResult<UserDto>> Login(LoginDto loginDto) {
-        var user = await _userManager.FindByEmailAsync(loginDto.Email);
-
-        if (user == null) {
-            return BadRequest();
-        }
-
-        var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
-
-        if (result) {
-            return CreateUserObject(user);
-        }
-
-        return Unauthorized();
-    }
 
     [AllowAnonymous]
     [HttpPost("register")]
@@ -75,6 +58,24 @@ public class AccountController : ControllerBase {
         return BadRequest(result.Errors);
     }
 
+    [AllowAnonymous]
+    [HttpPost("login")]
+    public async Task<ActionResult<UserDto>> Login(LoginDto loginDto) {
+        var user = await _userManager.FindByEmailAsync(loginDto.Email);
+
+        if (user == null) {
+            return BadRequest();
+        }
+
+        var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
+
+        if (result) {
+            return CreateUserObject(user);
+        }
+
+        return Unauthorized();
+    }
+
     [Authorize]
     [HttpGet]
     public async Task<ActionResult<UserDto>> GetCurrentUser() {
@@ -84,10 +85,12 @@ public class AccountController : ControllerBase {
     }
 
     private UserDto CreateUserObject(AppUser user) {
+        var (tokenString, expirationDate) = _tokenService.CreateToken(user);
         return new UserDto {
             DisplayName = user.DisplayName,
-            Token = _tokenService.CreateToken(user),
-            Username = user.UserName
+            Token = tokenString,
+            Username = user.UserName,
+            Expires = expirationDate
         };
     }
 }
