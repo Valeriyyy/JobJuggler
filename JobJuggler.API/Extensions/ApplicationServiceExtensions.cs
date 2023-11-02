@@ -5,6 +5,8 @@ using JobJuggler.Application.Core;
 using JobJuggler.Application.Services;
 using JobJuggler.Application.Services.Interfaces;
 using JobJuggler.Persistence;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -17,7 +19,10 @@ public static class ApplicationServiceExtensions {
         #endregion
 
         #region Controllers
-        services.AddControllers()
+        services.AddControllers(opt => {
+            var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            opt.Filters.Add(new AuthorizeFilter(policy));
+        })
             .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
             .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
         #endregion

@@ -1,8 +1,10 @@
 using JobJuggler.API.Extensions;
 using JobJuggler.API.Middleware;
+using JobJuggler.Domain.IdentityModels;
 using JobJuggler.Persistence;
 using JobJuggler.Persistence.Seeds;
 using Serilog;
+using Microsoft.AspNetCore.Identity;
 
 // set environment to local
 // $env:ASPNETCORE_ENVIRONMENT = 'Local'
@@ -49,10 +51,13 @@ var services = scope.ServiceProvider;
 
 try {
     var context = services.GetRequiredService<DataContext>();
+    var userManager = services.GetRequiredService<UserManager<AppUser>>();
     await MainSeed.SeedData(context);
+    await IdentitySeed.SeedIdentity(context, userManager);
 } catch (Exception ex) {
     Console.WriteLine("Something has gone wrong seeding the database");
     Console.WriteLine(ex.Message);
+    Console.WriteLine(ex.StackTrace);
 }
 
 app.Run();

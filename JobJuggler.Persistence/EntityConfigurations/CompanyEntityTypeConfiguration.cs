@@ -23,19 +23,23 @@ public class CompanyEntityTypeConfiguration : IEntityTypeConfiguration<AppCompan
             .HasColumnName("created_by_id");
 
         builder.Property(e => e.DateLastModified)
-            .HasColumnName("date_last_modified");
+            .HasColumnName("date_last_modified")
+            .HasDefaultValue(null);
 
         builder.Property(e => e.LastModifiedById)
-            .HasColumnName("last_modified_by_id");
+            .HasColumnName("last_modified_by_id")
+            .HasDefaultValue(null);
 
         builder.Property(e => e.IsDeleted)
             .HasColumnName("is_deleted")
             .HasDefaultValue(false);
 
         builder.Property(e => e.DateDeleted)
-            .HasColumnName("date_deleted");
+            .HasColumnName("date_deleted")
+            .HasDefaultValue(null);
 
         builder.Property(e => e.DeletedById)
-            .HasColumnName("deleted_by_id");
+            .HasColumnName("deleted_by_id")
+            .HasDefaultValue(null);
     }
 }
