@@ -1,4 +1,5 @@
-﻿using JobJuggler.Application.DTOs.Client;
+﻿using JobJuggler.API.DTOs;
+using JobJuggler.Application.DTOs.Client;
 using JobJuggler.Application.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -26,11 +27,12 @@ public class ClientController : ControllerBase {
         return res is null ? BadRequest() : Ok(res);
     }
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<ClientDTO>> GetClientById(int id) {
+    [HttpGet("{id}", Name = "Get a minimal client record by id")]
+    public async Task<ActionResult<Result<ClientDTO>>> GetClientById(int id) {
         var client = await _service.GetClientById(id);
-
-        return client is null ? NotFound() : Ok(client);
+        var result = new Result<ClientDTO>();
+        result.Value = client;
+        return client is null ? NotFound(result) : Ok(result);
     }
 
     [HttpPatch("{id}")]
