@@ -1,0 +1,6 @@
+services:
+  jobjugglerapi:
+    image: jobjugglerapi
+    build:
+      context: .
+      dockerfile: Dockerfile
