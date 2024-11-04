@@ -1,6 +1,7 @@
 ﻿using NpgsqlTypes;
 
-namespace JobJuggler.Domain.Models.Enums;
+namespace JobJuggler.Domain.Enums;
+
 public enum PriceType {
     [PgName("none")] None,
     [PgName("per_unit")] PerUnit,

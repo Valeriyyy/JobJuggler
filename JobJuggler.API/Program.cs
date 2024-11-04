@@ -3,8 +3,10 @@ using JobJuggler.API.Middleware;
 using JobJuggler.Domain.IdentityModels;
 using JobJuggler.Persistence;
 using JobJuggler.Persistence.Seeds;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Serilog;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Identity.Web;
 
 // set environment to local
 // $env:ASPNETCORE_ENVIRONMENT = 'Local'
@@ -12,8 +14,8 @@ using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+// builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//     .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
 
 builder.Services.AddApplicationServices(builder.Configuration);

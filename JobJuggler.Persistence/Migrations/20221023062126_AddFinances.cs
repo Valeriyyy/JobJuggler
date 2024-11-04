@@ -1,4 +1,4 @@
-﻿using JobJuggler.Domain.Models.Enums;
+﻿using JobJuggler.Domain.Enums;
 using JobJuggler.Persistence.Migrations.Tools;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;

@@ -1,4 +1,4 @@
-﻿using JobJuggler.Domain.Models.Enums;
+﻿using JobJuggler.Domain.Enums;
 
 namespace JobJuggler.Application.Services.Interfaces;
 public interface IPicklistService {

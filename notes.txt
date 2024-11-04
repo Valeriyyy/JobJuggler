@@ -1,2 +1,14 @@
  https://learn.microsoft.com/en-us/ef/core/cli/powershell
  Latest error when trying to insert job after rewriting migrations - MessageText: insert or update on table "jobs" violates foreign key constraint "invoice_job_id_foreign"
+
+ potenital different names
+ ServicePro Scheduler
+JobMaster
+TaskTime
+ServiceSync
+CleanSlate Scheduling
+FlowTime
+QuickFix Scheduler
+TaskTrack
+ProServe Planner
+SwiftAppoint

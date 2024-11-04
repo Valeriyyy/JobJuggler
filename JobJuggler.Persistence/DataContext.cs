@@ -1,6 +1,6 @@
 ﻿using JobJuggler.Domain.IdentityModels;
 using JobJuggler.Domain.Models;
-using JobJuggler.Domain.Models.Enums;
+using JobJuggler.Domain.Enums;
 using JobJuggler.Persistence.EntityConfigurations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

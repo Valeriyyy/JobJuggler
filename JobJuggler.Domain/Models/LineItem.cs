@@ -1,4 +1,4 @@
-﻿using JobJuggler.Domain.Models.Enums;
+﻿using JobJuggler.Domain.Enums;
 
 namespace JobJuggler.Domain.Models;
 public class LineItem {

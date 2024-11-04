@@ -1,5 +1,5 @@
 ﻿using JobJuggler.Domain.Models;
-using JobJuggler.Domain.Models.Enums;
+using JobJuggler.Domain.Enums;
 
 namespace JobJuggler.Persistence.Seeds;
 public class MainSeed {

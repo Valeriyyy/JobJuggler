@@ -1,4 +1,4 @@
-﻿using JobJuggler.Domain.Models.Enums;
+﻿using JobJuggler.Domain.Enums;
 using JobJuggler.Application.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using JobJuggler.Persistence;

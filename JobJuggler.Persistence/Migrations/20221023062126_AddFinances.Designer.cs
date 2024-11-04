@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NpgsqlTypes;
 using JobJuggler.Persistence;
-using JobJuggler.Domain.Models.Enums;
+using JobJuggler.Domain.Enums;
 
 #nullable disable
 
