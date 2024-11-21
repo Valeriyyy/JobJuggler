@@ -10,9 +10,12 @@ namespace JobJuggler.API.Controllers;
 [Route("api/[controller]")]
 public class ClientController : ControllerBase {
     private readonly IClientService _service;
+    private readonly ILogger<ClientController> _logger;
 
-    public ClientController(IClientService service, ILogger<ClientController> logger) {
+    public ClientController(IClientService service, ILogger<ClientController> logger)
+    {
         _service = service;
+        _logger = logger;
     }
 
     [HttpGet(Name = "Get All Clients")]

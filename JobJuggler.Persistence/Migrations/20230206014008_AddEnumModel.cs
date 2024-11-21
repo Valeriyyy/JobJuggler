@@ -8,7 +8,7 @@ namespace JobJuggler.Persistence.Migrations;
 public partial class AddEnumModel : Migration {
     /// <inheritdoc />
     protected override void Up(MigrationBuilder migrationBuilder) {
-        migrationBuilder.Sql(File.ReadAllText(@"..\JobJuggler.Persistence\Migrations\SQL\enums_view.sql"));
+        migrationBuilder.Sql(File.ReadAllText(@"../JobJuggler.Persistence/Migrations/SQL/enums_view.sql"));
     }
 
     /// <inheritdoc />

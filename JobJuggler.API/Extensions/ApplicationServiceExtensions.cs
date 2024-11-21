@@ -1,14 +1,14 @@
-﻿using FluentValidation;
+﻿using System.Text.Json.Serialization;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using JobJuggler.API.Middleware;
 using JobJuggler.Application.Core;
 using JobJuggler.Application.Services;
 using JobJuggler.Application.Services.Interfaces;
 using JobJuggler.Persistence;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
+using JobJuggler.Persistence.Extensions;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace JobJuggler.API.Extensions;
 
@@ -20,17 +20,18 @@ public static class ApplicationServiceExtensions {
 
         #region Controllers
         services.AddControllers(opt => {
-            var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-            opt.Filters.Add(new AuthorizeFilter(policy));
+            // var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            // opt.Filters.Add(new AuthorizeFilter(policy));
         })
             .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
-            .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
+            .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore); ;
         #endregion
 
         #region Database
         services.AddDbContext<DataContext>(options => {
             var connUrl = config.GetConnectionString("postgres");
-            options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("migrations", "main"));
+            options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("migrations", "main")
+                .MapEnums());
         });
         #endregion
 

@@ -3,10 +3,9 @@ using JobJuggler.API.Middleware;
 using JobJuggler.Domain.IdentityModels;
 using JobJuggler.Persistence;
 using JobJuggler.Persistence.Seeds;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Serilog;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Identity.Web;
+using Scalar.AspNetCore;
+using Serilog;
 
 // set environment to local
 // $env:ASPNETCORE_ENVIRONMENT = 'Local'
@@ -29,6 +28,7 @@ builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
@@ -38,6 +38,16 @@ app.UseMiddleware<ExceptionMiddleware>();
 if (!app.Environment.IsProduction()) {
     app.UseSwagger();
     app.UseSwaggerUI();
+
+    app.MapOpenApi();
+    app.MapScalarApiReference(options =>
+    {
+        options
+            .WithTitle("JobJuggler")
+            .WithTheme(ScalarTheme.Moon)
+            .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
+
+    });
 }
 
 app.UseHttpsRedirection();

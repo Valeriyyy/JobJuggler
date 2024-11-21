@@ -13,7 +13,7 @@ public partial class IdentityAdded : Migration {
     /// <inheritdoc />
     protected override void Up(MigrationBuilder migrationBuilder) {
         // Create the identity schema
-        migrationBuilder.Sql(File.ReadAllText(@"..\JobJuggler.Persistence\Migrations\SQL\create_identity_schema.sql"));
+        migrationBuilder.Sql(File.ReadAllText(@"../JobJuggler.Persistence/Migrations/SQL/create_identity_schema.sql"));
 
         // Ensure that it has been created and is ready for tables
         migrationBuilder.EnsureSchema(

@@ -23,11 +23,8 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int> {
     public DbSet<EnumModel> EnumModels { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-        if (!optionsBuilder.IsConfigured) {
-            Console.WriteLine("no options configured, not going to run");
-        }
-#pragma warning disable CS0618
-        NpgsqlConnection.GlobalTypeMapper.MapEnum<PriceType>("price_type");
+        #pragma warning disable CS0618
+        //NpgsqlConnection.GlobalTypeMapper.MapEnum<PriceType>("price_type");
 
         // according to documentation, this should be used to register enums
         // but it is broken right now and is being worked on. In the meantime
