@@ -21,7 +21,7 @@ public partial class IdentityAdded : Migration {
 
 
         migrationBuilder.CreateTable(
-            name: "asp_net_roles",
+            name: "roles",
             schema: _identitySchemaName,
             columns: table => new {
                 id = table.Column<int>(type: "integer", nullable: false)
@@ -31,7 +31,7 @@ public partial class IdentityAdded : Migration {
                 concurrencystamp = table.Column<string>(name: "concurrency_stamp", type: "text", nullable: true)
             },
             constraints: table => {
-                table.PrimaryKey("PK_asp_net_roles", x => x.id);
+                table.PrimaryKey("PK_roles", x => x.id);
             });
 
         migrationBuilder.CreateTable(
@@ -54,7 +54,7 @@ public partial class IdentityAdded : Migration {
             });
 
         migrationBuilder.CreateTable(
-            name: "asp_net_role_claims",
+            name: "role_claims",
             schema: _identitySchemaName,
             columns: table => new {
                 id = table.Column<int>(type: "integer", nullable: false)
@@ -64,18 +64,18 @@ public partial class IdentityAdded : Migration {
                 claimvalue = table.Column<string>(name: "claim_value", type: "text", nullable: true)
             },
             constraints: table => {
-                table.PrimaryKey("PK_asp_net_role_claims", x => x.id);
+                table.PrimaryKey("PK_role_claims", x => x.id);
                 table.ForeignKey(
-                    name: "FK_asp_net_role_claims_asp_net_roles_role_id",
+                    name: "FK_role_claims_roles_role_id",
                     column: x => x.roleid,
                     principalSchema: _identitySchemaName,
-                    principalTable: "asp_net_roles",
+                    principalTable: "roles",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
             });
 
         migrationBuilder.CreateTable(
-            name: "asp_net_users",
+            name: "users",
             schema: _identitySchemaName,
             columns: table => new {
                 id = table.Column<int>(type: "integer", nullable: false)
@@ -105,9 +105,9 @@ public partial class IdentityAdded : Migration {
                 accessfailedcount = table.Column<int>(name: "access_failed_count", type: "integer", nullable: false)
             },
             constraints: table => {
-                table.PrimaryKey("PK_asp_net_users", x => x.id);
+                table.PrimaryKey("PK_users", x => x.id);
                 table.ForeignKey(
-                    name: "FK_asp_net_users_companies_company_id",
+                    name: "FK_users_companies_company_id",
                     column: x => x.companyid,
                     principalSchema: _identitySchemaName,
                     principalTable: "companies",
@@ -116,7 +116,7 @@ public partial class IdentityAdded : Migration {
             });
 
         migrationBuilder.CreateTable(
-            name: "asp_net_user_claims",
+            name: "user_claims",
             schema: _identitySchemaName,
             columns: table => new {
                 id = table.Column<int>(type: "integer", nullable: false)
@@ -126,18 +126,18 @@ public partial class IdentityAdded : Migration {
                 claimvalue = table.Column<string>(name: "claim_value", type: "text", nullable: true)
             },
             constraints: table => {
-                table.PrimaryKey("PK_asp_net_user_claims", x => x.id);
+                table.PrimaryKey("PK_user_claims", x => x.id);
                 table.ForeignKey(
-                    name: "FK_asp_net_user_claims_asp_net_users_user_id",
+                    name: "FK_user_claims_users_user_id",
                     column: x => x.userid,
                     principalSchema: _identitySchemaName,
-                    principalTable: "asp_net_users",
+                    principalTable: "users",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
             });
 
         migrationBuilder.CreateTable(
-            name: "asp_net_user_logins",
+            name: "user_logins",
             schema: _identitySchemaName,
             columns: table => new {
                 loginprovider = table.Column<string>(name: "login_provider", type: "text", nullable: false),
@@ -146,43 +146,43 @@ public partial class IdentityAdded : Migration {
                 userid = table.Column<int>(name: "user_id", type: "integer", nullable: false)
             },
             constraints: table => {
-                table.PrimaryKey("PK_asp_net_user_logins", x => new { x.loginprovider, x.providerkey });
+                table.PrimaryKey("PK_user_logins", x => new { x.loginprovider, x.providerkey });
                 table.ForeignKey(
-                    name: "FK_asp_net_user_logins_asp_net_users_user_id",
+                    name: "FK_user_logins_users_user_id",
                     column: x => x.userid,
                     principalSchema: _identitySchemaName,
-                    principalTable: "asp_net_users",
+                    principalTable: "users",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
             });
 
         migrationBuilder.CreateTable(
-            name: "asp_net_user_roles",
+            name: "user_roles",
             schema: _identitySchemaName,
             columns: table => new {
                 userid = table.Column<int>(name: "user_id", type: "integer", nullable: false),
                 roleid = table.Column<int>(name: "role_id", type: "integer", nullable: false)
             },
             constraints: table => {
-                table.PrimaryKey("PK_asp_net_user_roles", x => new { x.userid, x.roleid });
+                table.PrimaryKey("PK_user_roles", x => new { x.userid, x.roleid });
                 table.ForeignKey(
-                    name: "FK_asp_net_user_roles_asp_net_roles_role_id",
+                    name: "FK_user_roles_roles_role_id",
                     column: x => x.roleid,
                     principalSchema: _identitySchemaName,
-                    principalTable: "asp_net_roles",
+                    principalTable: "roles",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
                 table.ForeignKey(
-                    name: "FK_asp_net_user_roles_asp_net_users_user_id",
+                    name: "FK_user_roles_users_user_id",
                     column: x => x.userid,
                     principalSchema: _identitySchemaName,
-                    principalTable: "asp_net_users",
+                    principalTable: "users",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
             });
 
         migrationBuilder.CreateTable(
-            name: "asp_net_user_tokens",
+            name: "user_tokens",
             schema: _identitySchemaName,
             columns: table => new {
                 userid = table.Column<int>(name: "user_id", type: "integer", nullable: false),
@@ -191,63 +191,63 @@ public partial class IdentityAdded : Migration {
                 value = table.Column<string>(name: "value", type: "text", nullable: true)
             },
             constraints: table => {
-                table.PrimaryKey("PK_asp_net_user_tokens", x => new { x.userid, x.loginprovider, x.name });
+                table.PrimaryKey("PK_user_tokens", x => new { x.userid, x.loginprovider, x.name });
                 table.ForeignKey(
-                    name: "FK_asp_net_user_tokens_asp_net_users_user_id",
+                    name: "FK_user_tokens_users_user_id",
                     column: x => x.userid,
                     principalSchema: _identitySchemaName,
-                    principalTable: "asp_net_users",
+                    principalTable: "users",
                     principalColumn: "id",
                     onDelete: ReferentialAction.Cascade);
             });
 
         migrationBuilder.CreateIndex(
-            name: "IX_asp_net_role_claims_role_id",
+            name: "IX_role_claims_role_id",
             schema: _identitySchemaName,
-            table: "asp_net_role_claims",
+            table: "role_claims",
             column: "role_id");
 
         migrationBuilder.CreateIndex(
             name: "RoleNameIndex",
             schema: _identitySchemaName,
-            table: "asp_net_roles",
+            table: "roles",
             column: "normalized_name",
             unique: true);
 
         migrationBuilder.CreateIndex(
-            name: "IX_asp_net_user_claims_user_id",
+            name: "IX_user_claims_user_id",
             schema: _identitySchemaName,
-            table: "asp_net_user_claims",
+            table: "user_claims",
             column: "user_id");
 
         migrationBuilder.CreateIndex(
-            name: "IX_asp_net_user_logins_user_id",
+            name: "IX_user_logins_user_id",
             schema: _identitySchemaName,
-            table: "asp_net_user_logins",
+            table: "user_logins",
             column: "user_id");
 
         migrationBuilder.CreateIndex(
-            name: "IX_asp_net_user_roles_role_id",
+            name: "IX_user_roles_role_id",
             schema: _identitySchemaName,
-            table: "asp_net_user_roles",
+            table: "user_roles",
             column: "role_id");
 
         migrationBuilder.CreateIndex(
             name: "EmailIndex",
             schema: _identitySchemaName,
-            table: "asp_net_users",
+            table: "users",
             column: "normalized_email");
 
         migrationBuilder.CreateIndex(
-            name: "IX_asp_net_users_company_id",
+            name: "IX_users_company_id",
             schema: _identitySchemaName,
-            table: "asp_net_users",
+            table: "users",
             column: "company_id");
 
         migrationBuilder.CreateIndex(
             name: "UserNameIndex",
             schema: _identitySchemaName,
-            table: "asp_net_users",
+            table: "users",
             column: "normalized_username",
             unique: true);
     }
@@ -255,37 +255,37 @@ public partial class IdentityAdded : Migration {
     /// <inheritdoc />
     protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.DropTable(
-            name: "asp_net_role_claims",
+            name: "role_claims",
             schema: _identitySchemaName);
 
         migrationBuilder.DropTable(
-            name: "asp_net_user_claims",
+            name: "user_claims",
             schema: _identitySchemaName);
 
         migrationBuilder.DropTable(
-            name: "asp_net_user_logins",
+            name: "user_logins",
             schema: _identitySchemaName);
 
         migrationBuilder.DropTable(
-            name: "asp_net_user_roles",
+            name: "user_roles",
             schema: _identitySchemaName);
 
         migrationBuilder.DropTable(
-            name: "asp_net_user_tokens",
+            name: "user_tokens",
             schema: _identitySchemaName);
 
         migrationBuilder.DropTable(
-            name: "asp_net_roles",
+            name: "roles",
             schema: _identitySchemaName);
 
         migrationBuilder.DropTable(
-            name: "asp_net_users",
+            name: "users",
             schema: _identitySchemaName);
 
         migrationBuilder.DropTable(
             name: "companies",
             schema: _identitySchemaName);
 
-        migrationBuilder.Sql("DROP SCHEMA IF EXISTS identity");
+        migrationBuilder.DropSchema(_identitySchemaName);
     }
 }

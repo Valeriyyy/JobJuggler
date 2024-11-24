@@ -7,7 +7,10 @@ using JobJuggler.Application.Services;
 using JobJuggler.Application.Services.Interfaces;
 using JobJuggler.Persistence;
 using JobJuggler.Persistence.Extensions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Newtonsoft.Json;
 
 namespace JobJuggler.API.Extensions;
@@ -20,18 +23,18 @@ public static class ApplicationServiceExtensions {
 
         #region Controllers
         services.AddControllers(opt => {
-            // var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-            // opt.Filters.Add(new AuthorizeFilter(policy));
+            var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            opt.Filters.Add(new AuthorizeFilter(policy));
         })
-            .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
+            .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve)
             .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore); ;
         #endregion
 
         #region Database
         services.AddDbContext<DataContext>(options => {
             var connUrl = config.GetConnectionString("postgres");
-            options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("migrations", "main")
-                .MapEnums());
+            options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("__EFMigrationsHistory", "public")
+                .MapEnums()).ConfigureWarnings(c => c.Ignore(RelationalEventId.PendingModelChangesWarning));
         });
         #endregion
 

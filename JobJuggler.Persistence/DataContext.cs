@@ -2,6 +2,7 @@
 using JobJuggler.Domain.Models;
 using JobJuggler.Domain.Enums;
 using JobJuggler.Persistence.EntityConfigurations;
+using JobJuggler.Persistence.EntityConfigurations.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
@@ -9,7 +10,10 @@ using Persistence.EntityConfigurations;
 
 namespace JobJuggler.Persistence;
 
-public class DataContext : IdentityDbContext<AppUser, AppRole, int> {
+public class DataContext : IdentityDbContext<
+    AppUser, AppRole, int, AppUserClaim, 
+    AppUserRole, AppUserLogin, AppRoleClaim, 
+    AppUserToken> {
     public DataContext() { }
     public DataContext(DbContextOptions options) : base(options) { }
     public DbSet<AppCompany> Companies { get; set; } = null!;
@@ -39,10 +43,21 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int> {
         var defaultSchema = "main";
         modelBuilder.HasDefaultSchema(defaultSchema);
         modelBuilder.HasPostgresExtension("uuid-ossp")
-            .HasPostgresEnum(defaultSchema, "price_type", new[] { "none", "per_unit", "flat_rate" });
+            .HasPostgresEnum(defaultSchema, "price_type", ["none", "per_unit", "flat_rate"]);
 
 
+        #region Identity
         new AppUserEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUser>());
+        new CompanyEntityTypeConfiguration().Configure(modelBuilder.Entity<AppCompany>());
+        new AppRoleEntityTypeConfiguration().Configure(modelBuilder.Entity<AppRole>());
+        new AppUserClaimEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUserClaim>());
+        new AppRoleClaimEntityTypeConfiguration().Configure(modelBuilder.Entity<AppRoleClaim>());
+        new AppUserLoginEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUserLogin>());
+        new AppUserRoleEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUserRole>());
+        new AppUserTokenEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUserToken>());
+        #endregion
+        
+        #region Business
         new ClientEntityTypeConfiguration().Configure(modelBuilder.Entity<Client>());
         new LocationEntityTypeConfiguration().Configure(modelBuilder.Entity<Location>());
         new JobEntityTypeConfiguration().Configure(modelBuilder.Entity<Job>());
@@ -51,6 +66,6 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int> {
         new InvoiceEntityTypeConfiguration().Configure(modelBuilder.Entity<Invoice>());
         new InvoiceLineEntityTypeConfiguration().Configure(modelBuilder.Entity<InvoiceLine>());
         new EnumModelTypeConfiguration().Configure(modelBuilder.Entity<EnumModel>());
-        new CompanyEntityTypeConfiguration().Configure(modelBuilder.Entity<AppCompany>());
+        #endregion
     }
 }

@@ -2,7 +2,7 @@
   "profiles": {
     "API": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrlSwagger": "swagger",
       "launchUrl": "scalar/v1",
       "environmentVariables": {

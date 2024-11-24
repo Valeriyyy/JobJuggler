@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace JobJuggler.Persistence.EntityConfigurations;
+namespace JobJuggler.Persistence.EntityConfigurations.Identity;
 
 public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser> {
     public void Configure(EntityTypeBuilder<AppUser> builder) {
-        builder.ToTable("asp_net_users", schema: "identity");
+        builder.ToTable("users", schema: "identity");
 
         builder.Property(e => e.Id)
             .HasColumnName("id")
@@ -87,5 +87,12 @@ public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser> 
             .WithMany(company => company.Users)
             .HasForeignKey(user => user.CompanyId)
             .HasConstraintName("user_company_id_foreign");
+
+        builder.HasMany(user => user.Roles)
+            .WithMany(role => role.Users)
+            .UsingEntity<AppUserRole>(
+                r => r.HasOne(x => x.Role).WithMany().HasForeignKey(x => x.RoleId),
+                l => l.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId)
+                );
     }
 }

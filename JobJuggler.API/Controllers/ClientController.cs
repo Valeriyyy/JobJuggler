@@ -1,6 +1,7 @@
 ﻿using JobJuggler.API.DTOs;
 using JobJuggler.Application.DTOs.Client;
 using JobJuggler.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,7 @@ public class ClientController : ControllerBase {
     }
 
     [HttpGet(Name = "Get All Clients")]
+    [AllowAnonymous]
     public async Task<ActionResult<IEnumerable<ClientDTO>>> GetAll() {
         return Ok(await _service.GetClients());
     }
