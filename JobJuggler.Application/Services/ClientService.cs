@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using JobJuggler.Application.DTOs.Client;
+using JobJuggler.DTO.Client;
 using JobJuggler.Application.Exceptions;
 using JobJuggler.Application.Services.Interfaces;
 using JobJuggler.Domain.Models;
 using JobJuggler.Persistence;
+using JobJugglers.Mapping;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,63 +21,40 @@ public class ClientService : IClientService {
     }
 
     public async Task<List<ClientDTO>> GetClients() {
-        var clients = await _context.Clients.ProjectTo<ClientDTO>(_mapper.ConfigurationProvider).ToListAsync();
-        return clients;
+        var clients = await _context.Clients.ToListAsync();
+        
+        return ClientMapper.ClientsToDTO(clients);
     }
 
     public async Task<ClientDTO> CreateClient(ClientInsertDTO clientToInput) {
-        var client = _mapper.Map<Client>(clientToInput);
+        var client = ClientMapper.ClientInsertToClientModel(clientToInput);
         _context.Add(client);
-
+        
         await _context.SaveChangesAsync();
-        return _mapper.Map<ClientDTO>(client);
+        return ClientMapper.ClientToDTO(client);
     }
 
-    public async Task<ClientDTO?> GetClientById(int clientId) => await _context.Clients.ProjectTo<ClientDTO>(_mapper.ConfigurationProvider).FirstOrDefaultAsync(client => client.Id == clientId);
+    public async Task<ClientDTO?> GetClientById(int clientId)
+    {
+        var client = await _context.Clients.FirstOrDefaultAsync(client => client.Id == clientId);
+        return client == null ? null : ClientMapper.ClientToDTO(client);
+    } 
 
     public async Task<ClientDTO?> UpdateClient(int clientId, JsonPatchDocument clientInfo) {
-        var existingClient = await _context.Clients.FirstOrDefaultAsync(cl => cl.Id == clientId) ?? throw new RecordNotFoundException(typeof(Client), clientId);
+        var existingClient = await _context.Clients.FirstOrDefaultAsync(cl => cl.Id == clientId) 
+                             ?? throw new RecordNotFoundException(typeof(Client), clientId);
         clientInfo.ApplyTo(existingClient);
 
         await _context.SaveChangesAsync();
-        var clientToReturn = _mapper.Map<ClientDTO>(existingClient);
+        var clientToReturn = ClientMapper.ClientToDTO(existingClient);
         return clientToReturn;
     }
 
     public async Task<ClientProfile?> GetProfile(int clientId) {
-        var profile = await _context.Clients
-            .Select(c => new ClientProfile {
-                Id = c.Id,
-                Name = c.Name,
-                Phone = c.Phone,
-                Email = c.Email,
-                Jobs = c.Jobs.Select(j => new ClientProfileJob {
-                    Id = j.Id,
-                    Price = j.Price,
-                    Notes = j.Notes,
-                    IsCompleted = j.IsCompleted,
-                    IsCanceled = j.IsCanceled,
-                    CancelReason = j.CancelReason,
-                    CanceledDate = j.CanceledDate,
-                    ScheduledDate = j.ScheduledDate,
-                    ScheduledArrivalStartDate = j.ScheduledArrivalStartDate,
-                    ScheduledArrivalEndDate = j.ScheduledArrivalEndDate,
-                    StartedDate = j.StartedDate,
-                    CompletedDate = j.CompletedDate,
-                    Location = new ClientProfileLocation {
-                        LocationType = j.Location.LocationType,
-                        Street1 = j.Location.Street1,
-                        Street2 = j.Location.Street2,
-                        City = j.Location.City,
-                        State = j.Location.State,
-                        PostalCode = j.Location.PostalCode,
-                        Country = j.Location.Country,
-                        Latitude = j.Location.Latitude,
-                        Longitude = j.Location.Longitude,
-                    }
-                })
-            }).FirstOrDefaultAsync(c => c.Id == clientId);
-
-        return profile;
+        var client = await _context.Clients
+            .Include(c => c.Jobs)
+            .ThenInclude(j => j.Location)
+            .FirstOrDefaultAsync(c => c.Id == clientId);
+        return ClientMapper.ClientToProfile(client);
     }
 }

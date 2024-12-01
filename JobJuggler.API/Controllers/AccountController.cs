@@ -14,6 +14,7 @@ namespace JobJuggler.API.Controllers;
 [Route("api/[controller]")]
 public class AccountController : ControllerBase {
     private readonly UserManager<AppUser> _userManager;
+    // private readonly SignInManager<AppUser> _signInManager;
     private readonly DataContext _context;
     private readonly TokenService _tokenService;
     private readonly ILogger<AccountController> _logger;
@@ -23,6 +24,7 @@ public class AccountController : ControllerBase {
         _tokenService = tokenService;
         _logger = logger;
         _context = context;
+        // _signInManager = signInManager;
     }
 
 
@@ -83,6 +85,31 @@ public class AccountController : ControllerBase {
 
         return CreateUserObject(user);
     }
+
+    // [Authorize]
+    // [HttpPost("logout")]
+    // public async Task<ActionResult<bool>> Logout()
+    // {
+    //     await _signInManager.SignOutAsync();
+    //
+    //     return true;
+    // }
+    
+    private async Task SetRefreshToken(AppUser user) {
+        var refreshToken = _tokenService.GenerateRefreshToken();
+
+        //user.RefreshTokens.Add(refreshToken);
+        await _userManager.UpdateAsync(user);
+
+        var cookieOptions = new CookieOptions
+        {
+            HttpOnly = true,
+            Expires = DateTime.UtcNow.AddDays(7)
+        };
+
+        Response.Cookies.Append("refreshToken", refreshToken.Token, cookieOptions);
+    }
+    
 
     private UserDto CreateUserObject(AppUser user) {
         var (tokenString, expirationDate) = _tokenService.CreateToken(user);

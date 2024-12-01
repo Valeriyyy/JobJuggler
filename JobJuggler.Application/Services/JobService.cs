@@ -4,9 +4,11 @@ using JobJuggler.Domain.Models;
 using JobJuggler.Application.DTOs.Job;
 using JobJuggler.Application.Exceptions;
 using JobJuggler.Application.Services.Interfaces;
+using JobJuggler.DTO.Job;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using JobJuggler.Persistence;
+using JobJugglers.Mapping;
 using ValidationException = JobJuggler.Application.Exceptions.ValidationException;
 
 namespace JobJuggler.Application.Services;
@@ -44,6 +46,7 @@ public class JobService : IJobService {
         };
         using var trx = await _context.Database.BeginTransactionAsync();
         var jobClient = _mapper.Map<Client>(jobToInsert.Client);
+        var someClient = ClientMapper.JobClientToClientModel(jobToInsert.Client);
         if (jobToInsert.Client.Id is null) {
             // assigning the uncreated client directly to the job creates the client along with the job
             // during context.savechanges

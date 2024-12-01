@@ -1,4 +1,4 @@
-﻿using JobJuggler.Application.DTOs.Location;
+﻿using JobJuggler.DTO.Location;
 using JobJuggler.Application.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;

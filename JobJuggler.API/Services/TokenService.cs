@@ -2,6 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace JobJuggler.API.Services;
@@ -20,7 +21,8 @@ public class TokenService {
             new(ClaimTypes.Email, user.Email)
         };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Identity:SecurityTokenKey"]!));
+        // var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Identity:SecurityTokenKey"]!));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("_config[\"Identity:SecurityTokenKey\"]!"));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
         var expiration = DateTime.UtcNow.AddHours(8);
@@ -35,5 +37,12 @@ public class TokenService {
         var token = tokenHandler.CreateToken(tokenDescriptor);
 
         return (tokenHandler.WriteToken(token), expiration);
+    }
+    
+    public RefreshToken GenerateRefreshToken() {
+        var randomNumber = new byte[32];
+        using var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(randomNumber);
+        return new RefreshToken { Token = Convert.ToBase64String(randomNumber) };
     }
 }

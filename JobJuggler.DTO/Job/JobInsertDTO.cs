@@ -1,6 +1,6 @@
-﻿using FluentValidation;
+﻿// using FluentValidation;
 
-namespace JobJuggler.Application.DTOs.Job;
+namespace JobJuggler.DTO.Job;
 public class JobInsertDTO {
     public JobClientDTO Client { get; set; }
     public DateTime ScheduledDate { get; set; }
@@ -39,11 +39,11 @@ public class JobLocationDTO {
     public string? Notes { get; set; }
 }
 
-public class JobClientDTOValidator : AbstractValidator<JobClientDTO> {
-    public JobClientDTOValidator() {
-        When(c => c.Id is null, () => {
-            RuleFor(c => c.Name).NotEmpty().WithMessage("Name must not be empty when creating new client");
-            RuleFor(c => c.Phone).NotEmpty().WithMessage("Phone number must not be empty when creating new client");
-        });
-    }
-}
+// public class JobClientDTOValidator : AbstractValidator<JobClientDTO> {
+//     public JobClientDTOValidator() {
+//         When(c => c.Id is null, () => {
+//             RuleFor(c => c.Name).NotEmpty().WithMessage("Name must not be empty when creating new client");
+//             RuleFor(c => c.Phone).NotEmpty().WithMessage("Phone number must not be empty when creating new client");
+//         });
+//     }
+// }

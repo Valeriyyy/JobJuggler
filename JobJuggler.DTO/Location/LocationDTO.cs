@@ -1,5 +1,7 @@
-﻿namespace JobJuggler.Application.DTOs.Location;
-public class LocationInsertDTO {
+﻿namespace JobJuggler.DTO.Location;
+public class LocationDTO {
+    public int Id { get; set; }
+    public Guid Guid { get; set; }
     public string? Name { get; set; }
     public string? LocationType { get; set; }
     public string? Street1 { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace JobJuggler.Domain.Models;
 
-public class Client {
+public class Client : BaseEntity {
     public int Id { get; set; }
     public Guid Guid { get; set; }
     public string Name { get; set; }

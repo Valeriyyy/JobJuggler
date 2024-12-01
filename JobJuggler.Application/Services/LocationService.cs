@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using JobJuggler.Domain.Models;
-using JobJuggler.Application.DTOs.Location;
+using JobJuggler.DTO.Location;
 using JobJuggler.Application.Exceptions;
 using JobJuggler.Application.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;

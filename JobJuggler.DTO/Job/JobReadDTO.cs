@@ -1,7 +1,8 @@
-﻿using JobJuggler.Application.DTOs.Client;
-using JobJuggler.Application.DTOs.Location;
+﻿using JobJuggler.DTO.Client;
+using JobJuggler.DTO.Location;
+using JobJuggler.DTO.Finance;
 
-namespace JobJuggler.Application.DTOs.Job;
+namespace JobJuggler.DTO.Job;
 // Have to figure out how to map to records
 // maybe cannot be done because records are init only
 // and maybe automapper does not do it on init

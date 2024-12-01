@@ -1,4 +1,4 @@
-﻿using JobJuggler.Application.DTOs.Client;
+﻿using JobJuggler.DTO.Client;
 using Microsoft.AspNetCore.JsonPatch;
 
 namespace JobJuggler.Application.Services.Interfaces;

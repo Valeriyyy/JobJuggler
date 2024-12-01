@@ -1,5 +1,6 @@
 ﻿using JobJuggler.Application.DTOs.Job;
 using JobJuggler.Domain.Models;
+using JobJuggler.DTO.Job;
 
 namespace JobJuggler.Application.Services.Interfaces;
 public interface IJobService {

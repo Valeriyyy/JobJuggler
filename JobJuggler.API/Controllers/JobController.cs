@@ -1,4 +1,4 @@
-﻿using JobJuggler.Application.DTOs.Job;
+﻿using JobJuggler.DTO.Job;
 using JobJuggler.Application.Services;
 using JobJuggler.Application.Services.Interfaces;
 using JobJuggler.Domain.Models;

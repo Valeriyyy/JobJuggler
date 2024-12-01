@@ -1,4 +1,4 @@
-﻿namespace JobJuggler.Application.DTOs.Client;
+﻿namespace JobJuggler.DTO.Client;
 public class ClientProfile {
     public int Id { get; set; }
     public Guid Guid { get; set; }

@@ -1,4 +1,5 @@
-﻿namespace JobJuggler.Application.DTOs;
+﻿namespace JobJuggler.DTO.Finance;
+
 public class PaymentMethodDTO {
     public int Id { get; set; }
     public string Name { get; set; }

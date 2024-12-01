@@ -1,8 +1,8 @@
-﻿using JobJuggler.Application.DTOs;
-using JobJuggler.Application.DTOs.Client;
-using JobJuggler.Application.DTOs.Job;
-using JobJuggler.Application.DTOs.Location;
+﻿using JobJuggler.DTO.Client;
+using JobJuggler.DTO.Job;
+using JobJuggler.DTO.Location;
 using JobJuggler.Domain.Models;
+using JobJuggler.DTO.Finance;
 
 namespace JobJuggler.Application.Core;
 

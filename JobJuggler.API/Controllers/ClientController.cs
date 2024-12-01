@@ -1,6 +1,7 @@
 ﻿using JobJuggler.API.DTOs;
-using JobJuggler.Application.DTOs.Client;
+// using JobJuggler.Application.DTOs.Client;
 using JobJuggler.Application.Services.Interfaces;
+using JobJuggler.DTO.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,6 @@ public class ClientController : ControllerBase {
     }
 
     [HttpGet(Name = "Get All Clients")]
-    [AllowAnonymous]
     public async Task<ActionResult<IEnumerable<ClientDTO>>> GetAll() {
         return Ok(await _service.GetClients());
     }
@@ -35,9 +35,8 @@ public class ClientController : ControllerBase {
     [HttpGet("{id}", Name = "Get a minimal client record by id")]
     public async Task<ActionResult<Result<ClientDTO>>> GetClientById(int id) {
         var client = await _service.GetClientById(id);
-        var result = new Result<ClientDTO>();
-        result.Value = client;
-        return client is null ? NotFound(result) : Ok(result);
+        
+        return client is null ? NotFound(client) : Ok(client);
     }
 
     [HttpPatch("{id}")]
@@ -48,8 +47,8 @@ public class ClientController : ControllerBase {
     }
 
     [HttpGet("profile/{id}")]
-    public async Task<ActionResult<ClientProfile>> GetClientProfile(int clientId) {
-        var profile = await _service.GetProfile(clientId);
+    public async Task<ActionResult<ClientProfile>> GetClientProfile(int id) {
+        var profile = await _service.GetProfile(id);
         if (profile is null) {
             return NotFound();
         }

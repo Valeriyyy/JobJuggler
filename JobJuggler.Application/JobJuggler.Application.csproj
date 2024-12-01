@@ -18,7 +18,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JobJuggler.Domain\JobJuggler.Domain.csproj" />
+    <ProjectReference Include="..\JobJuggler.DTO\JobJuggler.DTO.csproj" />
     <ProjectReference Include="..\JobJuggler.Persistence\JobJuggler.Persistence.csproj" />
+    <ProjectReference Include="..\JobJugglers.Mapping\JobJugglers.Mapping.csproj" />
   </ItemGroup>
 
 </Project>
