@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using JobJuggler.DTO.Client;
 using JobJuggler.Application.Exceptions;
 using JobJuggler.Application.Services.Interfaces;
@@ -13,11 +12,11 @@ namespace JobJuggler.Application.Services;
 
 public class ClientService : IClientService {
     private readonly DataContext _context;
-    private readonly IMapper _mapper;
+    private readonly IUserAccessor _userAccessor;
 
-    public ClientService(DataContext context, IMapper mapper) {
+    public ClientService(DataContext context, IUserAccessor userAccessor) {
         _context = context;
-        _mapper = mapper;
+        _userAccessor = userAccessor;
     }
 
     public async Task<List<ClientDTO>> GetClients() {
@@ -28,6 +27,12 @@ public class ClientService : IClientService {
 
     public async Task<ClientDTO> CreateClient(ClientInsertDTO clientToInput) {
         var client = ClientMapper.ClientInsertToClientModel(clientToInput);
+
+        if (client != null)
+        {
+            client.DateCreated = DateTime.UtcNow;
+            client.CreatedById = _userAccessor.GetUserId();
+        }
         _context.Add(client);
         
         await _context.SaveChangesAsync();

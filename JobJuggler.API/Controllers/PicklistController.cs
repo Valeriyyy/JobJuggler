@@ -8,11 +8,9 @@ namespace JobJuggler.API.Controllers;
 [Route("api/[controller]")]
 public class PicklistController : ControllerBase {
     private readonly IPicklistService _service;
-    private readonly IClientService _clientService;
 
-    public PicklistController(IPicklistService service, IClientService clientService) {
+    public PicklistController(IPicklistService service) {
         _service = service;
-        _clientService = clientService;
     }
 
     [HttpGet(Name = "Get All Options")]

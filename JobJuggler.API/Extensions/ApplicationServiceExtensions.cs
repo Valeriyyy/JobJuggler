@@ -2,9 +2,11 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using JobJuggler.API.Middleware;
+using JobJuggler.Application;
 using JobJuggler.Application.Core;
 using JobJuggler.Application.Services;
 using JobJuggler.Application.Services.Interfaces;
+using JobJuggler.Infrastructure.Security;
 using JobJuggler.Persistence;
 using JobJuggler.Persistence.Extensions;
 using Microsoft.AspNetCore.Authorization;
@@ -46,10 +48,11 @@ public static class ApplicationServiceExtensions {
         #endregion
 
         #region Services
-        services.AddTransient<IClientService, ClientService>();
-        services.AddTransient<ILocationService, LocationService>();
-        services.AddTransient<IJobService, JobService>();
-        services.AddTransient<IPicklistService, PicklistService>();
+        services.AddScoped<IUserAccessor, UserAccessor>();
+        services.AddScoped<IClientService, ClientService>();
+        services.AddScoped<ILocationService, LocationService>();
+        services.AddScoped<IJobService, JobService>();
+        services.AddScoped<IPicklistService, PicklistService>();
         #endregion
 
         #region AutoMapper
