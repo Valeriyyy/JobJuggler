@@ -1,0 +1,6 @@
+// Create the identity schema
+migrationBuilder.Sql(File.ReadAllText(@"../JobJuggler.Persistence/Migrations/SQL/create_identity_schema.sql"));
+
+// Ensure that it has been created and is ready for tables
+migrationBuilder.EnsureSchema(
+    name: _identitySchemaName);

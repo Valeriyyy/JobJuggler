@@ -8,7 +8,7 @@ public class AppUserClaimEntityTypeConfiguration : IEntityTypeConfiguration<AppU
 {
     public void Configure(EntityTypeBuilder<AppUserClaim> builder)
     {
-        builder.ToTable("AppUserClaim", schema: "identity");
+        builder.ToTable("user_claims", schema: "identity");
         
         builder.Property(e => e.Id)
             .HasColumnName("id")

@@ -55,19 +55,14 @@ public class InvoiceEntityTypeConfiguration : IEntityTypeConfiguration<Invoice> 
             .HasDefaultValue(null)
             .HasComment("The final date when the invoice was fully processed and all the payment has cleared");
 
-        /*builder.HasOne(invoice => invoice.Job)
-            .WithOne(job => job.Invoice)
-            .HasForeignKey<Job>(job => job.Id)
-            .HasConstraintName("invoice_job_id_foreign");*/
-
         builder.HasOne(invoice => invoice.Consignee)
             .WithMany(consignee => consignee.Invoices)
             .HasForeignKey(invoice => invoice.ConsigneeId)
             .HasConstraintName("invoice_consignee_id_foreign");
 
-        builder.HasOne(invoice => invoice.PaymentMethod)
-            .WithMany(paymentMethod => paymentMethod.Invoices)
-            .HasForeignKey(invoice => invoice.PaymentMethodId)
-            .HasConstraintName("invoice_payment_method_id_foreign");
+        // builder.HasOne(invoice => invoice.PaymentMethod)
+        //     .WithMany(paymentMethod => paymentMethod.Invoices)
+        //     .HasForeignKey(invoice => invoice.PaymentMethodId)
+        //     .HasConstraintName("invoice_payment_method_id_foreign");
     }
 }

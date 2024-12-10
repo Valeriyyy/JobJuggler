@@ -1,4 +1,6 @@
-﻿namespace JobJuggler.Domain.Models;
+﻿using JobJuggler.Domain.IdentityModels;
+
+namespace JobJuggler.Domain.Models;
 
 public class Client : BaseEntity {
     public int Id { get; set; }
@@ -6,7 +8,7 @@ public class Client : BaseEntity {
     public string Name { get; set; }
     public string Phone { get; set; }
     public string? Email { get; set; }
-
+    
     public virtual List<Job> Jobs { get; set; }
     public virtual List<Invoice> Invoices { get; set; }
 

@@ -9,5 +9,5 @@ public class AppUserClaim : IdentityUserClaim<int>
     public string ClaimType { get; set; }
     public string ClaimValue { get; set; }
     
-    public AppUser User { get; set; }
+    public virtual AppUser User { get; set; }
 }

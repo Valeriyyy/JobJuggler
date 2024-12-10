@@ -8,4 +8,5 @@ public class AppRole : IdentityRole<int> {
     public string ConcurrencyStamp { get; set; }
     
     public virtual List<AppUser> Users { get; set; }
+    public virtual ICollection<AppRoleClaim> Claims { get; set; }
 }

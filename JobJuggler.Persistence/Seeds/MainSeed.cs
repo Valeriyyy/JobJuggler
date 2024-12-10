@@ -1,13 +1,17 @@
 ﻿using JobJuggler.Domain.Models;
 using JobJuggler.Domain.Enums;
+using JobJuggler.Domain.IdentityModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobJuggler.Persistence.Seeds;
 public class MainSeed {
-    public static async Task SeedData(DataContext context) {
+    public static async Task SeedData(DataContext context)
+    {
+        var user = await context.Users.SingleOrDefaultAsync();
         await Task.WhenAll(
             PaymentMethodSeed(context),
             LineItemSeed(context),
-            ClientSeed(context),
+            ClientSeed(context, user),
             LocationSeed(context)
         );
 
@@ -102,7 +106,7 @@ public class MainSeed {
         return Task.CompletedTask;
     }
 
-    public static Task ClientSeed(DataContext context) {
+    public static Task ClientSeed(DataContext context, AppUser user) {
         if (!context.Clients.Any()) {
             var clients = new List<Client>
             {
@@ -110,18 +114,24 @@ public class MainSeed {
                 {
                     Name = "Valeriy Kutsar",
                     Phone = "916-519-8858",
-                    Email = "valeriykutsar@gmail.com"
+                    Email = "valeriykutsar@gmail.com",
+                    DateCreated = DateTime.UtcNow,
+                    CreatedById = user.Id
                 },
                 new ()
                 {
                     Name = "Vick Kuzmenko",
                     Phone = "951-514-5236",
-                    Email = "vkuzmenko@rcglogistics.com"
+                    Email = "vkuzmenko@rcglogistics.com",
+                    DateCreated = DateTime.UtcNow,
+                    CreatedById = user.Id
                 },
                 new ()
                 {
                     Name = "Barack Obama",
-                    Phone = "652-123-1523"
+                    Phone = "652-123-1523",
+                    DateCreated = DateTime.UtcNow,
+                    CreatedById = user.Id
                 },
             };
 

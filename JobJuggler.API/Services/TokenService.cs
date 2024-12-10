@@ -21,8 +21,7 @@ public class TokenService {
             new(ClaimTypes.Email, user.Email)
         };
 
-        // var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Identity:SecurityTokenKey"]!));
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("_config[\"Identity:SecurityTokenKey\"]!"));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Identity:SecurityTokenKey"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
         var expiration = DateTime.UtcNow.AddHours(8);

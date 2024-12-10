@@ -1,4 +1,5 @@
 ﻿using JobJuggler.Domain.Models;
+using JobJuggler.Persistence.EntityConfigurations.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -26,5 +27,7 @@ public class ClientEntityTypeConfiguration : IEntityTypeConfiguration<Client> {
         builder.Property(e => e.Email)
             .HasColumnName("email")
             .HasDefaultValue(null);
+        
+        builder.AddAuditConfigFields("clients");
     }
 }

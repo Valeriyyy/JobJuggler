@@ -64,8 +64,8 @@ var services = scope.ServiceProvider;
 try {
     var context = services.GetRequiredService<DataContext>();
     var userManager = services.GetRequiredService<UserManager<AppUser>>();
-    await MainSeed.SeedData(context);
     await IdentitySeed.SeedIdentity(context, userManager);
+    await MainSeed.SeedData(context);
 } catch (Exception ex) {
     Console.WriteLine("Something has gone wrong seeding the database");
     Console.WriteLine(ex.Message);

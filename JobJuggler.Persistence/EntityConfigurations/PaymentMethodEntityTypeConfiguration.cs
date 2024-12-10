@@ -20,5 +20,10 @@ public class PaymentMethodEntityTypeConfiguration : IEntityTypeConfiguration<Pay
             .HasColumnName("is_active")
             .HasDefaultValue(false)
             .HasComment("Indicates if the payment method is still meant to be used");
+        
+        builder.HasMany(e => e.Invoices)
+            .WithOne(e => e.PaymentMethod)
+            .HasForeignKey(e => e.Id)
+            .HasConstraintName("invoice_payment_method_id_foreign");
     }
 }

@@ -34,11 +34,13 @@ public class InvoiceLineEntityTypeConfiguration : IEntityTypeConfiguration<Invoi
         builder.HasOne(invoiceLine => invoiceLine.Invoice)
             .WithMany(invoice => invoice.Lines)
             .HasForeignKey(invoiceLine => invoiceLine.InvoiceId)
+            .OnDelete(DeleteBehavior.Cascade)
             .HasConstraintName("line_invoice_id_foreign");
 
         builder.HasOne(invoiceLine => invoiceLine.Item)
             .WithMany(lineItem => lineItem.Invoices)
             .HasForeignKey(invoiceLine => invoiceLine.ItemId)
+            .OnDelete(DeleteBehavior.Cascade)
             .HasConstraintName("line_item_id_foreign");
     }
 }
