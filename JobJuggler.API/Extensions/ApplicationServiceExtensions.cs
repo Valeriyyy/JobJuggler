@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Security.Claims;
+using System.Text.Json.Serialization;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using JobJuggler.API.Middleware;
@@ -9,6 +10,7 @@ using JobJuggler.Application.Services.Interfaces;
 using JobJuggler.Infrastructure.Security;
 using JobJuggler.Persistence;
 using JobJuggler.Persistence.Extensions;
+using JobJuggler.Persistence.Interceptors;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -33,10 +35,12 @@ public static class ApplicationServiceExtensions {
         #endregion
 
         #region Database
-        services.AddDbContext<DataContext>(options => {
+        var userAccessor = new UserAccessor(new HttpContextAccessor());
+        services.AddDbContext<DataContext>((sp, options) => {
             var connUrl = config.GetConnectionString("postgres");
             options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("__EFMigrationsHistory", "public")
-                .MapEnums()).ConfigureWarnings(c => c.Ignore(RelationalEventId.PendingModelChangesWarning));
+                .MapEnums()).ConfigureWarnings(c => c.Ignore(RelationalEventId.PendingModelChangesWarning))
+                .AddInterceptors(new AuditInterceptor(userAccessor.GetUserId));
         });
         #endregion
 
