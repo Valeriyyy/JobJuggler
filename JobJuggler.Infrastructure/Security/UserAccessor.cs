@@ -10,7 +10,7 @@ public class UserAccessor(IHttpContextAccessor httpContextAccessor) : IUserAcces
     
     public int GetUserId()
     {
-        var idString =httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var idString = httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
         return idString != null ? int.Parse(idString) : 0;
     }
 }
