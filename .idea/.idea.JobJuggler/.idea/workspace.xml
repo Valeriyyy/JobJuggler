@@ -14,14 +14,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="formatting">
-      <change afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Interceptors/AuditInterceptor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/IClientService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/IClientService.cs" afterDir="false" />
-    </list>
+    <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="idk" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,11 +40,15 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/ClientController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/ClientController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/IdentityServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Application/Services/ClientService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Application/Services/Interfaces/IClientService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Infrastructure/Security/UserAccessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Infrastructure/Security/UserAccessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1b445ceb1c5ab1d07b7b55412b10a5e21169ec87228ca8ad8a18a6982f3278/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
@@ -218,7 +215,7 @@
       <workItem from="1733977197741" duration="2325000" />
       <workItem from="1733979549080" duration="360000" />
       <workItem from="1734062043623" duration="717000" />
-      <workItem from="1734062863255" duration="1560000" />
+      <workItem from="1734062863255" duration="2034000" />
     </task>
     <task id="LOCAL-00001" summary="chnaged some stuff">
       <option name="closed" value="true" />
@@ -292,7 +289,39 @@
       <option name="project" value="LOCAL" />
       <updated>1734064385738</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="created audit record interceptor">
+      <option name="closed" value="true" />
+      <created>1734064442977</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734064442977</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added interceptor to db context">
+      <option name="closed" value="true" />
+      <created>1734064460941</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734064460941</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added delete client endpoint and method">
+      <option name="closed" value="true" />
+      <created>1734064502268</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1734064502268</updated>
+    </task>
+    <task id="LOCAL-00013" summary="idk">
+      <option name="closed" value="true" />
+      <created>1734064506578</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1734064506578</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +349,11 @@
     <MESSAGE value="Re added identity cause migrations are dumb" />
     <MESSAGE value="added user accessor stuff" />
     <MESSAGE value="formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatting" />
+    <MESSAGE value="created audit record interceptor" />
+    <MESSAGE value="added interceptor to db context" />
+    <MESSAGE value="added delete client endpoint and method" />
+    <MESSAGE value="idk" />
+    <option name="LAST_COMMIT_MESSAGE" value="idk" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
