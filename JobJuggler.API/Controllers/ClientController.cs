@@ -46,6 +46,14 @@ public class ClientController : ControllerBase {
         return Ok(cl);
     }
 
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<int>> DeleteClientById(int id)
+    {
+        var res = await _service.DeleteClient(id);
+        
+        return Ok(res);
+    }
+
     [HttpGet("profile/{id}")]
     public async Task<ActionResult<ClientProfile>> GetClientProfile(int id) {
         var profile = await _service.GetProfile(id);

@@ -28,11 +28,6 @@ public class ClientService : IClientService {
     public async Task<ClientDTO> CreateClient(ClientInsertDTO clientToInput) {
         var client = ClientMapper.ClientInsertToClientModel(clientToInput);
 
-        if (client != null)
-        {
-            client.DateCreated = DateTime.UtcNow;
-            client.CreatedById = _userAccessor.GetUserId();
-        }
         _context.Add(client);
         
         await _context.SaveChangesAsync();
@@ -53,6 +48,21 @@ public class ClientService : IClientService {
         await _context.SaveChangesAsync();
         var clientToReturn = ClientMapper.ClientToDTO(existingClient);
         return clientToReturn;
+    }
+
+    public async Task<int> DeleteClient(int clientId)
+    {
+        var client = await _context.Clients.FirstOrDefaultAsync(client => client.Id == clientId && client.IsDeleted == false);
+        if (client is null)
+        {
+            throw new RecordNotFoundException(typeof(Client), clientId);
+        }
+        
+        _context.Clients.Remove(client);
+        
+        await _context.SaveChangesAsync();
+
+        return clientId;
     }
 
     public async Task<ClientProfile?> GetProfile(int clientId) {
