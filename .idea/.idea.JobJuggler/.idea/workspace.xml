@@ -14,19 +14,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="Re added identity cause migrations are dumb">
-      <change afterPath="$PROJECT_DIR$/JobJuggler.Application/IUserAccessor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JobJuggler.Infrastructure/Security/UserAccessor.cs" afterDir="false" />
+    <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="formatting">
+      <change afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Interceptors/AuditInterceptor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/PicklistController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/PicklistController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Infra/IUserAccessor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Infra/UserAccessor.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/PicklistService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/PicklistService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Infrastructure/JobJuggler.Infrastructure.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.sln" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/IClientService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/IClientService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +46,14 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/ClientController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/IdentityServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Infrastructure/Security/UserAccessor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Infrastructure/Security/UserAccessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1b445ceb1c5ab1d07b7b55412b10a5e21169ec87228ca8ad8a18a6982f3278/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f6a71152894c65fbd6456d5bb72ff303595b27a2266d176566dea5636f38/NpgsqlPropertyBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="FORCE_HIGHLIGHTING" />
@@ -77,26 +73,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.JobJuggler.API: API.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.JobJuggler.API: API.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.JobJuggler.API: API">
     <configuration name="JobJuggler.DTO" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -218,7 +214,11 @@
       <workItem from="1733607251938" duration="19759000" />
       <workItem from="1733694711243" duration="4449000" />
       <workItem from="1733719061792" duration="799000" />
-      <workItem from="1733801507169" duration="4130000" />
+      <workItem from="1733801507169" duration="4216000" />
+      <workItem from="1733977197741" duration="2325000" />
+      <workItem from="1733979549080" duration="360000" />
+      <workItem from="1734062043623" duration="717000" />
+      <workItem from="1734062863255" duration="1560000" />
     </task>
     <task id="LOCAL-00001" summary="chnaged some stuff">
       <option name="closed" value="true" />
@@ -276,7 +276,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733804225816</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added user accessor stuff">
+      <option name="closed" value="true" />
+      <created>1733806977952</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733806977952</updated>
+    </task>
+    <task id="LOCAL-00009" summary="formatting">
+      <option name="closed" value="true" />
+      <created>1734064385738</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734064385738</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +318,9 @@
     <MESSAGE value="man wtf does this all do" />
     <MESSAGE value="started removing use of automapper and started adding entity audit fields" />
     <MESSAGE value="Re added identity cause migrations are dumb" />
-    <option name="LAST_COMMIT_MESSAGE" value="Re added identity cause migrations are dumb" />
+    <MESSAGE value="added user accessor stuff" />
+    <MESSAGE value="formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="formatting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
