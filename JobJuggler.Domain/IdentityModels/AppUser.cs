@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
 namespace JobJuggler.Domain.IdentityModels;
 
-public class AppUser : IdentityUser<int> {
+public class AppUser : IdentityUser<int>
+{
     public string DisplayName { get; set; }
     public int CompanyId { get; set; }
     public DateTime DateCreated { get; set; }

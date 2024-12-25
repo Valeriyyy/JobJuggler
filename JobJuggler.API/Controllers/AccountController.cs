@@ -1,4 +1,5 @@
-﻿using JobJuggler.API.DTOs;
+﻿using System.Security.Claims;
+using JobJuggler.API.DTOs;
 using JobJuggler.API.Services;
 using JobJuggler.Domain.IdentityModels;
 using JobJuggler.Persistence;
@@ -6,7 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 namespace JobJuggler.API.Controllers;
 
@@ -14,17 +14,18 @@ namespace JobJuggler.API.Controllers;
 [Route("api/[controller]")]
 public class AccountController : ControllerBase {
     private readonly UserManager<AppUser> _userManager;
-    // private readonly SignInManager<AppUser> _signInManager;
     private readonly DataContext _context;
     private readonly TokenService _tokenService;
     private readonly ILogger<AccountController> _logger;
 
-    public AccountController(UserManager<AppUser> userManager, TokenService tokenService, ILogger<AccountController> logger, DataContext context) {
+    public AccountController(UserManager<AppUser> userManager,
+        TokenService tokenService, 
+        ILogger<AccountController> logger, 
+        DataContext context) {
         _userManager = userManager;
         _tokenService = tokenService;
         _logger = logger;
         _context = context;
-        // _signInManager = signInManager;
     }
 
 
@@ -48,6 +49,8 @@ public class AccountController : ControllerBase {
             CreatedById = 0,
             DateCreated = DateTime.UtcNow
         };
+        
+        // user.PasswordHash = _passwordHasher.HashPassword(user, registerDto.Password);
 
         var result = await _userManager.CreateAsync(user, registerDto.Password);
 

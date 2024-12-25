@@ -7,7 +7,7 @@ namespace JobJuggler.Persistence.Seeds;
 public class MainSeed {
     public static async Task SeedData(DataContext context)
     {
-        var user = await context.Users.SingleOrDefaultAsync();
+        var user = await context.Users.SingleOrDefaultAsync(u => u.UserName == "valeriykutsar18@gmail.com");
         await Task.WhenAll(
             PaymentMethodSeed(context),
             LineItemSeed(context),

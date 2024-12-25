@@ -14,7 +14,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="idk" />
+    <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/JobJuggler.API/IdentityUtilities/PasswordHasher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Extensions/IdentityServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Extensions/IdentityServiceExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Seeds/MainSeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Seeds/MainSeed.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,23 +48,22 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/ClientController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/ClientController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/IdentityServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Application/Services/ClientService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Application/Services/Interfaces/IClientService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Infrastructure/Security/UserAccessor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Infrastructure/Security/UserAccessor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ce3a8651c06c4e96b91fe200469f82ef76400/48/2f6c8c76/PasswordVerificationResult.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ce3a8651c06c4e96b91fe200469f82ef76400/d3/5c40be94/IPasswordHasher`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1b445ceb1c5ab1d07b7b55412b10a5e21169ec87228ca8ad8a18a6982f3278/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f6a71152894c65fbd6456d5bb72ff303595b27a2266d176566dea5636f38/NpgsqlPropertyBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/271b8d2d9d94e13a469269f46758864f64ad438c3174f74d4a591af6410e96b/Future.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2bc11a42069f9763241157f68b3dffdebbffa5703fa240cd5ca89388b82222/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/46a8185eff1d1798aba1e8f07e27e461a572a5d9b259b12e71b52cd991142/Argon2.Helpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8512b3f592a227cfb48f8fff0c16a356dcbfbb5399342d8febc7b7116bff64/IdentityRoleClaim.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c3ad84587171985e43399d8ce4db653283edfeb719f811eba0c3cf369670b361/IdentityUserLogin.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cf6fb3b0ee87bb353fa0f24b85bde847a59c1567050dc642d7462ed9a7d9b9/PasswordHasher.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -70,26 +78,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.JobJuggler.API: API.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.JobJuggler.API: API.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.JobJuggler.API: API">
     <configuration name="JobJuggler.DTO" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -215,7 +223,11 @@
       <workItem from="1733977197741" duration="2325000" />
       <workItem from="1733979549080" duration="360000" />
       <workItem from="1734062043623" duration="717000" />
-      <workItem from="1734062863255" duration="2034000" />
+      <workItem from="1734062863255" duration="2977000" />
+      <workItem from="1734220164221" duration="2977000" />
+      <workItem from="1734820018926" duration="5386000" />
+      <workItem from="1735092937765" duration="349000" />
+      <workItem from="1735093311696" duration="3492000" />
     </task>
     <task id="LOCAL-00001" summary="chnaged some stuff">
       <option name="closed" value="true" />
@@ -321,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734064506578</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="wtf">
+      <option name="closed" value="true" />
+      <created>1734064973841</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1734064973841</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +373,8 @@
     <MESSAGE value="added interceptor to db context" />
     <MESSAGE value="added delete client endpoint and method" />
     <MESSAGE value="idk" />
-    <option name="LAST_COMMIT_MESSAGE" value="idk" />
+    <MESSAGE value="wtf" />
+    <option name="LAST_COMMIT_MESSAGE" value="wtf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -383,6 +404,45 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/JobJuggler.API/IdentityUtilities/PasswordHasher.cs</url>
+          <line>22</line>
+          <properties documentPath="$PROJECT_DIR$/JobJuggler.API/IdentityUtilities/PasswordHasher.cs" containingFunctionPresentation="Method 'HashPassword'">
+            <startOffsets>
+              <option value="629" />
+            </startOffsets>
+            <endOffsets>
+              <option value="667" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/JobJuggler.API/IdentityUtilities/PasswordHasher.cs</url>
+          <line>40</line>
+          <properties documentPath="$PROJECT_DIR$/JobJuggler.API/IdentityUtilities/PasswordHasher.cs" containingFunctionPresentation="Method 'VerifyHashedPassword'">
+            <startOffsets>
+              <option value="1339" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1381" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/JobJuggler.API/IdentityUtilities/PasswordHasher.cs</url>
+          <line>34</line>
+          <properties documentPath="$PROJECT_DIR$/JobJuggler.API/IdentityUtilities/PasswordHasher.cs" containingFunctionPresentation="Method 'VerifyHashedPassword'">
+            <startOffsets>
+              <option value="1032" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1100" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

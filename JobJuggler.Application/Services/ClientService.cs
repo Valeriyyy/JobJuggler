@@ -1,8 +1,7 @@
-﻿using AutoMapper;
-using JobJuggler.DTO.Client;
-using JobJuggler.Application.Exceptions;
+﻿using JobJuggler.Application.Exceptions;
 using JobJuggler.Application.Services.Interfaces;
 using JobJuggler.Domain.Models;
+using JobJuggler.DTO.Client;
 using JobJuggler.Persistence;
 using JobJugglers.Mapping;
 using Microsoft.AspNetCore.JsonPatch;
