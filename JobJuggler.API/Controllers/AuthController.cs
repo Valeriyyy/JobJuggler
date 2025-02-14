@@ -12,26 +12,28 @@ namespace JobJuggler.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AccountController : ControllerBase {
+public class AuthController : ControllerBase {
     private readonly UserManager<AppUser> _userManager;
+    private readonly SignInManager<AppUser> _signInManager;
     private readonly DataContext _context;
     private readonly TokenService _tokenService;
-    private readonly ILogger<AccountController> _logger;
+    private readonly ILogger<AuthController> _logger;
 
-    public AccountController(UserManager<AppUser> userManager,
+    public AuthController(UserManager<AppUser> userManager,
         TokenService tokenService, 
-        ILogger<AccountController> logger, 
-        DataContext context) {
+        ILogger<AuthController> logger, 
+        DataContext context, SignInManager<AppUser> signInManager) {
         _userManager = userManager;
         _tokenService = tokenService;
         _logger = logger;
         _context = context;
+        _signInManager = signInManager;
     }
 
 
     [AllowAnonymous]
     [HttpPost("register")]
-    public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto) {
+    public async Task<ActionResult<AuthUserDTO>> Register(RegisterDto registerDto) {
         if (await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username)) {
             return BadRequest($"Username {registerDto.Username} is already taken");
         }
@@ -65,7 +67,7 @@ public class AccountController : ControllerBase {
 
     [AllowAnonymous]
     [HttpPost("login")]
-    public async Task<ActionResult<UserDto>> Login(LoginDto loginDto) {
+    public async Task<ActionResult<AuthUserDTO>> Login(LoginDto loginDto) {
         var user = await _userManager.FindByEmailAsync(loginDto.Email);
 
         if (user == null) {
@@ -83,20 +85,20 @@ public class AccountController : ControllerBase {
 
     [Authorize]
     [HttpGet]
-    public async Task<ActionResult<UserDto>> GetCurrentUser() {
+    public async Task<ActionResult<AuthUserDTO>> GetCurrentUser() {
         var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
 
         return CreateUserObject(user);
     }
 
-    // [Authorize]
-    // [HttpPost("logout")]
-    // public async Task<ActionResult<bool>> Logout()
-    // {
-    //     await _signInManager.SignOutAsync();
-    //
-    //     return true;
-    // }
+    [Authorize]
+    [HttpPost("logout")]
+    public async Task<ActionResult<bool>> Logout()
+    {
+        await _signInManager.SignOutAsync();
+    
+        return true;
+    }
     
     private async Task SetRefreshToken(AppUser user) {
         var refreshToken = _tokenService.GenerateRefreshToken();
@@ -114,9 +116,9 @@ public class AccountController : ControllerBase {
     }
     
 
-    private UserDto CreateUserObject(AppUser user) {
+    private AuthUserDTO CreateUserObject(AppUser user) {
         var (tokenString, expirationDate) = _tokenService.CreateToken(user);
-        return new UserDto {
+        return new AuthUserDTO {
             DisplayName = user.DisplayName,
             Token = tokenString,
             Username = user.UserName,

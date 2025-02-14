@@ -1,6 +1,6 @@
 ﻿namespace JobJuggler.API.DTOs;
 
-public class UserDto {
+public class AuthUserDTO {
     public string DisplayName { get; set; }
     public string Token { get; set; }
     public string Username { get; set; }

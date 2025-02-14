@@ -6,7 +6,7 @@ namespace JobJuggler.Domain.IdentityModels;
 
 public class AppUser : IdentityUser<int>
 {
-    public string DisplayName { get; set; }
+   public string DisplayName { get; set; }
     public int CompanyId { get; set; }
     public DateTime DateCreated { get; set; }
     public int CreatedById { get; set; }

@@ -1,4 +1,5 @@
 using JobJuggler.Domain.IdentityModels;
+using JobJuggler.DTO.Identity;
 using JobJuggler.Persistence;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -19,12 +20,20 @@ public class IdentityController : ControllerBase
 
 
     [HttpGet]
-    public async Task<List<AppUser>> GetAll()
+    public async Task<List<UserDTO>> GetAll()
     {
         var rr = await _context.Users
             .Include(u => u.Company)
-            // .Include(u => u.Roles)
-            .Include(u => u.UserTokens)
+            .Select(c => new UserDTO { 
+                UserId = c.Id, 
+                UserName = c.UserName, 
+                Email = c.Email, 
+                Company = new CompanyDTO
+                {
+                    CompanyId = c.CompanyId,
+                    Name = c.Company.Name
+                }
+            })
             .ToListAsync();
 
         // var rr = await _context.Roles

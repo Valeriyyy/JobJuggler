@@ -57,14 +57,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
 
 try {
     var context = services.GetRequiredService<DataContext>();
     var userManager = services.GetRequiredService<UserManager<AppUser>>();
-    await IdentitySeed.SeedIdentity(context, userManager);
+    var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
+    
+    var identitySeed = new IdentitySeed(context, userManager, roleManager);
+    await identitySeed.SeedIdentity();
     await MainSeed.SeedData(context);
 } catch (Exception ex) {
     Console.WriteLine("Something has gone wrong seeding the database");

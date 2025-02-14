@@ -4,6 +4,8 @@ using JobJuggler.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using JobJuggler.Infrastructure.Security;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
 namespace JobJuggler.API.Extensions;
@@ -16,7 +18,13 @@ public static class IdentityServiceExtensions {
         })
         .AddEntityFrameworkStores<DataContext>();
         
+        services.AddIdentityApiEndpoints<AppUser>()
+            .AddRoles<AppRole>()
+            .AddEntityFrameworkStores<DataContext>();
+        
         services.AddScoped<IPasswordHasher<AppUser>, IdentityUtilities.PasswordHasher<AppUser>>();
+        services.AddScoped<SignInManager<AppUser>>();
+        services.AddScoped<RoleManager<AppRole>>();
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Identity:SecurityTokenKey"]!));
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -28,7 +36,16 @@ public static class IdentityServiceExtensions {
                     ValidateAudience = false
                 };
             });
+
+        services.AddAuthorization(opt =>
+        {
+            opt.AddPolicy("IsRecordOwner", policy =>
+            {
+                policy.Requirements.Add(new IsRecordOwnerRequirement());
+            });
+        });
         services.AddScoped<TokenService>();
+        services.AddTransient<IAuthorizationHandler, IsRecordOwnerRequirementHandler>();
 
         return services;
     }
