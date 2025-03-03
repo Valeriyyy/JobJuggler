@@ -1,4 +1,5 @@
-﻿using JobJuggler.API.DTOs;
+﻿using System.Security.Claims;
+using JobJuggler.API.DTOs;
 // using JobJuggler.Application.DTOs.Client;
 using JobJuggler.Application.Services.Interfaces;
 using JobJuggler.DTO.Client;
@@ -10,6 +11,7 @@ namespace JobJuggler.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class ClientController : ControllerBase {
     private readonly IClientService _service;
     private readonly ILogger<ClientController> _logger;
@@ -33,6 +35,8 @@ public class ClientController : ControllerBase {
     }
 
     [HttpGet("{id}", Name = "Get a minimal client record by id")]
+    // [Authorize(Policy = "IsRecordOwner")]
+    [Authorize(Roles = "admin")]
     public async Task<ActionResult<Result<ClientDTO>>> GetClientById(int id) {
         var client = await _service.GetClientById(id);
         

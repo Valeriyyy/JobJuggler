@@ -57,6 +57,7 @@ public static class ApplicationServiceExtensions {
         services.AddScoped<ILocationService, LocationService>();
         services.AddScoped<IJobService, JobService>();
         services.AddScoped<IPicklistService, PicklistService>();
+        services.AddScoped<IRoleService, RoleService>();
         #endregion
 
         #region AutoMapper

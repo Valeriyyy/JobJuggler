@@ -3,6 +3,7 @@ using JobJuggler.API.DTOs;
 using JobJuggler.API.Services;
 using JobJuggler.Domain.IdentityModels;
 using JobJuggler.Persistence;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -32,7 +33,7 @@ public class AuthController : ControllerBase {
 
 
     [AllowAnonymous]
-    [HttpPost("register")]
+    [HttpPost("/register")]
     public async Task<ActionResult<AuthUserDTO>> Register(RegisterDto registerDto) {
         if (await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username)) {
             return BadRequest($"Username {registerDto.Username} is already taken");
@@ -74,9 +75,10 @@ public class AuthController : ControllerBase {
             return BadRequest();
         }
 
-        var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
+        //var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
+        var res = await _signInManager.PasswordSignInAsync(user.UserName!, loginDto.Password, false, false);
 
-        if (result) {
+        if (res.Succeeded) {
             return CreateUserObject(user);
         }
 
@@ -89,15 +91,6 @@ public class AuthController : ControllerBase {
         var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
 
         return CreateUserObject(user);
-    }
-
-    [Authorize]
-    [HttpPost("logout")]
-    public async Task<ActionResult<bool>> Logout()
-    {
-        await _signInManager.SignOutAsync();
-    
-        return true;
     }
     
     private async Task SetRefreshToken(AppUser user) {

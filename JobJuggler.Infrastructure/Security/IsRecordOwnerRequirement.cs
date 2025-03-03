@@ -26,13 +26,11 @@ public class IsRecordOwnerRequirementHandler : AuthorizationHandler<IsRecordOwne
 {
     private readonly DataContext _dbContext;
     private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly IConfiguration _configuration;
     
-    public IsRecordOwnerRequirementHandler(DataContext context, IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
+    public IsRecordOwnerRequirementHandler(DataContext context, IHttpContextAccessor httpContextAccessor)
     {
         _dbContext = context;
         _httpContextAccessor = httpContextAccessor;
-        _configuration = configuration;
     }
 
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, IsRecordOwnerRequirement requirement)
@@ -77,6 +75,4 @@ public class IsRecordOwnerRequirementHandler : AuthorizationHandler<IsRecordOwne
 
         return Task.CompletedTask;
     }
-
-    
 }
