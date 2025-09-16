@@ -1,9 +1,11 @@
 ﻿using JobJuggler.Domain.Models;
+using JobJuggler.Persistence.EntityConfigurations.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace JobJuggler.Persistence.EntityConfigurations;
 public class JobEntityTypeConfiguration : IEntityTypeConfiguration<Job> {
+    private const string tableName = "jobs";
     public void Configure(EntityTypeBuilder<Job> builder) {
         builder.ToTable("jobs", "main");
 
@@ -88,5 +90,7 @@ public class JobEntityTypeConfiguration : IEntityTypeConfiguration<Job> {
             .WithOne(invoice => invoice.Job)
             .HasForeignKey<Invoice>(invoice => invoice.JobId)
             .HasConstraintName("job_invoice_id_foreign");
+        
+        // builder.AddAuditConfigFields(tableName);
     }
 }
