@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-API-561F0447-EA1C-46D7-A652-5205B13D4DAB</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+      <OpenApiGenerateDocuments>true</OpenApiGenerateDocuments>
   </PropertyGroup>
 
   <ItemGroup>
