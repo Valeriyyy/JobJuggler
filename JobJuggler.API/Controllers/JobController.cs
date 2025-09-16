@@ -34,25 +34,25 @@ public class JobController : ControllerBase {
         return Ok(jobs);
     }
 
-    [HttpPost]
-    public async Task<ActionResult<Job>> CreateJob([FromBody] JobInsertDTO job) {
-        var clientValidationResult = _validator.Validate(job.Client);
-        if (!clientValidationResult.IsValid) {
-            clientValidationResult.AddToModelState(ModelState);
-            return BadRequest(clientValidationResult);
-        }
-        var res = await _jobService.CreateJob(job);
-        if (res is not null) {
-            return CreatedAtAction(nameof(CreateJob), res);
-        } else {
-            return BadRequest();
-        }
-    }
+    // [HttpPost]
+    // public async Task<ActionResult<Job>> CreateJob([FromBody] JobInsertDTO job) {
+    //     var clientValidationResult = _validator.Validate(job.Client);
+    //     if (!clientValidationResult.IsValid) {
+    //         clientValidationResult.AddToModelState(ModelState);
+    //         return BadRequest(clientValidationResult);
+    //     }
+    //     var res = await _jobService.CreateJob(job);
+    //     if (res is not null) {
+    //         return CreatedAtAction(nameof(CreateJob), res);
+    //     } else {
+    //         return BadRequest();
+    //     }
+    // }
 
-    [HttpGet("client/{clientId}")]
-    public async Task<ActionResult<List<JobPro>>> GetClientJobs(int clientId) {
-        var clientJobs = await _jobService.GetJobsByClientId(clientId);
-
-        return Ok(clientJobs);
-    }
+    // [HttpGet("client/{clientId}")]
+    // public async Task<ActionResult<List<JobPro>>> GetClientJobs(int clientId) {
+    //     var clientJobs = await _jobService.GetJobsByClientId(clientId);
+    //
+    //     return Ok(clientJobs);
+    // }
 }

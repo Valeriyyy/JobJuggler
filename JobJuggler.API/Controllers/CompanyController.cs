@@ -14,10 +14,10 @@ public class CompanyController : ControllerBase {
         _context = dbContext;
     }
 
-    [HttpGet]
-    public async Task<ActionResult<AppCompany>> GetCompanies() {
-        var hasComp = await _context.Companies.FirstOrDefaultAsync();
-        Console.WriteLine(hasComp);
-        return Ok(hasComp);
-    }
+    // [HttpGet]
+    // public async Task<ActionResult<AppCompany>> GetCompanies() {
+    //     var hasComp = await _context.Companies.FirstOrDefaultAsync();
+    //     Console.WriteLine(hasComp);
+    //     return Ok(hasComp);
+    // }
 }

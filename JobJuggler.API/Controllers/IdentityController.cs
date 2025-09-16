@@ -19,27 +19,27 @@ public class IdentityController : ControllerBase
     }
 
 
-    [HttpGet]
-    public async Task<List<UserDTO>> GetAll()
-    {
-        var rr = await _context.Users
-            .Include(u => u.Company)
-            .Select(c => new UserDTO { 
-                UserId = c.Id, 
-                UserName = c.UserName, 
-                Email = c.Email, 
-                Company = new CompanyDTO
-                {
-                    CompanyId = c.CompanyId,
-                    Name = c.Company.Name
-                }
-            })
-            .ToListAsync();
-
-        // var rr = await _context.Roles
-        //     .Include(r => r.Users)
-        //     .ToListAsync();
-        
-        return rr;
-    }
+    // [HttpGet]
+    // public async Task<List<UserDTO>> GetAll()
+    // {
+    //     var rr = await _context.Users
+    //         .Include(u => u.Company)
+    //         .Select(c => new UserDTO { 
+    //             UserId = c.Id, 
+    //             UserName = c.UserName, 
+    //             Email = c.Email, 
+    //             Company = new CompanyDTO
+    //             {
+    //                 CompanyId = c.CompanyId,
+    //                 Name = c.Company.Name
+    //             }
+    //         })
+    //         .ToListAsync();
+    //
+    //     // var rr = await _context.Roles
+    //     //     .Include(r => r.Users)
+    //     //     .ToListAsync();
+    //     
+    //     return rr;
+    // }
 }
