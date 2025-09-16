@@ -26,55 +26,55 @@ public class RolesController : ControllerBase
         _roleService = roleService;
     }
 
-    [HttpGet("get-all")]
-    public ActionResult<List<AppRole>> GetRoles()
-    {
-        var roles = _roleService.GetRoles();
+    // [HttpGet("get-all")]
+    // public ActionResult<List<AppRole>> GetRoles()
+    // {
+    //     var roles = _roleService.GetRoles();
+    //
+    //     return Ok(roles);
+    // }
 
-        return Ok(roles);
-    }
-
-    [HttpPost("add-role")]
-    [AllowAnonymous]
-    public async Task<IActionResult> AddRoleAsync([FromBody] RoleDTO role)
-    {
-        IdentityResult createdRole;
-        try
-        {
-            var appRole = new AppRole()
-            {
-                Name = role.Name,
-                NormalizedName = role.Name.ToUpper(),
-                ConcurrencyStamp = Guid.NewGuid().ToString()
-            };
-            
-            createdRole = await _roleManager.CreateAsync(appRole);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Failed creating role of body {role}", role);
-            return BadRequest(ex.Message);
-        }
-
-        return Ok(createdRole);
-    }
-
-    [HttpPost("assign-role")]
-    public async Task<IActionResult> AssignRole([FromBody] AssignRoleDTO assignRole)
-    {
-        IdentityResult assignedRole;
-        var appRole = await _roleManager.FindByIdAsync(assignRole.RoleId.ToString());
-        if (appRole == null || appRole.Name == null)
-        {
-            return BadRequest();
-        }
-        var appUser = await _userManager.FindByIdAsync(assignRole.UserId.ToString());
-        if (appUser == null)
-        {
-            return BadRequest();
-        }
-        assignedRole = await _userManager.AddToRoleAsync(appUser, appRole.Name);
-        
-        return Ok(assignedRole);
-    }
+    // [HttpPost("add-role")]
+    // [AllowAnonymous]
+    // public async Task<IActionResult> AddRoleAsync([FromBody] RoleDTO role)
+    // {
+    //     IdentityResult createdRole;
+    //     try
+    //     {
+    //         var appRole = new AppRole()
+    //         {
+    //             Name = role.Name,
+    //             NormalizedName = role.Name.ToUpper(),
+    //             ConcurrencyStamp = Guid.NewGuid().ToString()
+    //         };
+    //         
+    //         createdRole = await _roleManager.CreateAsync(appRole);
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         _logger.LogError(ex, "Failed creating role of body {role}", role);
+    //         return BadRequest(ex.Message);
+    //     }
+    //
+    //     return Ok(createdRole);
+    // }
+    //
+    // [HttpPost("assign-role")]
+    // public async Task<IActionResult> AssignRole([FromBody] AssignRoleDTO assignRole)
+    // {
+    //     IdentityResult assignedRole;
+    //     var appRole = await _roleManager.FindByIdAsync(assignRole.RoleId.ToString());
+    //     if (appRole == null || appRole.Name == null)
+    //     {
+    //         return BadRequest();
+    //     }
+    //     var appUser = await _userManager.FindByIdAsync(assignRole.UserId.ToString());
+    //     if (appUser == null)
+    //     {
+    //         return BadRequest();
+    //     }
+    //     assignedRole = await _userManager.AddToRoleAsync(appUser, appRole.Name);
+    //     
+    //     return Ok(assignedRole);
+    // }
 }
