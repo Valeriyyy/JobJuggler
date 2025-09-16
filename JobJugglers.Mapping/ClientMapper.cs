@@ -17,7 +17,7 @@ public static class ClientMapper
 
         for (var i = 0; i < clients.Count; i++)
         {
-            var client = clients.ElementAt(i);
+            var client = clients[i];
             dtos.Add(ClientToDTO(client));
         }
 
