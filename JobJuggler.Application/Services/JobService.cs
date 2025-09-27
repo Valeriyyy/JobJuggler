@@ -1,25 +1,17 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using JobJuggler.Domain.Models;
-using JobJuggler.Application.DTOs.Job;
-using JobJuggler.Application.Exceptions;
-using JobJuggler.Application.Services.Interfaces;
-using JobJuggler.DTO.Job;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+﻿using JobJuggler.Application.Services.Interfaces;
 using JobJuggler.Persistence;
-using JobJugglers.Mapping;
-using ValidationException = JobJuggler.Application.Exceptions.ValidationException;
+using Microsoft.Extensions.Logging;
 
 namespace JobJuggler.Application.Services;
-public class JobService : IJobService {
+
+public class JobService : IJobService
+{
     private readonly DataContext _context;
-    private readonly IMapper _mapper;
     private readonly ILogger<JobService> _logger;
 
-    public JobService(DataContext context, IMapper mapper, ILogger<JobService> logger) {
+    public JobService(DataContext context, ILogger<JobService> logger)
+    {
         _context = context;
-        _mapper = mapper;
         _logger = logger;
     }
 
@@ -175,7 +167,8 @@ public class JobService : IJobService {
     // }
 }
 
-public class JobPro {
+public class JobPro
+{
     public int Id { get; set; }
     public int ClientId { get; set; }
     public decimal Price { get; set; }
@@ -193,7 +186,8 @@ public class JobPro {
     public LocationWithoutVector Location { get; set; }
 }
 
-public class LocationWithoutVector {
+public class LocationWithoutVector
+{
     public string? LocationType { get; set; }
     public string? Street1 { get; set; }
     public string? Street2 { get; set; }
