@@ -14,12 +14,12 @@ public class PicklistService : IPicklistService {
         _userAccessor = userAccessor;
     }
 
-    public async Task<List<EnumModel>> GetAll() {
-        var options = await _context.EnumModels.ToListAsync();
-
-        var aa = _userAccessor.GetUsername();
-        var id = _userAccessor.GetUserId();
-
-        return options;
-    }
+    // public async Task<List<EnumModel>> GetAll() {
+    //     var options = await _context.EnumModels.ToListAsync();
+    //
+    //     var aa = _userAccessor.GetUsername();
+    //     var id = _userAccessor.GetUserId();
+    //
+    //     return options;
+    // }
 }

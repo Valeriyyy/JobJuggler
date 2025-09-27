@@ -23,9 +23,8 @@ public class AppUserClaimEntityTypeConfiguration : IEntityTypeConfiguration<AppU
         builder.Property(e => e.ClaimValue)
             .HasColumnName("claim_value");
 
-        builder.HasOne(e => e.User)
-            .WithMany(e => e.Claims)
-            .HasForeignKey(e => e.UserId)
-            .HasConstraintName("FK_user_claims_users_user_id");
+        builder.HasOne(uc => uc.User)
+            .WithMany(u => u.Claims) // <-- Add ICollection<AppUserClaim> Claims in AppUser
+            .HasForeignKey(uc => uc.UserId);
     }
 }

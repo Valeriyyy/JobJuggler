@@ -21,18 +21,18 @@ public class JobController : ControllerBase {
         _validator = validator;
     }
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<JobReadDTO>> GetJobById(int id) {
-        var job = await _jobService.GetJob(id);
-
-        return job is null ? NotFound() : Ok(job);
-    }
-
-    [HttpGet]
-    public async Task<ActionResult<List<Job>>> GetAll() {
-        var jobs = await _jobService.GetAllJobs();
-        return Ok(jobs);
-    }
+    // [HttpGet("{id}")]
+    // public async Task<ActionResult<JobReadDTO>> GetJobById(int id) {
+    //     var job = await _jobService.GetJob(id);
+    //
+    //     return job is null ? NotFound() : Ok(job);
+    // }
+    //
+    // [HttpGet]
+    // public async Task<ActionResult<List<Job>>> GetAll() {
+    //     var jobs = await _jobService.GetAllJobs();
+    //     return Ok(jobs);
+    // }
 
     // [HttpPost]
     // public async Task<ActionResult<Job>> CreateJob([FromBody] JobInsertDTO job) {

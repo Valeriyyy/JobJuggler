@@ -38,9 +38,9 @@ public static class ApplicationServiceExtensions {
         var userAccessor = new UserAccessor(new HttpContextAccessor());
         services.AddDbContext<DataContext>((sp, options) => {
             var connUrl = config.GetConnectionString("postgres");
-            options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("__EFMigrationsHistory", "public")
-                .MapEnums()).ConfigureWarnings(c => c.Ignore(RelationalEventId.PendingModelChangesWarning))
-                .AddInterceptors(new AuditInterceptor(userAccessor.GetUserId));
+            options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("__EFMigrationsHistory", "public"));
+            // .MapEnums()).ConfigureWarnings(c => c.Ignore(RelationalEventId.PendingModelChangesWarning))
+            // .AddInterceptors(new AuditInterceptor(userAccessor.GetUserId));
         });
         #endregion
 
@@ -58,10 +58,6 @@ public static class ApplicationServiceExtensions {
         services.AddScoped<IJobService, JobService>();
         services.AddScoped<IPicklistService, PicklistService>();
         services.AddScoped<IRoleService, RoleService>();
-        #endregion
-
-        #region AutoMapper
-        services.AddAutoMapper(typeof(MappingProfiles).Assembly);
         #endregion
         return services;
     }

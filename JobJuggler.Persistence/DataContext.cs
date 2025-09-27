@@ -17,14 +17,14 @@ public class DataContext : IdentityDbContext<
     public DataContext() { }
     public DataContext(DbContextOptions options) : base(options) { }
     public DbSet<AppCompany> Companies { get; set; } = null!;
-    public DbSet<Client> Clients { get; set; } = null!;
-    public DbSet<Location> Locations { get; set; } = null!;
-    public DbSet<Job> Jobs { get; set; } = null!;
-    public DbSet<PaymentMethod> PaymentMethods { get; set; } = null!;
-    public DbSet<LineItem> LineItems { get; set; } = null!;
-    public DbSet<Invoice> Invoices { get; set; } = null!;
-    public DbSet<InvoiceLine> InvoicesLines { get; set; } = null!;
-    public DbSet<EnumModel> EnumModels { get; set; } = null!;
+    // public DbSet<Client> Clients { get; set; } = null!;
+    // public DbSet<Location> Locations { get; set; } = null!;
+    // public DbSet<Job> Jobs { get; set; } = null!;
+    // public DbSet<PaymentMethod> PaymentMethods { get; set; } = null!;
+    // public DbSet<LineItem> LineItems { get; set; } = null!;
+    // public DbSet<Invoice> Invoices { get; set; } = null!;
+    // public DbSet<InvoiceLine> InvoicesLines { get; set; } = null!;
+    // public DbSet<EnumModel> EnumModels { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         #pragma warning disable CS0618
@@ -41,9 +41,9 @@ public class DataContext : IdentityDbContext<
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
         var defaultSchema = "main";
-        modelBuilder.HasDefaultSchema(defaultSchema);
-        modelBuilder.HasPostgresExtension("uuid-ossp")
-            .HasPostgresEnum(defaultSchema, "price_type", ["none", "per_unit", "flat_rate"]);
+        // modelBuilder.HasDefaultSchema(defaultSchema);
+        // modelBuilder.HasPostgresExtension("uuid-ossp")
+        //     .HasPostgresEnum(defaultSchema, "price_type", ["none", "per_unit", "flat_rate"]);
 
 
         #region Identity
@@ -58,14 +58,14 @@ public class DataContext : IdentityDbContext<
         #endregion
         
         #region Business
-        new ClientEntityTypeConfiguration().Configure(modelBuilder.Entity<Client>());
-        new LocationEntityTypeConfiguration().Configure(modelBuilder.Entity<Location>());
-        new JobEntityTypeConfiguration().Configure(modelBuilder.Entity<Job>());
-        new PaymentMethodEntityTypeConfiguration().Configure(modelBuilder.Entity<PaymentMethod>());
-        new LineItemEntityTypeConfiguration().Configure(modelBuilder.Entity<LineItem>());
-        new InvoiceEntityTypeConfiguration().Configure(modelBuilder.Entity<Invoice>());
-        new InvoiceLineEntityTypeConfiguration().Configure(modelBuilder.Entity<InvoiceLine>());
-        new EnumModelTypeConfiguration().Configure(modelBuilder.Entity<EnumModel>());
+        // new ClientEntityTypeConfiguration().Configure(modelBuilder.Entity<Client>());
+        // new LocationEntityTypeConfiguration().Configure(modelBuilder.Entity<Location>());
+        // new JobEntityTypeConfiguration().Configure(modelBuilder.Entity<Job>());
+        // new PaymentMethodEntityTypeConfiguration().Configure(modelBuilder.Entity<PaymentMethod>());
+        // new LineItemEntityTypeConfiguration().Configure(modelBuilder.Entity<LineItem>());
+        // new InvoiceEntityTypeConfiguration().Configure(modelBuilder.Entity<Invoice>());
+        // new InvoiceLineEntityTypeConfiguration().Configure(modelBuilder.Entity<InvoiceLine>());
+        // new EnumModelTypeConfiguration().Configure(modelBuilder.Entity<EnumModel>());
         #endregion
     }
 }

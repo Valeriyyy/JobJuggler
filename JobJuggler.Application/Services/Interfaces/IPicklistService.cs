@@ -2,5 +2,5 @@
 
 namespace JobJuggler.Application.Services.Interfaces;
 public interface IPicklistService {
-    public Task<List<EnumModel>> GetAll();
+    // public Task<List<EnumModel>> GetAll();
 }

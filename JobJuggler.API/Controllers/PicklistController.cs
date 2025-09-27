@@ -13,10 +13,10 @@ public class PicklistController : ControllerBase {
         _service = service;
     }
 
-    [HttpGet(Name = "Get All Options")]
-    public async Task<ActionResult> GetAllOptions() {
-        var options = await _service.GetAll();
-
-        return Ok(options);
-    }
+    // [HttpGet(Name = "Get All Options")]
+    // public async Task<ActionResult> GetAllOptions() {
+    //     var options = await _service.GetAll();
+    //
+    //     return Ok(options);
+    // }
 }

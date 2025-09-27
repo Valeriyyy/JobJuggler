@@ -23,10 +23,14 @@ public class AppRoleClaimEntityTypeConfiguration : IEntityTypeConfiguration<AppR
         builder.Property(e => e.ClaimValue)
             .HasColumnName("claim_value");
         
-        builder.HasOne(e => e.Role)
+        builder.HasOne(rc => rc.Role)
             .WithMany(r => r.Claims)
-            .HasForeignKey(e => e.RoleId)
-            .OnDelete(DeleteBehavior.Cascade)
-            .HasConstraintName("FK_role_claims_roles_role_id");
+            .HasForeignKey(rc => rc.RoleId);
+        
+        // builder.HasOne(e => e.Role)
+        //     .WithMany(r => r.Claims)
+        //     .HasForeignKey(e => e.RoleId)
+        //     .OnDelete(DeleteBehavior.Cascade)
+        //     .HasConstraintName("FK_role_claims_roles_role_id");
     }
 }

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace JobJuggler.Persistence.EntityConfigurations;
+namespace JobJuggler.Persistence.EntityConfigurations.Identity;
 public class CompanyEntityTypeConfiguration : IEntityTypeConfiguration<AppCompany> {
     public void Configure(EntityTypeBuilder<AppCompany> builder) {
         builder.ToTable("companies", "identity");
@@ -41,5 +41,11 @@ public class CompanyEntityTypeConfiguration : IEntityTypeConfiguration<AppCompan
         builder.Property(e => e.DeletedById)
             .HasColumnName("deleted_by_id")
             .HasDefaultValue(null);
+        //
+        // builder.HasMany(company => company.Users)
+        //     .WithOne(user => user.Company)
+        //     .HasForeignKey(user => user.CompanyId)
+        //     .HasConstraintName("company_users_company_id_fk")
+        //     .OnDelete(DeleteBehavior.Cascade);
     }
 }

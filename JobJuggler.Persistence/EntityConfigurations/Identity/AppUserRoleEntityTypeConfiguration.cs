@@ -17,5 +17,13 @@ public class AppUserRoleEntityTypeConfiguration : IEntityTypeConfiguration<AppUs
         
         builder.Property(ur => ur.UserId)
             .HasColumnName("user_id");
+
+        builder.HasOne(ur => ur.User)
+            .WithMany(u => u.Roles)
+            .HasForeignKey(ur => ur.UserId);
+
+        builder.HasOne(ur => ur.Role)
+            .WithMany(r => r.UserRoles)
+            .HasForeignKey(ur => ur.RoleId);
     }
 }

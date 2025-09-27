@@ -88,11 +88,15 @@ public class AppUserEntityTypeConfiguration : IEntityTypeConfiguration<AppUser> 
             .HasForeignKey(user => user.CompanyId)
             .HasConstraintName("user_company_id_foreign");
 
-        // builder.HasMany(user => user.Roles)
-        //     .WithMany(role => role.Users)
-        //     .UsingEntity<AppUserRole>(
-        //         r => r.HasOne(x => x.Role).WithMany().HasForeignKey(x => x.RoleId),
-        //         l => l.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId)
-        //         );
+        // Each User can have many UserClaims
+        // builder.HasMany<AppUserClaim>().WithOne().HasForeignKey(uc => uc.UserId).IsRequired();
+        // Each User can have many UserLogins
+        // builder.HasMany<AppUserLogin>().WithOne().HasForeignKey(ul => ul.UserId).IsRequired();
+
+        // Each User can have many UserTokens
+        // builder.HasMany<AppUserToken>().WithOne().HasForeignKey(ut => ut.UserId).IsRequired();
+
+        // Each User can have many entries in the UserRole join table
+        // builder.HasMany<AppUserRole>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
     }
 }

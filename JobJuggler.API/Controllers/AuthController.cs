@@ -33,7 +33,7 @@ public class AuthController : ControllerBase {
 
 
     [AllowAnonymous]
-    [HttpPost("/register")]
+    [HttpPost("register")]
     public async Task<ActionResult<AuthUserDTO>> Register(RegisterDto registerDto)
     {
         if (await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username))
@@ -41,7 +41,7 @@ public class AuthController : ControllerBase {
             return BadRequest($"Username {registerDto.Username} is already taken");
         }
 
-        if ((!await _context.Companies.AnyAsync(x => x.Id == registerDto.CompanyId)))
+        if (!await _context.Companies.AnyAsync(x => x.Id == registerDto.CompanyId))
         {
             return BadRequest($"Company with id {registerDto.CompanyId} does not exist");
         }
@@ -99,20 +99,26 @@ public class AuthController : ControllerBase {
         return Unauthorized();
     }
 
-    // public async Task<ActionResult> Logout()
-    // {
-    //     await _signInManager.SignOutAsync();
-    //
-    //     return NoContent();
-    // }
-
-    [Authorize]
-    [HttpGet]
-    public async Task<ActionResult<AuthUserDTO>> GetCurrentUser()
+    [HttpPost("logout")]
+    // [ValidateAntiForgeryToken]
+    public async Task<ActionResult> Logout()
     {
-        var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
+        await _signInManager.SignOutAsync();
+    
+        return NoContent();
+    }
 
-        return CreateUserObject(user);
+    [AllowAnonymous]
+    [HttpGet("user-info")]
+    public async Task<ActionResult> GetUserInfo()
+    {
+        if (User.Identity?.IsAuthenticated == false) return NoContent();
+
+        var user = await _signInManager.UserManager.GetUserAsync(User);
+
+        if (user == null) return Unauthorized();
+
+        return Ok(new { user.DisplayName, user.Email, user.Id });
     }
 
     private async Task SetRefreshToken(AppUser user)

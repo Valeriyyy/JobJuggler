@@ -39,15 +39,15 @@ public static class IdentityServiceExtensions {
                 };
             });
 
-        services.AddAuthorization(opt =>
-        {
-            opt.AddPolicy("IsRecordOwner", policy =>
-            {
-                policy.Requirements.Add(new IsRecordOwnerRequirement());
-            });
-        });
+        // services.AddAuthorization(opt =>
+        // {
+        //     opt.AddPolicy("IsRecordOwner", policy =>
+        //     {
+        //         policy.Requirements.Add(new IsRecordOwnerRequirement());
+        //     });
+        // });
         services.AddScoped<TokenService>();
-        services.AddTransient<IAuthorizationHandler, IsClientRecordOwnerRequirementHandler>();
+        // services.AddTransient<IAuthorizationHandler, IsClientRecordOwnerRequirementHandler>();
         return services;
     }
 }

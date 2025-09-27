@@ -16,23 +16,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/CompaniesController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/CompanyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/CompanyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/IdentityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/IdentityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/JobController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/JobController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/RolesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/RolesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/LocationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/LocationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/PicklistController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/PicklistController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.API/Extensions/IdentityServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Extensions/IdentityServiceExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/CompaniesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/CompaniesService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/JobEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/JobEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/IClientService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/IClientService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/IJobService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/IJobService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/ILocationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/ILocationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/IPicklistService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/Interfaces/IPicklistService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/JobService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/JobService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/LocationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/LocationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/PicklistService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/PicklistService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppRole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppRole.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppRoleClaim.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppRoleClaim.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUserClaim.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUserClaim.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUserLogin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUserLogin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUserRole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUserRole.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUserToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppUserToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsClientRecordOwnerRequirement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsClientRecordOwnerRequirement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsRecordOwnerRequirement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsRecordOwnerRequirement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/DataContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/AppRoleClaimEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/AppRoleClaimEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/AppUserClaimEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/AppUserClaimEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/AppUserEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/AppUserEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/AppUserLoginEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/AppUserLoginEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/AppUserRoleEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/AppUserRoleEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/CompanyEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/CompanyEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20220820225855_Init.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20220820225855_Init.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20221023055900_AddClients.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20221023055900_AddClients.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20221023060458_AddLocations.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20221023060458_AddLocations.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20221023061303_AddJobs.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20221023061303_AddJobs.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20221023062126_AddFinances.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20221023062126_AddFinances.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20221030004636_JobInvoices.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20221030004636_JobInvoices.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20230206014008_AddEnumModel.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20230206014008_AddEnumModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20241208235452_AddIdentity.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/20241208235452_AddIdentity.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Tests/JobJuggler.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Tests/JobJuggler.Tests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.sln" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJugglers.Mapping/ClientMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJugglers.Mapping/ClientMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Seeds/MainSeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Seeds/MainSeed.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,12 +98,19 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/IdentityServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/appsettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Persistence/EntityConfigurations/JobEntityTypeConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Reactivities/API/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Reactivities/API/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f38e2bd773ce6dbd88ed4bf458708017cd35499fe771213689a2a376678/SignInManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3819a9b6d7712d903bcdec7ed2ae6a7eeb809ec174c15bbf3720d839fb35ce9d/IdentityUserClaim.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8512b3f592a227cfb48f8fff0c16a356dcbfbb5399342d8febc7b7116bff64/IdentityRoleClaim.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e25cce28490c87faaf15522967e96692c1829b521f6b7a4fc8bde524eec/IdentityRole.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9fc14c9d50268c83871a1e44d9a3301092ce593c973f486af9d6d56482cff013/IdentityUserRole.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/acfead36ed0138084f13ee724545d2dcb853f354ec658443b72fc26eff58781/IdentityUserToken.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c3ad84587171985e43399d8ce4db653283edfeb719f811eba0c3cf369670b361/IdentityUserLogin.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -305,7 +344,10 @@
       <workItem from="1757561189606" duration="1026000" />
       <workItem from="1757647589909" duration="1072000" />
       <workItem from="1757988894830" duration="215000" />
-      <workItem from="1757990591449" duration="2634000" />
+      <workItem from="1757990591449" duration="3236000" />
+      <workItem from="1758767155725" duration="3488000" />
+      <workItem from="1758947672607" duration="7672000" />
+      <workItem from="1758997814238" duration="2660000" />
     </task>
     <task id="LOCAL-00001" summary="chnaged some stuff">
       <option name="closed" value="true" />
@@ -451,7 +493,103 @@
       <option name="project" value="LOCAL" />
       <updated>1757225730681</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="made companies controller">
+      <option name="closed" value="true" />
+      <created>1757994596080</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994596080</updated>
+    </task>
+    <task id="LOCAL-00020" summary="controller stuff">
+      <option name="closed" value="true" />
+      <created>1757994621020</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994621020</updated>
+    </task>
+    <task id="LOCAL-00021" summary="comments">
+      <option name="closed" value="true" />
+      <created>1757994627852</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994627852</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added openapi tag">
+      <option name="closed" value="true" />
+      <created>1757994650584</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994650584</updated>
+    </task>
+    <task id="LOCAL-00023" summary="ide stuff idk">
+      <option name="closed" value="true" />
+      <created>1757994661578</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994661578</updated>
+    </task>
+    <task id="LOCAL-00024" summary="array stuff">
+      <option name="closed" value="true" />
+      <created>1757994683091</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994683091</updated>
+    </task>
+    <task id="LOCAL-00025" summary="json cycle">
+      <option name="closed" value="true" />
+      <created>1757994692250</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994692250</updated>
+    </task>
+    <task id="LOCAL-00026" summary="companies service start">
+      <option name="closed" value="true" />
+      <created>1757994704179</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994704179</updated>
+    </task>
+    <task id="LOCAL-00027" summary="ypdated version">
+      <option name="closed" value="true" />
+      <created>1757994716929</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994716929</updated>
+    </task>
+    <task id="LOCAL-00028" summary="changed adding identity">
+      <option name="closed" value="true" />
+      <created>1757994732345</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994732345</updated>
+    </task>
+    <task id="LOCAL-00029" summary="started work for adding audti fields to job">
+      <option name="closed" value="true" />
+      <created>1757994757191</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994757191</updated>
+    </task>
+    <task id="LOCAL-00030" summary="added common and test project">
+      <option name="closed" value="true" />
+      <created>1757994776705</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1757994776705</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,11 +608,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="chnaged some stuff" />
-    <MESSAGE value="added git stuff to solution" />
-    <MESSAGE value="added test project" />
-    <MESSAGE value="did some stuff who cares" />
-    <MESSAGE value="man wtf does this all do" />
     <MESSAGE value="started removing use of automapper and started adding entity audit fields" />
     <MESSAGE value="Re added identity cause migrations are dumb" />
     <MESSAGE value="added user accessor stuff" />
@@ -488,7 +621,19 @@
     <MESSAGE value="man idk" />
     <MESSAGE value="identity stuff finally getting things figured out" />
     <MESSAGE value="Updated packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated packages" />
+    <MESSAGE value="made companies controller" />
+    <MESSAGE value="controller stuff" />
+    <MESSAGE value="comments" />
+    <MESSAGE value="added openapi tag" />
+    <MESSAGE value="ide stuff idk" />
+    <MESSAGE value="array stuff" />
+    <MESSAGE value="json cycle" />
+    <MESSAGE value="companies service start" />
+    <MESSAGE value="ypdated version" />
+    <MESSAGE value="changed adding identity" />
+    <MESSAGE value="started work for adding audti fields to job" />
+    <MESSAGE value="added common and test project" />
+    <option name="LAST_COMMIT_MESSAGE" value="added common and test project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -511,10 +656,10 @@
           <line>22</line>
           <properties documentPath="$PROJECT_DIR$/JobJuggler.Application/Services/PicklistService.cs" containingFunctionPresentation="Method 'GetAll'">
             <startOffsets>
-              <option value="704" />
+              <option value="731" />
             </startOffsets>
             <endOffsets>
-              <option value="719" />
+              <option value="746" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
@@ -537,65 +682,13 @@
           <line>73</line>
           <properties documentPath="$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsRecordOwnerRequirement.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
             <startOffsets>
-              <option value="2956" />
+              <option value="3087" />
             </startOffsets>
             <endOffsets>
-              <option value="2985" />
+              <option value="3116" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsRecordOwnerRequirement.cs</url>
-          <line>63</line>
-          <properties documentPath="$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsRecordOwnerRequirement.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="2562" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2653" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsRecordOwnerRequirement.cs</url>
-          <line>40</line>
-          <properties documentPath="$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsRecordOwnerRequirement.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="1673" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1689" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsClientRecordOwnerRequirement.cs</url>
-          <line>38</line>
-          <properties documentPath="$PROJECT_DIR$/JobJuggler.Infrastructure/Security/IsClientRecordOwnerRequirement.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="1450" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1696" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs</url>
-          <line>40</line>
-          <properties documentPath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" containingFunctionPresentation="Method 'GetClientById'">
-            <startOffsets>
-              <option value="1346" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1392" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f38e2bd773ce6dbd88ed4bf458708017cd35499fe771213689a2a376678/SignInManager.cs</url>

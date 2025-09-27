@@ -21,5 +21,6 @@ public partial class Init : Migration {
 
     protected override void Down(MigrationBuilder migrationBuilder) {
         migrationBuilder.Sql("DROP FUNCTION main.guid_trigger_func();");
+        migrationBuilder.Sql("DROP SCHEMA IF EXISTS main;");
     }
 }

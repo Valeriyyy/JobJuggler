@@ -26,7 +26,6 @@ public class AppUserLoginEntityTypeConfiguration : IEntityTypeConfiguration<AppU
         
         builder.HasOne(e => e.User)
             .WithMany(e => e.Logins)
-            .HasForeignKey(e => e.UserId)
-            .HasConstraintName("FK_user_logins_users_user_id");
+            .HasForeignKey(e => e.UserId);
     }
 }

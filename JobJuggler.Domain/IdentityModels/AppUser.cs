@@ -17,7 +17,7 @@ public class AppUser : IdentityUser<int>
     public int? DeletedById { get; set; }
 
     public virtual AppCompany Company { get; set; }
-    public virtual List<AppRole> Roles { get; set; }
+    public virtual List<AppUserRole> Roles { get; set; }
     public virtual List<AppUserLogin> Logins { get; set; }
     public virtual List<AppUserClaim> Claims { get; set; }
     public virtual List<AppUserToken> UserTokens { get; set; }
