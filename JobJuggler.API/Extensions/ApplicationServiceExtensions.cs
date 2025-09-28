@@ -38,9 +38,9 @@ public static class ApplicationServiceExtensions {
         var userAccessor = new UserAccessor(new HttpContextAccessor());
         services.AddDbContext<DataContext>((sp, options) => {
             var connUrl = config.GetConnectionString("postgres");
-            options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("__EFMigrationsHistory", "public"));
-            // .MapEnums()).ConfigureWarnings(c => c.Ignore(RelationalEventId.PendingModelChangesWarning))
-            // .AddInterceptors(new AuditInterceptor(userAccessor.GetUserId));
+            options.UseNpgsql(connUrl, x => x.MigrationsHistoryTable("__EFMigrationsHistory", "public")
+            .MapEnums()).ConfigureWarnings(c => c.Ignore(RelationalEventId.PendingModelChangesWarning))
+            .AddInterceptors(new AuditInterceptor(userAccessor.GetUserId));
         });
         #endregion
 

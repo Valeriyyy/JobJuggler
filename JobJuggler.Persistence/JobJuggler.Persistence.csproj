@@ -10,6 +10,7 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JobJuggler.Common\JobJuggler.Common.csproj" />
     <ProjectReference Include="..\JobJuggler.Domain\JobJuggler.Domain.csproj" />
   </ItemGroup>
 </Project>

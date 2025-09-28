@@ -1,8 +1,10 @@
 ﻿using JobJuggler.Domain.IdentityModels;
 using JobJuggler.Domain.Models;
 using JobJuggler.Domain.Enums;
+using JobJuggler.Domain.MetaModels;
 using JobJuggler.Persistence.EntityConfigurations;
 using JobJuggler.Persistence.EntityConfigurations.Identity;
+using JobJuggler.Persistence.EntityConfigurations.Meta;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
@@ -55,6 +57,10 @@ public class DataContext : IdentityDbContext<
         new AppUserLoginEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUserLogin>());
         new AppUserRoleEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUserRole>());
         new AppUserTokenEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUserToken>());
+        #endregion
+        
+        #region Meta
+        new ProductEntityTypeConfiguration().Configure(modelBuilder.Entity<Product>());
         #endregion
         
         #region Business

@@ -306,6 +306,8 @@ namespace JobJuggler.Persistence.Migrations
 
             migrationBuilder.AlterDatabase()
                 .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
+            
+            migrationBuilder.DropSchema("identity");
         }
     }
 }
