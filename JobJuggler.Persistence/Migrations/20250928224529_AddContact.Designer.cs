@@ -5,6 +5,7 @@ using JobJuggler.Domain.MetaModels.Enums;
 using JobJuggler.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -13,9 +14,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JobJuggler.Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250928224529_AddContact")]
+    partial class AddContact
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +27,6 @@ namespace JobJuggler.Persistence.Migrations
 
             NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "job_juggler", "billing_period", new[] { "monthly", "one_time", "yearly" });
             NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "job_juggler", "product_type", new[] { "legacy", "metered", "one_time", "subscription" });
-            NpgsqlModelBuilderExtensions.HasPostgresEnum(modelBuilder, "job_juggler", "subscription_status", new[] { "active", "canceled", "inactive", "past_due", "terminated" });
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("JobJuggler.Domain.IdentityModels.AppCompany", b =>
@@ -73,15 +75,6 @@ namespace JobJuggler.Persistence.Migrations
                         .HasColumnName("name");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedById")
-                        .HasDatabaseName("IX_companies_created_by_id");
-
-                    b.HasIndex("DeletedById")
-                        .HasDatabaseName("IX_companies_deleted_by_id");
-
-                    b.HasIndex("LastModifiedById")
-                        .HasDatabaseName("IX_companies_last_modified_by_id");
 
                     b.ToTable("companies", "identity");
                 });
@@ -431,8 +424,6 @@ namespace JobJuggler.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CompanyId");
-
                     b.HasIndex("CreatedById")
                         .HasDatabaseName("IX_contacts_created_by_id");
 
@@ -531,31 +522,6 @@ namespace JobJuggler.Persistence.Migrations
                     b.ToTable("products", "job_juggler");
                 });
 
-            modelBuilder.Entity("JobJuggler.Domain.IdentityModels.AppCompany", b =>
-                {
-                    b.HasOne("JobJuggler.Domain.IdentityModels.AppUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("JobJuggler.Domain.IdentityModels.AppUser", "DeletedBy")
-                        .WithMany()
-                        .HasForeignKey("DeletedById")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("JobJuggler.Domain.IdentityModels.AppUser", "LastModifiedBy")
-                        .WithMany()
-                        .HasForeignKey("LastModifiedById")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("DeletedBy");
-
-                    b.Navigation("LastModifiedBy");
-                });
-
             modelBuilder.Entity("JobJuggler.Domain.IdentityModels.AppRoleClaim", b =>
                 {
                     b.HasOne("JobJuggler.Domain.IdentityModels.AppRole", "Role")
@@ -633,29 +599,19 @@ namespace JobJuggler.Persistence.Migrations
 
             modelBuilder.Entity("JobJuggler.Domain.MetaModels.Contact", b =>
                 {
-                    b.HasOne("JobJuggler.Domain.IdentityModels.AppCompany", "Company")
-                        .WithMany("Contacts")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("JobJuggler.Domain.IdentityModels.AppUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("JobJuggler.Domain.IdentityModels.AppUser", "DeletedBy")
                         .WithMany()
-                        .HasForeignKey("DeletedById")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("DeletedById");
 
                     b.HasOne("JobJuggler.Domain.IdentityModels.AppUser", "LastModifiedBy")
                         .WithMany()
-                        .HasForeignKey("LastModifiedById")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Company");
+                        .HasForeignKey("LastModifiedById");
 
                     b.Navigation("CreatedBy");
 
@@ -669,18 +625,16 @@ namespace JobJuggler.Persistence.Migrations
                     b.HasOne("JobJuggler.Domain.IdentityModels.AppUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("JobJuggler.Domain.IdentityModels.AppUser", "DeletedBy")
                         .WithMany()
-                        .HasForeignKey("DeletedById")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("DeletedById");
 
                     b.HasOne("JobJuggler.Domain.IdentityModels.AppUser", "LastModifiedBy")
                         .WithMany()
-                        .HasForeignKey("LastModifiedById")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("LastModifiedById");
 
                     b.Navigation("CreatedBy");
 
@@ -691,8 +645,6 @@ namespace JobJuggler.Persistence.Migrations
 
             modelBuilder.Entity("JobJuggler.Domain.IdentityModels.AppCompany", b =>
                 {
-                    b.Navigation("Contacts");
-
                     b.Navigation("Users");
                 });
 

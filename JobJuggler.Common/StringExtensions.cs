@@ -2,6 +2,11 @@ namespace JobJuggler.Common;
 
 public static class StringExtensions
 {
+    public static string ToSnakeCase<TEnum>(this TEnum value) where TEnum : Enum
+    {
+        return ToSnakeCase(value.ToString());
+    }
+    
     public static string ToSnakeCase(this string str)
     {
         if (string.IsNullOrEmpty(str))

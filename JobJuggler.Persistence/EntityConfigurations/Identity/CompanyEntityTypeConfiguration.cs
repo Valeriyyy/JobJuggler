@@ -1,11 +1,14 @@
 ﻿using JobJuggler.Domain.IdentityModels;
+using JobJuggler.Persistence.EntityConfigurations.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace JobJuggler.Persistence.EntityConfigurations.Identity;
 public class CompanyEntityTypeConfiguration : IEntityTypeConfiguration<AppCompany> {
-    public void Configure(EntityTypeBuilder<AppCompany> builder) {
-        builder.ToTable("companies", "identity");
+    public void Configure(EntityTypeBuilder<AppCompany> builder)
+    {
+        var tableName = "companies";
+        builder.ToTable(tableName, "identity");
 
         builder.Property(e => e.Id)
             .HasColumnName("id")
@@ -16,36 +19,6 @@ public class CompanyEntityTypeConfiguration : IEntityTypeConfiguration<AppCompan
             .HasColumnName("name")
             .HasMaxLength(64);
 
-        builder.Property(e => e.DateCreated)
-            .HasColumnName("date_created");
-
-        builder.Property(e => e.CreatedById)
-            .HasColumnName("created_by_id");
-
-        builder.Property(e => e.DateLastModified)
-            .HasColumnName("date_last_modified")
-            .HasDefaultValue(null);
-
-        builder.Property(e => e.LastModifiedById)
-            .HasColumnName("last_modified_by_id")
-            .HasDefaultValue(null);
-
-        builder.Property(e => e.IsDeleted)
-            .HasColumnName("is_deleted")
-            .HasDefaultValue(false);
-
-        builder.Property(e => e.DateDeleted)
-            .HasColumnName("date_deleted")
-            .HasDefaultValue(null);
-
-        builder.Property(e => e.DeletedById)
-            .HasColumnName("deleted_by_id")
-            .HasDefaultValue(null);
-        //
-        // builder.HasMany(company => company.Users)
-        //     .WithOne(user => user.Company)
-        //     .HasForeignKey(user => user.CompanyId)
-        //     .HasConstraintName("company_users_company_id_fk")
-        //     .OnDelete(DeleteBehavior.Cascade);
+        builder.AddAuditConfigFields(tableName);
     }
 }

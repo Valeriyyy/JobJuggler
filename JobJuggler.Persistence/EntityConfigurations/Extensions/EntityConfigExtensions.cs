@@ -43,22 +43,19 @@ public static class EntityConfigExtensions
         builder.HasIndex(x => x.DeletedById)
             .HasDatabaseName($"IX_{entityDbName}_deleted_by_id");
         
+        builder.HasOne(x => x.CreatedBy)
+            .WithMany()
+            .HasForeignKey(x => x.CreatedById)
+            .OnDelete(DeleteBehavior.Restrict);
         
-        // gotta figure out how these lookup properties work
-        // with generics
-        // builder.HasOne(x => x.CreatedBy)
-        //     .WithMany("CreatedRecords")
-        //     .HasForeignKey(x => x.CreatedById)
-        //     .HasConstraintName("user_record_created_by_foreign");
-        //
-        // builder.HasOne(x => x.LastModifiedBy)
-        //     .WithMany("UpdatedRecords")
-        //     .HasForeignKey(x => x.LastModifiedById)
-        //     .HasConstraintName("user_record_updated_by_foreign");
-        //
-        // builder.HasOne(x => x.DeletedBy)
-        //     .WithMany("DeletedRecords")
-        //     .HasForeignKey(x => x.DeletedById)
-        //     .HasConstraintName("user_record_deleted_by_foreign");
+        builder.HasOne(x => x.LastModifiedBy)
+            .WithMany()
+            .HasForeignKey(x => x.LastModifiedById)
+            .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasOne(x => x.DeletedBy)
+            .WithMany()
+            .HasForeignKey(x => x.DeletedById)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

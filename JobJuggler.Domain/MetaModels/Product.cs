@@ -13,4 +13,6 @@ public class Product : BaseEntity
     public decimal Price { get; set; }
     public bool IsActive { get; set; }
     public ProductOptions ProductOptions { get; set; }
+    
+    // public virtual List<Subscription> Subscriptions { get; set; }
 }

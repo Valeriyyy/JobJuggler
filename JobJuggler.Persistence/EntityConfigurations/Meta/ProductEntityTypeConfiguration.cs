@@ -1,3 +1,4 @@
+using JobJuggler.Common;
 using JobJuggler.Domain.MetaModels;
 using JobJuggler.Domain.MetaModels.Enums;
 using JobJuggler.Persistence.EntityConfigurations.Extensions;
@@ -10,7 +11,8 @@ public class ProductEntityTypeConfiguration : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
     {
-        builder.ToTable("products", "job_juggler");
+        var dbName = "products";
+        builder.ToTable(dbName, DbSchemas.JobJuggler.ToSnakeCase());
         
         builder.Property(e => e.Id)
             .HasColumnName("id")
@@ -44,6 +46,6 @@ public class ProductEntityTypeConfiguration : IEntityTypeConfiguration<Product>
             .HasColumnName("product_options")
             .HasColumnType("jsonb");
         
-        builder.AddAuditConfigFields("products");
+        builder.AddAuditConfigFields(dbName);
     }
 }

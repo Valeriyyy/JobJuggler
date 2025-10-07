@@ -61,6 +61,8 @@ public class DataContext : IdentityDbContext<
         
         #region Meta
         new ProductEntityTypeConfiguration().Configure(modelBuilder.Entity<Product>());
+        new ContactEntityTypeConfiguration().Configure(modelBuilder.Entity<Contact>());
+        // new SubscriptionEntityTypeConfiguration().Configure(modelBuilder.Entity<Subscription>());
         #endregion
         
         #region Business
