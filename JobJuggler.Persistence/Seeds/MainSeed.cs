@@ -1,10 +1,11 @@
-﻿using JobJuggler.Domain.Models;
+using JobJuggler.Domain.Models;
 using JobJuggler.Domain.Enums;
 using JobJuggler.Domain.IdentityModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace JobJuggler.Persistence.Seeds;
-public class MainSeed {
+public class MainSeed
+{
     public static async Task SeedData(DataContext context)
     {
         var user = await context.Users.SingleOrDefaultAsync(u => u.UserName == "valeriykutsar18@gmail.com");
@@ -23,7 +24,8 @@ public class MainSeed {
     /// </summary>
     /// <param name="context">The postgres database context</param>
     /// <returns></returns>
-    public static Task PaymentMethodSeed(DataContext context) {
+    public static Task PaymentMethodSeed(DataContext context)
+    {
         // if (!context.PaymentMethods.Any()) {
         //     var paymentMethods = new List<PaymentMethod>
         //     {
@@ -74,7 +76,8 @@ public class MainSeed {
         return Task.CompletedTask;
     }
 
-    public static Task LineItemSeed(DataContext context) {
+    public static Task LineItemSeed(DataContext context)
+    {
         // if (!context.LineItems.Any()) {
         //     var lineItems = new List<LineItem> {
         //         new ()
@@ -106,7 +109,8 @@ public class MainSeed {
         return Task.CompletedTask;
     }
 
-    public static Task ClientSeed(DataContext context, AppUser user) {
+    public static Task ClientSeed(DataContext context, AppUser user)
+    {
         // if (!context.Clients.Any()) {
         //     var clients = new List<Client>
         //     {
@@ -140,7 +144,8 @@ public class MainSeed {
         return Task.CompletedTask;
     }
 
-    public static Task LocationSeed(DataContext context) {
+    public static Task LocationSeed(DataContext context)
+    {
         // if (!context.Locations.Any()) {
         //     var locations = new List<Location>
         //     {
