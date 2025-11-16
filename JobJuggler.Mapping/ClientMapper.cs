@@ -2,7 +2,7 @@ using JobJuggler.Domain.Models;
 using JobJuggler.DTO.Client;
 using JobJuggler.DTO.Job;
 
-namespace JobJugglers.Mapping;
+namespace JobJuggler.Mapping;
 
 public static class ClientMapper
 {
