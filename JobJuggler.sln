@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobJuggler.Tests", "JobJuggler.Tests\JobJuggler.Tests.csproj", "{DFDD6432-84B6-477A-A088-FB2DC7001534}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobJugglers.Mapping", "JobJugglers.Mapping\JobJugglers.Mapping.csproj", "{01A16119-0322-4D5A-89EE-36DB90BF7839}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobJuggler.Mapping", "JobJuggler.Mapping\JobJuggler.Mapping.csproj", "{01A16119-0322-4D5A-89EE-36DB90BF7839}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B9830199-A750-4FCE-BFD9-9705C232B5B5}"
 EndProject
