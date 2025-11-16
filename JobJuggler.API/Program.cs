@@ -62,6 +62,7 @@ var services = scope.ServiceProvider;
 
 try {
     var context = services.GetRequiredService<DataContext>();
+    // context.Database.Migrate();
     var userManager = services.GetRequiredService<UserManager<AppUser>>();
     var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
     
