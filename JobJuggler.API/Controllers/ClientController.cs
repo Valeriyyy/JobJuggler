@@ -23,6 +23,7 @@ public class ClientController : ControllerBase {
     }
 
     [HttpGet("get-all")]
+    [AllowAnonymous]
     public ActionResult<List<int>> GetAll()
     {
         var clients = Enumerable.Range(0, 10).Select(i => new ClientDTO { Id = i, Name = $"Client {i}" }).ToList();
