@@ -365,4 +365,4 @@ FodyWeavers.xsd
 
 appsettings.*
 Scripting
-nginx/certs/
+*/nginx/certs/
