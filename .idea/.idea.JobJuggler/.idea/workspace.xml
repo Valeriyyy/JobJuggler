@@ -16,21 +16,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/JobJuggler.API/DOCKER_SETUP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JobJuggler.API/nginx/conf.d/default.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/CompanyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/CompanyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/IdentityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/IdentityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/JobController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/JobController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Properties/launchSettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.API/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/JobJuggler.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/JobJuggler.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Seeds/MainSeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Seeds/MainSeed.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.sln" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJugglers.Mapping/ClientMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Mapping/ClientMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJugglers.Mapping/JobJugglers.Mapping.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Mapping/JobJuggler.Mapping.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,13 +53,24 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/ClientController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/ClientController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/CompanyController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/IdentityController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/JobController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/JobController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/IdentityServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Application/Services/ClientService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Application/Services/ClientService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Common/StringExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/CompanyBillingInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Contact.cs" root0="FORCE_HIGHLIGHTING" />
@@ -86,6 +87,8 @@
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/ContactEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/ProductEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/SubscriptionEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Persistence/Seeds/MainSeed.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Persistence/Seeds/MainSeed.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Reactivities/API/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Reactivities/API/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -121,7 +124,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "AtomSelectConfig",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -390,7 +393,7 @@
       <workItem from="1760755072991" duration="455000" />
       <workItem from="1763180547607" duration="239000" />
       <workItem from="1763180933856" duration="1563000" />
-      <workItem from="1763249966664" duration="8728000" />
+      <workItem from="1763249966664" duration="11002000" />
     </task>
     <task id="LOCAL-00001" summary="chnaged some stuff">
       <option name="closed" value="true" />
@@ -680,7 +683,87 @@
       <option name="project" value="LOCAL" />
       <updated>1763258621018</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Updated config settings">
+      <option name="closed" value="true" />
+      <created>1763258745154</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1763258745154</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Updated project locatioon and reference">
+      <option name="closed" value="true" />
+      <created>1763258782680</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1763258782680</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Added mapping project to sln">
+      <option name="closed" value="true" />
+      <created>1763258795922</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1763258795922</updated>
+    </task>
+    <task id="LOCAL-00040" summary="formatting">
+      <option name="closed" value="true" />
+      <created>1763259008093</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1763259008093</updated>
+    </task>
+    <task id="LOCAL-00041" summary="added migration on tartup">
+      <option name="closed" value="true" />
+      <created>1763259032613</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1763259032613</updated>
+    </task>
+    <task id="LOCAL-00042" summary="moved namespace">
+      <option name="closed" value="true" />
+      <created>1763259057097</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1763259057097</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fixed import">
+      <option name="closed" value="true" />
+      <created>1763259078275</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1763259078275</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Made method anon">
+      <option name="closed" value="true" />
+      <created>1763259089348</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1763259089348</updated>
+    </task>
+    <task id="LOCAL-00045" summary="added folder to gitignore">
+      <option name="closed" value="true" />
+      <created>1763260670842</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1763260670842</updated>
+    </task>
+    <task id="LOCAL-00046" summary="updated ignore">
+      <option name="closed" value="true" />
+      <created>1763260722290</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1763260722290</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -699,16 +782,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="added delete client endpoint and method" />
-    <MESSAGE value="idk" />
-    <MESSAGE value="wtf" />
-    <MESSAGE value="replaced password hashing with argon2 password hasher" />
-    <MESSAGE value="man idk" />
-    <MESSAGE value="identity stuff finally getting things figured out" />
-    <MESSAGE value="Updated packages" />
-    <MESSAGE value="made companies controller" />
-    <MESSAGE value="controller stuff" />
-    <MESSAGE value="comments" />
     <MESSAGE value="added openapi tag" />
     <MESSAGE value="ide stuff idk" />
     <MESSAGE value="array stuff" />
@@ -724,7 +797,17 @@
     <MESSAGE value="added contacts" />
     <MESSAGE value="idk some workspace change" />
     <MESSAGE value="Fixed dockerfile to run properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed dockerfile to run properly" />
+    <MESSAGE value="Updated config settings" />
+    <MESSAGE value="Updated project locatioon and reference" />
+    <MESSAGE value="Added mapping project to sln" />
+    <MESSAGE value="formatting" />
+    <MESSAGE value="added migration on tartup" />
+    <MESSAGE value="moved namespace" />
+    <MESSAGE value="fixed import" />
+    <MESSAGE value="Made method anon" />
+    <MESSAGE value="added folder to gitignore" />
+    <MESSAGE value="updated ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated ignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -734,10 +817,10 @@
           <line>42</line>
           <properties documentPath="$PROJECT_DIR$/JobJuggler.API/Controllers/IdentityController.cs" containingFunctionPresentation="Method 'GetAll'">
             <startOffsets>
-              <option value="1111" />
+              <option value="1176" />
             </startOffsets>
             <endOffsets>
-              <option value="1121" />
+              <option value="1186" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
