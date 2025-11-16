@@ -15,7 +15,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="" />
+    <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/CompanyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/CompanyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/IdentityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/IdentityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/JobController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/JobController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/JobJuggler.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/JobJuggler.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Application/Services/ClientService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Seeds/MainSeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Seeds/MainSeed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.sln" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJugglers.Mapping/ClientMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Mapping/ClientMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJugglers.Mapping/JobJugglers.Mapping.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Mapping/JobJuggler.Mapping.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,12 +64,13 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Controllers/ClientController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Controllers/JobController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/ApplicationServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Extensions/IdentityServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.API/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Common/StringExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Domain/IdentityModels/AppCompany.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/CompanyBillingInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Contact.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Enums/BillingPeriod.cs" root0="FORCE_HIGHLIGHTING" />
@@ -66,20 +83,11 @@
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/ProductOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Subscription.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/DbSchemas.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Persistence/EntityConfigurations/Identity/CompanyEntityTypeConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/ContactEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/ProductEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/SubscriptionEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Reactivities/API/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Reactivities/API/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f38e2bd773ce6dbd88ed4bf458708017cd35499fe771213689a2a376678/SignInManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3819a9b6d7712d903bcdec7ed2ae6a7eeb809ec174c15bbf3720d839fb35ce9d/IdentityUserClaim.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8512b3f592a227cfb48f8fff0c16a356dcbfbb5399342d8febc7b7116bff64/IdentityRoleClaim.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e25cce28490c87faaf15522967e96692c1829b521f6b7a4fc8bde524eec/IdentityRole.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9fc14c9d50268c83871a1e44d9a3301092ce593c973f486af9d6d56482cff013/IdentityUserRole.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/acfead36ed0138084f13ee724545d2dcb853f354ec658443b72fc26eff58781/IdentityUserToken.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c3ad84587171985e43399d8ce4db653283edfeb719f811eba0c3cf369670b361/IdentityUserLogin.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e0e3ccafd588b32b3d7ee942cb73758f1a346f75c92b352f3c229e0cd7c205f/DbContextOptionsBuilder.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -97,37 +105,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.JobJuggler.API: API.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.JobJuggler.API: API.executor": "Run",
+    "Docker.JobJuggler.API/Dockerfile base.executor": "Run",
+    "Docker.JobJuggler.API/Dockerfile.executor": "Run",
+    "Docker.JobJuggler.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ],
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
     ]
   }
-}</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.JobJuggler.API: API">
+}]]></component>
+  <component name="RunManager" selected="Docker.JobJuggler.API/Dockerfile">
     <configuration name="JobJuggler.DTO" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -147,10 +160,8 @@
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -170,10 +181,8 @@
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -193,15 +202,13 @@
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="AUTO_ATTACH_CHILDREN" value="0" />
-      <option name="PROJECT_PATH" value="$PROJECT_DIR$/JobJugglers.Mapping/JobJugglers.Mapping.csproj" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/JobJuggler.Mapping/JobJuggler.Mapping.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
@@ -215,7 +222,6 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
       <option name="LAUNCH_PROFILE_NAME" value="API" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
@@ -223,20 +229,57 @@
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
       <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="JobJuggler" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="sha256:26c5ccd225a5ed6f89809231dac506d721fa4109c13084d51bfa44a06e20adb0" />
+          <option name="containerName" value="JobJuggler" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="JobJuggler.API/Dockerfile base" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="mcr.microsoft.comdotnetaspnet8.0_base" />
+          <option name="buildCliOptions" value="--target base" />
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="JobJuggler.API/Dockerfile" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="JobJuggler.API/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
-          <option name="containerName" value="jobjuggler.api" />
-          <option name="contextFolderPath" value="$PROJECT_DIR$" />
+          <option name="containerName" value="job-juggler" />
+          <option name="contextFolderPath" value="." />
+          <option name="envVars">
+            <list>
+              <DockerEnvVarImpl>
+                <option name="name" value="ASPNETCORE_ENVIRONMENT" />
+                <option name="value" value="Local" />
+              </DockerEnvVarImpl>
+            </list>
+          </option>
           <option name="publishAllPorts" value="true" />
+          <option name="commandLineOptions" value="--rm " />
           <option name="sourceFilePath" value="JobJuggler.API/Dockerfile" />
         </settings>
       </deployment>
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="true" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
+      <deployment type="docker-image">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
@@ -246,6 +289,22 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.JobJuggler.API: API" />
+      <item itemvalue=".NET Project.JobJuggler.DTO" />
+      <item itemvalue=".NET Project.JobJuggler.Infrastructure" />
+      <item itemvalue=".NET Project.JobJuggler.Tests" />
+      <item itemvalue=".NET Project.JobJugglers.Mapping" />
+      <item itemvalue="Docker.JobJuggler.API/Dockerfile" />
+      <item itemvalue="Docker.JobJuggler" />
+      <item itemvalue="Docker.JobJuggler.API/Dockerfile base" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.JobJuggler" />
+        <item itemvalue="Docker.JobJuggler.API/Dockerfile base" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -321,6 +380,17 @@
       <workItem from="1759289697650" duration="2687000" />
       <workItem from="1759461987580" duration="3092000" />
       <workItem from="1759804401548" duration="3098000" />
+      <workItem from="1759895515576" duration="634000" />
+      <workItem from="1759896197471" duration="59000" />
+      <workItem from="1760154079299" duration="1078000" />
+      <workItem from="1760222380345" duration="401000" />
+      <workItem from="1760222795434" duration="328000" />
+      <workItem from="1760664801161" duration="184000" />
+      <workItem from="1760664995042" duration="3041000" />
+      <workItem from="1760755072991" duration="455000" />
+      <workItem from="1763180547607" duration="239000" />
+      <workItem from="1763180933856" duration="1563000" />
+      <workItem from="1763249966664" duration="8728000" />
     </task>
     <task id="LOCAL-00001" summary="chnaged some stuff">
       <option name="closed" value="true" />
@@ -594,7 +664,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759807353320</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="idk some workspace change">
+      <option name="closed" value="true" />
+      <created>1759895862534</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1759895862534</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fixed dockerfile to run properly">
+      <option name="closed" value="true" />
+      <created>1763258621018</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1763258621018</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -613,8 +699,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="created audit record interceptor" />
-    <MESSAGE value="added interceptor to db context" />
     <MESSAGE value="added delete client endpoint and method" />
     <MESSAGE value="idk" />
     <MESSAGE value="wtf" />
@@ -638,7 +722,9 @@
     <MESSAGE value="removed automapper" />
     <MESSAGE value="Added product" />
     <MESSAGE value="added contacts" />
-    <option name="LAST_COMMIT_MESSAGE" value="added contacts" />
+    <MESSAGE value="idk some workspace change" />
+    <MESSAGE value="Fixed dockerfile to run properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed dockerfile to run properly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -648,10 +734,10 @@
           <line>42</line>
           <properties documentPath="$PROJECT_DIR$/JobJuggler.API/Controllers/IdentityController.cs" containingFunctionPresentation="Method 'GetAll'">
             <startOffsets>
-              <option value="1176" />
+              <option value="1111" />
             </startOffsets>
             <endOffsets>
-              <option value="1186" />
+              <option value="1121" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
@@ -727,5 +813,13 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>
