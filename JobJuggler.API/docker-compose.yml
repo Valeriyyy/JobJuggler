@@ -1,43 +1,50 @@
-version: '3.8'
+#version: '3.8'
 
 services:
-  jobjuggler.api:
+  jobjuggler_api:
     image: job-juggler
     container_name: jobjuggler-api
     build:
+      # Build context must be the repo root so Dockerfile COPYs like JobJuggler.Infrastructure/... resolve
       context: ..
       dockerfile: JobJuggler.API/Dockerfile
     ports:
       - "8080:8080"   # host 8080 -> container 8080 (HTTP)
       - "5001:5001"   # host 5001 -> container 5001 (HTTPS)
-    depends_on:
-      - db
     environment:
       ASPNETCORE_ENVIRONMENT: Local
+      # If you want the app to bind only to HTTP when behind nginx, you can set URLs accordingly
     restart: "no"
+    networks:
+      web:
+        aliases:
+          - jobjuggler_api
+          - jobjuggler.api
 
-  db:
-    image: postgres:15
-    container_name: jobjuggler-db
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: job_juggler
-    volumes:
-      - db-data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+#  db:
+#    image: postgres:15
+#    container_name: jobjuggler-db
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: password
+#      POSTGRES_DB: job_juggler
+#    volumes:
+#      - db-data:/var/lib/postgresql/data
+#    ports:
+#      - "5432:5432"
+#    healthcheck:
+#      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER}"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#    networks:
+#      - web
 
   nginx:
     image: nginx:stable-alpine
     container_name: jobjuggler-nginx
     depends_on:
-      - jobjuggler.api
+      - jobjuggler_api
     ports:
       - "443:443"
     volumes:
@@ -47,9 +54,16 @@ services:
       - web
     restart: unless-stopped
 
-volumes:
-  db-data:
+#volumes:
+#  db-data:
 
 networks:
   web:
     driver: bridge
+
+# To run:
+# docker-compose -f JobJuggler.API/docker-compose.yml up --build
+# To run in detached mode:
+# docker-compose -f JobJuggler.API/docker-compose.yml up --build -d
+# To stop:
+# docker-compose -f JobJuggler.API/docker-compose.yml down

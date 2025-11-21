@@ -60,19 +60,19 @@ app.MapControllers();
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
 
-try {
-    var context = services.GetRequiredService<DataContext>();
-    // context.Database.Migrate();
-    var userManager = services.GetRequiredService<UserManager<AppUser>>();
-    var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
-    
-    var identitySeed = new IdentitySeed(context, userManager, roleManager);
-    await identitySeed.SeedIdentity();
-    await MainSeed.SeedData(context);
-} catch (Exception ex) {
-    Console.WriteLine("Something has gone wrong seeding the database");
-    Console.WriteLine(ex.Message);
-    Console.WriteLine(ex.StackTrace);
-}
+// try {
+//     var context = services.GetRequiredService<DataContext>();
+//     // context.Database.Migrate();
+//     var userManager = services.GetRequiredService<UserManager<AppUser>>();
+//     var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
+//     
+//     var identitySeed = new IdentitySeed(context, userManager, roleManager);
+//     await identitySeed.SeedIdentity();
+//     await MainSeed.SeedData(context);
+// } catch (Exception ex) {
+//     Console.WriteLine("Something has gone wrong seeding the database");
+//     Console.WriteLine(ex.Message);
+//     Console.WriteLine(ex.StackTrace);
+// }
 
 app.Run();

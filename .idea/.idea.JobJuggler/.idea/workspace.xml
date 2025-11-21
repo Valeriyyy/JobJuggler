@@ -16,11 +16,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JobJuggler.API/DOCKER_SETUP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JobJuggler.API/nginx/conf.d/default.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JobJuggler.API/README.DOCKER.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.API/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/nginx/conf.d/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/nginx/conf.d/default.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,34 +108,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.JobJuggler.API: API.executor": "Run",
-    "Docker.JobJuggler.API/Dockerfile base.executor": "Run",
-    "Docker.JobJuggler.API/Dockerfile.executor": "Run",
-    "Docker.JobJuggler.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "AtomSelectConfig",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.JobJuggler.API: API.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.JobJuggler.API/Dockerfile base.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.JobJuggler.API/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.JobJuggler.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AtomSelectConfig&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Docker.JobJuggler.API/Dockerfile">
     <configuration name="JobJuggler.DTO" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -393,7 +393,9 @@
       <workItem from="1760755072991" duration="455000" />
       <workItem from="1763180547607" duration="239000" />
       <workItem from="1763180933856" duration="1563000" />
-      <workItem from="1763249966664" duration="11002000" />
+      <workItem from="1763249966664" duration="11822000" />
+      <workItem from="1763435923062" duration="4697000" />
+      <workItem from="1763698219207" duration="493000" />
     </task>
     <task id="LOCAL-00001" summary="chnaged some stuff">
       <option name="closed" value="true" />
@@ -763,7 +765,31 @@
       <option name="project" value="LOCAL" />
       <updated>1763260722290</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Updated docker compose file and added readme">
+      <option name="closed" value="true" />
+      <created>1763261027047</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1763261027047</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Added nginx config">
+      <option name="closed" value="true" />
+      <created>1763261037949</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1763261037949</updated>
+    </task>
+    <task id="LOCAL-00049" summary="workspace stuff">
+      <option name="closed" value="true" />
+      <created>1763261556739</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1763261556739</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -778,13 +804,11 @@
     <option featureType="dependencySupport" implementationName="dotnet:Microsoft.Identity.Web" />
     <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Abstractions" />
     <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Relational" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="default.conf" />
     <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="added openapi tag" />
-    <MESSAGE value="ide stuff idk" />
-    <MESSAGE value="array stuff" />
     <MESSAGE value="json cycle" />
     <MESSAGE value="companies service start" />
     <MESSAGE value="ypdated version" />
@@ -807,7 +831,10 @@
     <MESSAGE value="Made method anon" />
     <MESSAGE value="added folder to gitignore" />
     <MESSAGE value="updated ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated ignore" />
+    <MESSAGE value="Updated docker compose file and added readme" />
+    <MESSAGE value="Added nginx config" />
+    <MESSAGE value="workspace stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
