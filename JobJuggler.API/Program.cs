@@ -23,7 +23,6 @@ builder.Services.AddLogging(l => {
         .ReadFrom.Configuration(builder.Configuration)
         .CreateLogger());
 });
-
 builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddEndpointsApiExplorer();
@@ -56,6 +55,14 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseStaticFiles();
+app.MapStaticAssets();
+app.UseRouting();
+
+app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}")
+    .WithStaticAssets();
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;

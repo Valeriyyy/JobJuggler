@@ -26,10 +26,11 @@ public static class ApplicationServiceExtensions {
         #endregion
 
         #region Controllers
-        services.AddControllers(opt => {
+        services.AddControllersWithViews(opt => {
             var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
             opt.Filters.Add(new AuthorizeFilter(policy));
         })
+            .AddRazorRuntimeCompilation()
             .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
             .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore); ;
         #endregion
