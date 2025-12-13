@@ -366,3 +366,5 @@ FodyWeavers.xsd
 appsettings.*
 Scripting
 */nginx/certs/
+
+JobJuggler.API/wwwroot/dist/*
