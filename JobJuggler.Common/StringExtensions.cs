@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 namespace JobJuggler.Common;
 
 public static class StringExtensions
@@ -32,5 +34,15 @@ public static class StringExtensions
         }
 
         return new string(span.Slice(0, pos));
+    }
+    
+    private static readonly JsonSerializerOptions _defaults = new JsonSerializerOptions
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+    };
+
+    public static string ToJson<TT>(this TT obj)
+    {
+        return JsonSerializer.Serialize(obj, typeof(TT), _defaults);
     }
 }

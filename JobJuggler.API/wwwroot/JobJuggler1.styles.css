@@ -1,0 +1,10 @@
+/* Placeholder styles for JobJuggler1
+   Created to satisfy Razor reference in _Layout.cshtml.
+   Add global site styles here if needed. */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+

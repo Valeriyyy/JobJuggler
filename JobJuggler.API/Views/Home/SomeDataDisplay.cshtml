@@ -1,0 +1,13 @@
+@using System.Text
+@using System.Text.Json
+@using JobJuggler.Common
+@Model JobJuggler.DTO.ClientDTO;
+
+@{
+    ViewData["Title"] = "Some Data Display";
+    ViewData["Component"] = "dataDisplay";
+    var json = new { client = Model, defaultValue = "Some DefaultValue" }.ToJson();
+    var encoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(json));
+    ViewData["Props"] = encoded;
+    Layout = "_SvelteLayout";
+}

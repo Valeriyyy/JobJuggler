@@ -50,19 +50,32 @@ if (!app.Environment.IsProduction()) {
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Map API controllers and MVC routes
 app.MapControllers();
-app.UseStaticFiles();
-app.MapStaticAssets();
-app.UseRouting();
 
 app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
+
+// Serve SPA index.html for client-side routes that are not handled by controllers or static files
+app.MapFallback(async context => {
+    var env = app.Services.GetRequiredService<IWebHostEnvironment>();
+    var indexPath = Path.Combine(env.WebRootPath ?? string.Empty, "dist", "index.html");
+    if (System.IO.File.Exists(indexPath))
+    {
+        context.Response.ContentType = "text/html";
+        await context.Response.SendFileAsync(indexPath);
+        return;
+    }
+    context.Response.StatusCode = 404;
+});
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
