@@ -1,4 +1,5 @@
 using JobJuggler.Common;
+using JobJuggler.Domain.IdentityModels;
 using JobJuggler.Domain.MetaModels;
 using JobJuggler.Domain.MetaModels.Enums;
 using JobJuggler.Persistence.EntityConfigurations.Extensions;
@@ -39,14 +40,14 @@ public class SubscriptionEntityTypeConfiguration : IEntityTypeConfiguration<Subs
         
         builder.AddAuditConfigFields(tableName);
         
-        // builder.HasOne<Product>(s => s.Product)
-        //     .WithMany(p => p.Subscriptions)
-        //     .HasForeignKey(s => s.ProductId)
-        //     .OnDelete(DeleteBehavior.Restrict);
+        builder.HasOne<Product>(s => s.Product)
+            .WithMany(p => p.Subscriptions)
+            .HasForeignKey(s => s.ProductId)
+            .OnDelete(DeleteBehavior.Restrict);
         
-        // builder.HasOne<AppCompany>(s => s.Company)
-        //     .WithMany(c => c.Subscriptions)
-        //     .HasForeignKey(s => s.CompanyId)
-        //     .OnDelete(DeleteBehavior.Restrict);
+        builder.HasOne<AppCompany>(s => s.Company)
+            .WithMany(c => c.Subscriptions)
+            .HasForeignKey(s => s.CompanyId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

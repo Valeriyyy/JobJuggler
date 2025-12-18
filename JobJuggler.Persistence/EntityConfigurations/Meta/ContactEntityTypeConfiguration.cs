@@ -40,7 +40,8 @@ public class ContactEntityTypeConfiguration : IEntityTypeConfiguration<Contact>
         
         builder.HasOne(contact => contact.Company)
             .WithMany(appCompany => appCompany.Contacts)
-            .HasForeignKey(contact => contact.CompanyId);
+            .HasForeignKey(contact => contact.CompanyId)
+            .OnDelete(DeleteBehavior.Restrict);
             
         
         builder.AddAuditConfigFields(dbName);

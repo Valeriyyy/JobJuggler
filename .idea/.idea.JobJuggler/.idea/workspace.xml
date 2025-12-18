@@ -16,97 +16,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/App/src/layouts/Layout.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/src/lib/components/SomeDataDisplayComponent.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/src/lib/models/types.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/src/pages/DataDisplay.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/src/pages/Privacy.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/src/pages/app.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/src/pages/dataDisplay.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/src/pages/privacy.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JobJuggler.API/Helpers/ViteManifest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JobJuggler.API/TagHelpers/ViteEntryTagHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JobJuggler.API/Views/Home/SomeDataDisplay.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JobJuggler.API/Views/Shared/_SvelteLayout.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JobJuggler.API/wwwroot/JobJuggler1.styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/App/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/App/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/pages/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/lib/Counter.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/lib/components/Counter.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/App/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/lib/components/SomeDataDisplayComponent.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/lib/components/SomeDataDisplayComponent.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/lib/models/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/lib/models/types.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/pages/DataDisplay.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/pages/DataDisplay.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.API/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/JobJuggler.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Views/Home/Privacy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Views/Home/Privacy.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Views/_ViewImports.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Views/_ViewImports.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/js/site.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery-validation/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery-validation/dist/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery/dist/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery/dist/jquery.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery/dist/jquery.slim.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery/dist/jquery.slim.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.API/wwwroot/lib/jquery/dist/jquery.slim.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Common/StringExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Common/StringExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.API/Views/Home/SomeDataDisplay.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.API/Views/Home/SomeDataDisplay.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.DTO/Identity/CompanyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.DTO/Identity/CompanyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppCompany.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppCompany.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/DataContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Extensions/EntityConfigExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Extensions/EntityConfigExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/CompanyEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Identity/CompanyEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/ContactEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/ContactEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/SubscriptionEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/SubscriptionEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,35 +119,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.JobJuggler.API: API.executor": "Run",
-    "Docker.JobJuggler.API/Dockerfile base.executor": "Run",
-    "Docker.JobJuggler.API/Dockerfile.executor": "Run",
-    "Docker.JobJuggler.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "HotReloadSettingsPage",
-    "ts.external.directory.path": "/Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/App/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.JobJuggler.API: API.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.JobJuggler.API/Dockerfile base.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.JobJuggler.API/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.JobJuggler.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;HotReloadSettingsPage&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/App/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.JobJuggler.API: API">
     <configuration name="JobJuggler.DTO" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -491,6 +415,10 @@
       <workItem from="1765169937297" duration="1463000" />
       <workItem from="1765566661952" duration="2449000" />
       <workItem from="1765575661318" duration="14194000" />
+      <workItem from="1765855939433" duration="2203000" />
+      <workItem from="1765942817509" duration="1275000" />
+      <workItem from="1765946567846" duration="889000" />
+      <workItem from="1766028944646" duration="4238000" />
     </task>
     <task id="LOCAL-00003" summary="added test project">
       <option name="closed" value="true" />

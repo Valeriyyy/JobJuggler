@@ -5,3 +5,12 @@ export type Client = {
     phone?: string;
     email?: string;
 }
+
+export type CompanyDTO = {
+    id: string;
+    name: string;
+    mainContactName: string;
+    mainContactEmail: string;
+    mainContactPhone: string;
+    dateCreated: Date;
+}

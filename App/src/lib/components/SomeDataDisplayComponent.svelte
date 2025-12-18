@@ -1,29 +1,29 @@
 <script lang="ts">
-    import type { Client } from "../models/types";
-    
+    import type { CompanyDTO } from "../models/types";
+
     interface Props {
-        client: Client;
+        company: CompanyDTO;
     }
     
-    let { client }: Props = $props();
-    let currentClient = $state<Client>(client);
+    let { company }: Props = $props();
+    let currentCompany = $state<CompanyDTO>(company);
     let loading = $state<boolean>(false);
     let error = $state<string | null>(null);
     
-    async function getNextClient() {
+    async function getNextCompany() {
         loading = true;
         error = null;
         
         try {
-            const nextClientId = currentClient.id + 1;
-            const response = await fetch(`/${nextClientId}`);
+            const nextCompanyId = currentCompany.id + 1;
+            const response = await fetch(`/${nextCompanyId}`);
             if (!response.ok) {
                 error = "Http error " + response.status;
                 return;
             }
-            currentClient = await response.json();
+            currentCompany = await response.json();
         } catch (err) {
-            error = err instanceof Error ? err.message : "Failed to fetch client data";
+            error = err instanceof Error ? err.message : "Failed to fetch company data";
             console.error(err);
         } finally {
             loading = false;
@@ -37,13 +37,14 @@
     <p class="error">Error: {error}</p>
 {:else}
     <div class="client-info">
-        <h2>{currentClient.id} - {currentClient.name}</h2>
-        <p>Email: {currentClient.email}</p>
-        <p>Phone: {currentClient.phone}</p>
+        <h2>{currentCompany.id} - {currentCompany.name}</h2>
+        <p>Email: {currentCompany.mainContactName}</p>
+        <p>Email: {currentCompany.mainContactEmail}</p>
+        <p>Phone: {currentCompany.mainContactPhone}</p>
         <!-- Add more client details as needed -->
         <div class="mt-4 text-center">
             <button class="btn btn-primary"
-            onclick={getNextClient}
+            onclick={getNextCompany}
             disabled={loading}>
                 {loading ? "loading..." : "Load Next Client"}
             </button>

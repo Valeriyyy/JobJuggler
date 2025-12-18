@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using System.IO;
 using JobJuggler.DTO.Client;
+using JobJuggler.DTO.Identity;
 
 namespace JobJuggler.API.Controllers;
 
@@ -39,30 +40,31 @@ public class HomeController : Controller
 
     public IActionResult SomeDataDisplay()
     {
-        var client = new ClientDTO
+        var client = new CompanyDTO
         {
             Id = 1,
-            Guid = Guid.NewGuid(),
-            Name = "Acme Corporation",
-            Phone = "555-1234",
-            Email = "gggg@gmiakl.com"
+            Name = "Demo Company",
+            DateCreated = DateTime.UtcNow
         };
 
         return View(client);
     }
 
     [HttpGet("/{id:int}")]
-    public ClientDTO Get(int id)
+    public CompanyDTO Get(int id)
     {
         var name = id % 2 == 0 ? "Even Corp" : "Odd Inc";
+        var contactName = id % 2 == 0 ? "John Doe" : "Jane Doe";
         var email = id % 2 == 0 ? "john@doe.com" : "jane:@doe.com";
         var phone = id % 2 == 0 ? "123-456-7890" : "098-765-4321";
-        return new ClientDTO
+        return new CompanyDTO
         {
             Id = id,
             Name = name,
-            Email = email,
-            Phone = phone
+            MainContactName = contactName + " " + id,
+            MainContactEmail = email,
+            MainContactPhone = phone,
+            DateCreated = DateTime.UtcNow.AddDays(1 * id),
         };
     }
 }

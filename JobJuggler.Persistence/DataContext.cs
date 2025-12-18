@@ -19,6 +19,7 @@ public class DataContext : IdentityDbContext<
     public DataContext() { }
     public DataContext(DbContextOptions options) : base(options) { }
     public DbSet<AppCompany> Companies { get; set; } = null!;
+    public DbSet<Subscription> Subscriptions { get; set; } = null!;
     // public DbSet<Client> Clients { get; set; } = null!;
     // public DbSet<Location> Locations { get; set; } = null!;
     // public DbSet<Job> Jobs { get; set; } = null!;
@@ -62,7 +63,7 @@ public class DataContext : IdentityDbContext<
         #region Meta
         new ProductEntityTypeConfiguration().Configure(modelBuilder.Entity<Product>());
         new ContactEntityTypeConfiguration().Configure(modelBuilder.Entity<Contact>());
-        // new SubscriptionEntityTypeConfiguration().Configure(modelBuilder.Entity<Subscription>());
+        new SubscriptionEntityTypeConfiguration().Configure(modelBuilder.Entity<Subscription>());
         #endregion
         
         #region Business

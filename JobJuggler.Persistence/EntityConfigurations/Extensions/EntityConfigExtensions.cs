@@ -9,7 +9,8 @@ public static class EntityConfigExtensions
     public static void AddAuditConfigFields<T>(this EntityTypeBuilder<T> builder, string entityDbName) where T : BaseEntity
     {
         builder.Property(x => x.DateCreated)
-            .HasColumnName("date_created");
+            .HasColumnName("date_created")
+            .HasDefaultValueSql("now() at time zone \'UTC\'");
 
         builder.Property(x => x.CreatedById)
             .HasColumnName("created_by_id");

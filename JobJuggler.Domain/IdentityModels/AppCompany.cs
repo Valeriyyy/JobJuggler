@@ -6,7 +6,7 @@ namespace JobJuggler.Domain.IdentityModels;
 public class AppCompany : BaseEntity {
     public int Id { get; set; }
     public string Name { get; set; }
-    // public int PrimaryContactId { get; set; }
+    public int? PrimaryContactId { get; set; }
     
     //Metadata Fields
     // public DateTime DateCreated { get; set; }
@@ -18,7 +18,7 @@ public class AppCompany : BaseEntity {
     // public int? DeletedById { get; set; }
 
     public virtual List<AppUser> Users { get; set; }
-    // public virtual List<Subscription> Subscriptions { get; set; }
+    public virtual List<Subscription> Subscriptions { get; set; }
     public virtual List<Contact> Contacts { get; set; }
-    // public virtual Contact PrimaryContact { get; set; }
+    public virtual Contact PrimaryContact { get; set; }
 }

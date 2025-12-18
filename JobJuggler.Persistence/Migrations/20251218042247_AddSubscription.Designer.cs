@@ -5,6 +5,7 @@ using JobJuggler.Domain.MetaModels.Enums;
 using JobJuggler.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -13,9 +14,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JobJuggler.Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20251218042247_AddSubscription")]
+    partial class AddSubscription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,10 +44,8 @@ namespace JobJuggler.Persistence.Migrations
                         .HasColumnName("created_by_id");
 
                     b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_created")
-                        .HasDefaultValueSql("now() at time zone 'UTC'");
+                        .HasColumnName("date_created");
 
                     b.Property<DateTime?>("DateDeleted")
                         .HasColumnType("timestamp with time zone")
@@ -389,10 +390,8 @@ namespace JobJuggler.Persistence.Migrations
                         .HasColumnName("created_by_id");
 
                     b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_created")
-                        .HasDefaultValueSql("now() at time zone 'UTC'");
+                        .HasColumnName("date_created");
 
                     b.Property<DateTime?>("DateDeleted")
                         .HasColumnType("timestamp with time zone")
@@ -473,10 +472,8 @@ namespace JobJuggler.Persistence.Migrations
                         .HasColumnName("created_by_id");
 
                     b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_created")
-                        .HasDefaultValueSql("now() at time zone 'UTC'");
+                        .HasColumnName("date_created");
 
                     b.Property<DateTime?>("DateDeleted")
                         .HasColumnType("timestamp with time zone")
@@ -561,10 +558,8 @@ namespace JobJuggler.Persistence.Migrations
                         .HasColumnName("created_by_id");
 
                     b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_created")
-                        .HasDefaultValueSql("now() at time zone 'UTC'");
+                        .HasColumnName("date_created");
 
                     b.Property<DateTime?>("DateDeleted")
                         .HasColumnType("timestamp with time zone")

@@ -14,5 +14,5 @@ public class Product : BaseEntity
     public bool IsActive { get; set; }
     public ProductOptions ProductOptions { get; set; }
     
-    // public virtual List<Subscription> Subscriptions { get; set; }
+    public virtual List<Subscription> Subscriptions { get; set; }
 }
