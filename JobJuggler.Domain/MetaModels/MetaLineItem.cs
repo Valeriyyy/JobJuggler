@@ -2,7 +2,7 @@ using JobJuggler.Domain.Models;
 
 namespace JobJuggler.Domain.MetaModels;
 
-public class LineItem : BaseEntity
+public class MetaLineItem : BaseEntity
 {
     public int Id { get; set; }
     public int InvoiceId { get; set; }
@@ -11,7 +11,7 @@ public class LineItem : BaseEntity
     public int? SubscriptionId { get; set; }
     public decimal? OverridePrice { get; set; }
 
-    public virtual Invoice Invoice { get; set; }
+    public virtual MetaInvoice Invoice { get; set; }
     public virtual Product Product { get; set; }
     public virtual Subscription? Subscription { get; set; }
 }

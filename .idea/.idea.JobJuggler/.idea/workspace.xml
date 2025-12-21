@@ -16,13 +16,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/MetaInvoiceEntityTypeConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/MetaLineItemEntityTypeConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Invoice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Invoice.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/InvoiceStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/InvoiceStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/LineItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/LineItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/LineItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/MetaLineItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/DataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Extensions/DbContextExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Extensions/DbContextExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,9 +87,11 @@
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Product.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/ProductOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Subscription.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Persistence/DataContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/DbSchemas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/ContactEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/InvoiceEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/MetaInvoiceEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/MetaLineItemEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/ProductEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/SubscriptionEntityTypeConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Reactivities/API/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -413,15 +413,7 @@
       <workItem from="1765942817509" duration="1275000" />
       <workItem from="1765946567846" duration="889000" />
       <workItem from="1766028944646" duration="4570000" />
-      <workItem from="1766275173455" duration="6078000" />
-    </task>
-    <task id="LOCAL-00004" summary="did some stuff who cares">
-      <option name="closed" value="true" />
-      <created>1732165428795</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1732165428795</updated>
+      <workItem from="1766275173455" duration="9862000" />
     </task>
     <task id="LOCAL-00005" summary="man wtf does this all do">
       <option name="closed" value="true" />
@@ -807,7 +799,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766033389233</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Added invoice migration">
+      <option name="closed" value="true" />
+      <created>1766283430238</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1766283430238</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -827,7 +827,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="changed adding identity" />
     <MESSAGE value="started work for adding audti fields to job" />
     <MESSAGE value="added common and test project" />
     <MESSAGE value="idk who cares" />
@@ -852,7 +851,8 @@
     <MESSAGE value="updated docker compose" />
     <MESSAGE value="Updated project to .net 10 and added svelte frontend project" />
     <MESSAGE value="Added migration for subscriptions table and fixed datetime created default" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added migration for subscriptions table and fixed datetime created default" />
+    <MESSAGE value="Added invoice migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added invoice migration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

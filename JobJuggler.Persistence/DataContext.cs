@@ -1,14 +1,9 @@
 ﻿using JobJuggler.Domain.IdentityModels;
-using JobJuggler.Domain.Models;
-using JobJuggler.Domain.Enums;
 using JobJuggler.Domain.MetaModels;
-using JobJuggler.Persistence.EntityConfigurations;
 using JobJuggler.Persistence.EntityConfigurations.Identity;
 using JobJuggler.Persistence.EntityConfigurations.Meta;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
-using Persistence.EntityConfigurations;
 
 namespace JobJuggler.Persistence;
 
@@ -68,6 +63,7 @@ public class DataContext : IdentityDbContext<
         new ContactEntityTypeConfiguration().Configure(modelBuilder.Entity<Contact>());
         new SubscriptionEntityTypeConfiguration().Configure(modelBuilder.Entity<Subscription>());
         new MetaInvoiceEntityTypeConfiguration().Configure(modelBuilder.Entity<MetaInvoice>());
+        new MetaLineItemEntityTypeConfiguration().Configure(modelBuilder.Entity<MetaLineItem>());
         #endregion
         
         #region Business

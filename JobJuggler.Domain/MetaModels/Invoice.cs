@@ -17,5 +17,5 @@ public class MetaInvoice : BaseEntity
     }
     public DateTime? DatePaid { get; set; }
     
-    // public virtual List<LineItem>? LineItems { get; set; }
+    public virtual List<MetaLineItem>? LineItems { get; set; }
 }
