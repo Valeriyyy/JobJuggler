@@ -19,7 +19,10 @@ public class DataContext : IdentityDbContext<
     public DataContext() { }
     public DataContext(DbContextOptions options) : base(options) { }
     public DbSet<AppCompany> Companies { get; set; } = null!;
+    public DbSet<Product> Products { get; set; } = null!;
+    public DbSet<Contact> Contacts { get; set; } = null!;
     public DbSet<Subscription> Subscriptions { get; set; } = null!;
+    public DbSet<MetaInvoice> MetaInvoices { get; set; } = null!;
     // public DbSet<Client> Clients { get; set; } = null!;
     // public DbSet<Location> Locations { get; set; } = null!;
     // public DbSet<Job> Jobs { get; set; } = null!;
@@ -64,6 +67,7 @@ public class DataContext : IdentityDbContext<
         new ProductEntityTypeConfiguration().Configure(modelBuilder.Entity<Product>());
         new ContactEntityTypeConfiguration().Configure(modelBuilder.Entity<Contact>());
         new SubscriptionEntityTypeConfiguration().Configure(modelBuilder.Entity<Subscription>());
+        new MetaInvoiceEntityTypeConfiguration().Configure(modelBuilder.Entity<MetaInvoice>());
         #endregion
         
         #region Business
