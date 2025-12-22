@@ -1,9 +1,10 @@
 ﻿using JobJuggler.Domain.IdentityModels;
 using JobJuggler.Domain.MetaModels;
+using JobJuggler.Persistence.EntityConfigurations.Billing;
 using JobJuggler.Persistence.EntityConfigurations.Identity;
-using JobJuggler.Persistence.EntityConfigurations.Meta;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace JobJuggler.Persistence;
 
@@ -18,6 +19,8 @@ public class DataContext : IdentityDbContext<
     public DbSet<Contact> Contacts { get; set; } = null!;
     public DbSet<Subscription> Subscriptions { get; set; } = null!;
     public DbSet<MetaInvoice> MetaInvoices { get; set; } = null!;
+    public DbSet<MetaLineItem> MetaLineItems { get; set; } = null!;
+    public DbSet<CompanyBillingInfo> CompanyBillingInfos { get; set; } = null!;
     // public DbSet<Client> Clients { get; set; } = null!;
     // public DbSet<Location> Locations { get; set; } = null!;
     // public DbSet<Job> Jobs { get; set; } = null!;
@@ -39,6 +42,13 @@ public class DataContext : IdentityDbContext<
         using var dataSource = dataSourceBuilder.Build();*/
     }
 
+    protected override void ConfigureConventions(ModelConfigurationBuilder builder)
+    {
+        // This is to remove ef core automatically creating indexes on foreign keys 
+        // for all tables
+        builder.Conventions.Remove(typeof(ForeignKeyIndexConvention));
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
         var defaultSchema = "main";
@@ -58,12 +68,13 @@ public class DataContext : IdentityDbContext<
         new AppUserTokenEntityTypeConfiguration().Configure(modelBuilder.Entity<AppUserToken>());
         #endregion
         
-        #region Meta
+        #region Billing
         new ProductEntityTypeConfiguration().Configure(modelBuilder.Entity<Product>());
         new ContactEntityTypeConfiguration().Configure(modelBuilder.Entity<Contact>());
         new SubscriptionEntityTypeConfiguration().Configure(modelBuilder.Entity<Subscription>());
         new MetaInvoiceEntityTypeConfiguration().Configure(modelBuilder.Entity<MetaInvoice>());
         new MetaLineItemEntityTypeConfiguration().Configure(modelBuilder.Entity<MetaLineItem>());
+        new CompanyBillingInfoEntityTypeConfiguration().Configure(modelBuilder.Entity<CompanyBillingInfo>());
         #endregion
         
         #region Business

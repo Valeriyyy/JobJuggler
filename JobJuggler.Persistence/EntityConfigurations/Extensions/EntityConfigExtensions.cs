@@ -35,15 +35,6 @@ public static class EntityConfigExtensions
             .HasColumnName("deleted_by_id")
             .HasDefaultValue(null);
         
-        builder.HasIndex(x => x.CreatedById)
-            .HasDatabaseName($"IX_{entityDbName}_created_by_id");
-        
-        builder.HasIndex(x => x.LastModifiedById)
-            .HasDatabaseName($"IX_{entityDbName}_last_modified_by_id");
-        
-        builder.HasIndex(x => x.DeletedById)
-            .HasDatabaseName($"IX_{entityDbName}_deleted_by_id");
-        
         builder.HasOne(x => x.CreatedBy)
             .WithMany()
             .HasForeignKey(x => x.CreatedById)
@@ -58,5 +49,17 @@ public static class EntityConfigExtensions
             .WithMany()
             .HasForeignKey(x => x.DeletedById)
             .OnDelete(DeleteBehavior.Restrict);
+    }
+    
+    public static void AddAuditIndexes<T>(this EntityTypeBuilder<T> builder, string entityDbName) where T : BaseEntity
+    {
+        builder.HasIndex(x => x.CreatedById)
+            .HasDatabaseName($"IX_{entityDbName}_created_by_id");
+
+        builder.HasIndex(x => x.LastModifiedById)
+            .HasDatabaseName($"IX_{entityDbName}_last_modified_by_id");
+
+        builder.HasIndex(x => x.DeletedById)
+            .HasDatabaseName($"IX_{entityDbName}_deleted_by_id");
     }
 }

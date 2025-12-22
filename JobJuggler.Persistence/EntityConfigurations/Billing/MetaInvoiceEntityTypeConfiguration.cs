@@ -4,7 +4,7 @@ using JobJuggler.Persistence.EntityConfigurations.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace JobJuggler.Persistence.EntityConfigurations.Meta;
+namespace JobJuggler.Persistence.EntityConfigurations.Billing;
 
 public class MetaInvoiceEntityTypeConfiguration : IEntityTypeConfiguration<MetaInvoice>
 {
