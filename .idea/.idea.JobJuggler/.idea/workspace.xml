@@ -16,17 +16,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da141042-a44b-4e0d-bfed-6725dcd6b076" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Billing/CompanyBillingInfoEntityTypeConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JobJuggler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppCompany.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/IdentityModels/AppCompany.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/ProductOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/ProductOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/DataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Extensions/EntityConfigExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Extensions/EntityConfigExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/ContactEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Billing/ContactEntityTypeConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/MetaInvoiceEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Billing/MetaInvoiceEntityTypeConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/MetaLineItemEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Billing/MetaLineItemEntityTypeConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/ProductEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Billing/ProductEntityTypeConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Meta/SubscriptionEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Billing/SubscriptionEntityTypeConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Invoice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Domain/MetaModels/MetaInvoice.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Billing/MetaInvoiceEntityTypeConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/EntityConfigurations/Billing/MetaInvoiceEntityTypeConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JobJuggler.Persistence/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +74,7 @@
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.API/wwwroot/dist/.vite/manifest.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Common/StringExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/valeriykutsar/Documents/programming/dotnet/JobJuggler/JobJuggler.Domain/IdentityModels/AppCompany.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/CompanyBillingInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Contact.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/JobJuggler.Domain/MetaModels/Enums/BillingPeriod.cs" root0="FORCE_HIGHLIGHTING" />
@@ -420,15 +413,7 @@
       <workItem from="1765946567846" duration="889000" />
       <workItem from="1766028944646" duration="4570000" />
       <workItem from="1766275173455" duration="10046000" />
-      <workItem from="1766367478207" duration="5462000" />
-    </task>
-    <task id="LOCAL-00006" summary="started removing use of automapper and started adding entity audit fields">
-      <option name="closed" value="true" />
-      <created>1733036694773</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1733036694773</updated>
+      <workItem from="1766367478207" duration="8727000" />
     </task>
     <task id="LOCAL-00007" summary="Re added identity cause migrations are dumb">
       <option name="closed" value="true" />
@@ -814,7 +799,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766287232509</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Added company billing info and removed indexes">
+      <option name="closed" value="true" />
+      <created>1766372991955</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1766372991956</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -834,7 +827,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="added common and test project" />
     <MESSAGE value="idk who cares" />
     <MESSAGE value="removed automapper" />
     <MESSAGE value="Added product" />
@@ -859,7 +851,8 @@
     <MESSAGE value="Added migration for subscriptions table and fixed datetime created default" />
     <MESSAGE value="Added invoice migration" />
     <MESSAGE value="added invoice line item entity" />
-    <option name="LAST_COMMIT_MESSAGE" value="added invoice line item entity" />
+    <MESSAGE value="Added company billing info and removed indexes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added company billing info and removed indexes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

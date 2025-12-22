@@ -7,6 +7,7 @@ public class MetaInvoice : BaseEntity
 {
     public int Id { get; set; }
     public int CompanyId { get; set; }
+    public int? BillingInfoId { get; set; }
     public InvoiceStatus Status { get; set; }
     public decimal SubTotal { get; set; }
     public decimal Tax { get; set; }
@@ -18,4 +19,6 @@ public class MetaInvoice : BaseEntity
     public DateTime? DatePaid { get; set; }
     
     public virtual List<MetaLineItem>? LineItems { get; set; }
+    public virtual AppCompany Company { get; set; }
+    public virtual CompanyBillingInfo? BillingInfo { get; set; }
 }

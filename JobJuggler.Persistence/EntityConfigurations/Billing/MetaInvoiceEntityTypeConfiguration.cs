@@ -20,6 +20,11 @@ public class MetaInvoiceEntityTypeConfiguration : IEntityTypeConfiguration<MetaI
         
         builder.Property(e => e.CompanyId)
             .HasColumnName("company_id");
+        
+        builder.Property(e => e.BillingInfoId)
+            .HasColumnName("billing_info_id")
+            .HasDefaultValueSql(null)
+            .HasComment("The id of the billing information that was used for this invoice.");
 
         builder.Property(e => e.Status)
             .HasColumnName("status")
@@ -46,5 +51,15 @@ public class MetaInvoiceEntityTypeConfiguration : IEntityTypeConfiguration<MetaI
             .HasDefaultValue(null);
         
         builder.AddAuditConfigFields(tableName);
+        
+        builder.HasOne(e => e.Company)
+            .WithMany()
+            .HasForeignKey(e => e.CompanyId)
+            .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasOne(e => e.BillingInfo)
+            .WithMany()
+            .HasForeignKey(e => e.BillingInfoId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }
